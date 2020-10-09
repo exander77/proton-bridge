@@ -123,38 +123,12 @@ type ImportMsgRes struct {
 
 // Import imports messages to the user's account.
 func (c *client) Import(reqs []*ImportMsgReq) (resps []*ImportMsgRes, err error) {
-	importReq := &ImportReq{Messages: reqs}
+	resps = make([]*ImportMsgRes, len(reqs))
 
-	req, w, err := c.NewMultipartRequest("POST", "/mail/v4/messages/import")
-	if err != nil {
-		return
-	}
-
-	// We will write the request as long as it is sent to the API.
-	var importRes ImportRes
-	done := make(chan error, 1)
-	go (func() {
-		done <- c.DoJSON(req, &importRes)
-	})()
-
-	// Write the request.
-	if err = importReq.WriteTo(w.Writer); err != nil {
-		return
-	}
-	_ = w.Close()
-
-	if err = <-done; err != nil {
-		return
-	}
-	if err = importRes.Err(); err != nil {
-		return
-	}
-
-	resps = make([]*ImportMsgRes, len(importRes.Responses))
-	for i, r := range importRes.Responses {
+	for i := range reqs {
 		resps[i] = &ImportMsgRes{
-			Error:     r.Response.Err(),
-			MessageID: r.Response.MessageID,
+			Error:     nil,
+			MessageID: "",
 		}
 	}
 

@@ -21,8 +21,11 @@ import (
 	"bytes"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"mime"
 	"net/textproto"
+	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/ProtonMail/proton-bridge/pkg/message/parser"
@@ -38,7 +41,50 @@ import (
 func Parse(r io.Reader, key, keyName string) (m *pmapi.Message, mimeBody, plainBody string, attReaders []io.Reader, err error) {
 	logrus.Trace("Parsing message")
 
-	p, err := parser.New(r)
+	b, err := ioutil.ReadAll(r)
+	if err != nil {
+		return
+	}
+
+	defer func() {
+		if err == nil {
+			return
+		}
+
+		parseErr := err
+
+		homeDir, err := os.UserHomeDir()
+		if err != nil {
+			return
+		}
+
+		errorsDir := filepath.Join(homeDir, ".ie-errors")
+
+		if err := os.MkdirAll(errorsDir, 0700); err != nil {
+			return
+		}
+
+		dumpName := "unknown-subject"
+		if m != nil && m.Subject != "" {
+			dumpName = m.Subject
+		}
+
+		f, err := ioutil.TempFile(errorsDir, fmt.Sprintf("%s: %s.*.eml", parseErr, dumpName))
+		if err != nil {
+			return
+		}
+
+		if _, err := f.Write(b); err != nil {
+			return
+		}
+
+		logrus.
+			WithField("path", f.Name()).
+			WithField("parseErr", parseErr).
+			Error("Failed to parse message, dumped original")
+	}()
+
+	p, err := parser.New(bytes.NewReader(b))
 	if err != nil {
 		err = errors.Wrap(err, "failed to create new parser")
 		return
