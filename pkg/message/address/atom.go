@@ -26,5 +26,7 @@ func (w *walker) ExitAtom(ctx *parser.AtomContext) {
 
 	res := w.exit().(*atom)
 
-	w.parent().(withAtom).withAtom(res)
+	if parent, ok := w.parent().(withAtom); ok {
+		parent.withAtom(res)
+	}
 }

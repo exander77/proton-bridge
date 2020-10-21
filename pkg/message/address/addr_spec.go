@@ -26,5 +26,7 @@ func (w *walker) ExitAddrSpec(ctx *parser.AddrSpecContext) {
 
 	res := w.exit().(*addrSpec)
 
-	w.parent().(withAddrSpec).withAddrSpec(res)
+	if parent, ok := w.parent().(withAddrSpec); ok {
+		parent.withAddrSpec(res)
+	}
 }

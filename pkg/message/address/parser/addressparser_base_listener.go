@@ -21,6 +21,12 @@ func (s *BaseAddressParserListener) EnterEveryRule(ctx antlr.ParserRuleContext) 
 // ExitEveryRule is called when any rule is exited.
 func (s *BaseAddressParserListener) ExitEveryRule(ctx antlr.ParserRuleContext) {}
 
+// EnterQuotedChar is called when production quotedChar is entered.
+func (s *BaseAddressParserListener) EnterQuotedChar(ctx *QuotedCharContext) {}
+
+// ExitQuotedChar is called when production quotedChar is exited.
+func (s *BaseAddressParserListener) ExitQuotedChar(ctx *QuotedCharContext) {}
+
 // EnterQuotedPair is called when production quotedPair is entered.
 func (s *BaseAddressParserListener) EnterQuotedPair(ctx *QuotedPairContext) {}
 
@@ -93,17 +99,17 @@ func (s *BaseAddressParserListener) EnterQtext(ctx *QtextContext) {}
 // ExitQtext is called when production qtext is exited.
 func (s *BaseAddressParserListener) ExitQtext(ctx *QtextContext) {}
 
-// EnterQcontent is called when production qcontent is entered.
-func (s *BaseAddressParserListener) EnterQcontent(ctx *QcontentContext) {}
+// EnterQuotedContent is called when production quotedContent is entered.
+func (s *BaseAddressParserListener) EnterQuotedContent(ctx *QuotedContentContext) {}
 
-// ExitQcontent is called when production qcontent is exited.
-func (s *BaseAddressParserListener) ExitQcontent(ctx *QcontentContext) {}
+// ExitQuotedContent is called when production quotedContent is exited.
+func (s *BaseAddressParserListener) ExitQuotedContent(ctx *QuotedContentContext) {}
 
-// EnterQuotedStringValue is called when production quotedStringValue is entered.
-func (s *BaseAddressParserListener) EnterQuotedStringValue(ctx *QuotedStringValueContext) {}
+// EnterQuotedValue is called when production quotedValue is entered.
+func (s *BaseAddressParserListener) EnterQuotedValue(ctx *QuotedValueContext) {}
 
-// ExitQuotedStringValue is called when production quotedStringValue is exited.
-func (s *BaseAddressParserListener) ExitQuotedStringValue(ctx *QuotedStringValueContext) {}
+// ExitQuotedValue is called when production quotedValue is exited.
+func (s *BaseAddressParserListener) ExitQuotedValue(ctx *QuotedValueContext) {}
 
 // EnterQuotedString is called when production quotedString is entered.
 func (s *BaseAddressParserListener) EnterQuotedString(ctx *QuotedStringContext) {}

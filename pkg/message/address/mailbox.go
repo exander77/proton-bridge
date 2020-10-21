@@ -32,5 +32,7 @@ func (w *walker) ExitMailbox(ctx *parser.MailboxContext) {
 
 	res := w.exit().(*mailbox)
 
-	w.parent().(withMailbox).withMailbox(res)
+	if parent, ok := w.parent().(withMailbox); ok {
+		parent.withMailbox(res)
+	}
 }

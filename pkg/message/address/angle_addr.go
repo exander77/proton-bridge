@@ -30,5 +30,7 @@ func (w *walker) ExitAngleAddr(ctx *parser.AngleAddrContext) {
 
 	res := w.exit().(*angleAddr)
 
-	w.parent().(withAngleAddr).withAngleAddr(res)
+	if parent, ok := w.parent().(withAngleAddr); ok {
+		parent.withAngleAddr(res)
+	}
 }

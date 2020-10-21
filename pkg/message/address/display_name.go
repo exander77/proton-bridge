@@ -15,7 +15,6 @@ func (n *displayName) withWord(word *word) {
 
 func (w *walker) EnterDisplayName(ctx *parser.DisplayNameContext) {
 	logrus.Trace("Entering displayName")
-
 	w.enter(&displayName{})
 }
 
@@ -28,5 +27,7 @@ func (w *walker) ExitDisplayName(ctx *parser.DisplayNameContext) {
 
 	res := w.exit().(*displayName)
 
-	w.parent().(withDisplayName).withDisplayName(res)
+	if parent, ok := w.parent().(withDisplayName); ok {
+		parent.withDisplayName(res)
+	}
 }

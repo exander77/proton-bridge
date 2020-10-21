@@ -33,5 +33,7 @@ func (w *walker) ExitNameAddr(ctx *parser.NameAddrContext) {
 
 	res := w.exit().(*nameAddr)
 
-	w.parent().(withNameAddr).withNameAddr(res)
+	if parent, ok := w.parent().(withNameAddr); ok {
+		parent.withNameAddr(res)
+	}
 }

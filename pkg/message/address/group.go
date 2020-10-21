@@ -21,5 +21,7 @@ func (w *walker) ExitGroup(ctx *parser.GroupContext) {
 
 	res := w.exit().(*group)
 
-	w.parent().(withGroup).withGroup(res)
+	if parent, ok := w.parent().(withGroup); ok {
+		parent.withGroup(res)
+	}
 }

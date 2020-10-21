@@ -39,30 +39,40 @@ func TestParse(t *testing.T) {
 			input: `<boss@nil.test>`,
 			addr:  `boss@nil.test`,
 		},
+		{
+			input: `"Giant; \"Big\" Box" <sysservices@example.net>`,
+			name:  `Giant; "Big" Box`,
+			addr:  `sysservices@example.net`,
+		},
+		{
+			input: `Pete <pete@silly.example>`,
+			name:  `Pete`,
+			addr:  `pete@silly.example`,
+		},
+		{
+			input: `"Mary Smith: Personal Account" <smith@home.example>`,
+			name:  `Mary Smith: Personal Account`,
+			addr:  `smith@home.example`,
+		},
+		{
+			input: `Gogh Fir <gf@example.com>`,
+			name:  `Gogh Fir`,
+			addr:  `gf@example.com`,
+		},
 		/*
 			{
-				input: `"Giant; \"Big\" Box" <sysservices@example.net>`,
+				input: `Pete(A nice \) chap) <pete(his account)@silly.test(his host)>`,
+				name:  `Pete`,
+				addr:  `pete@silly.test`,
 			},
 			{
-				input: `Pete <pete@silly.example>`,
+				input: `(Empty list)(start)Hidden recipients  :(nobody(that I know))  ;`,
 			},
 			{
 				input: `A Group:Ed Jones <c@a.test>,joe@where.test,John <jdoe@one.test>;`,
 			},
 			{
 				input: `Undisclosed recipients:;`,
-			},
-			{
-				input: `"Mary Smith: Personal Account" <smith@home.example>`,
-			},
-			{
-				input: `Pete(A nice \) chap) <pete(his account)@silly.test(his host)>`,
-			},
-			{
-				input: `(Empty list)(start)Hidden recipients  :(nobody(that I know))  ;`,
-			},
-			{
-				input: `Gogh Fir <gf@example.com>`,
 			},
 		*/
 	}

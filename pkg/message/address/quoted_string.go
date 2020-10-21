@@ -9,12 +9,13 @@ type quotedString struct {
 	value string
 }
 
+func (s *quotedString) withQuotedValue(quotedValue *quotedValue) {
+	s.value = quotedValue.value
+}
+
 func (w *walker) EnterQuotedString(ctx *parser.QuotedStringContext) {
 	logrus.Trace("Entering quotedString")
-
-	w.enter(&quotedString{
-		value: ctx.QuotedStringValue().GetText(),
-	})
+	w.enter(&quotedString{})
 }
 
 func (w *walker) ExitQuotedString(ctx *parser.QuotedStringContext) {
@@ -26,5 +27,7 @@ func (w *walker) ExitQuotedString(ctx *parser.QuotedStringContext) {
 
 	res := w.exit().(*quotedString)
 
-	w.parent().(withQuotedString).withQuotedString(res)
+	if parent, ok := w.parent().(withQuotedString); ok {
+		parent.withQuotedString(res)
+	}
 }

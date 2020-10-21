@@ -8,6 +8,9 @@ import "github.com/antlr/antlr4/runtime/Go/antlr"
 type AddressParserListener interface {
 	antlr.ParseTreeListener
 
+	// EnterQuotedChar is called when entering the quotedChar production.
+	EnterQuotedChar(c *QuotedCharContext)
+
 	// EnterQuotedPair is called when entering the quotedPair production.
 	EnterQuotedPair(c *QuotedPairContext)
 
@@ -44,11 +47,11 @@ type AddressParserListener interface {
 	// EnterQtext is called when entering the qtext production.
 	EnterQtext(c *QtextContext)
 
-	// EnterQcontent is called when entering the qcontent production.
-	EnterQcontent(c *QcontentContext)
+	// EnterQuotedContent is called when entering the quotedContent production.
+	EnterQuotedContent(c *QuotedContentContext)
 
-	// EnterQuotedStringValue is called when entering the quotedStringValue production.
-	EnterQuotedStringValue(c *QuotedStringValueContext)
+	// EnterQuotedValue is called when entering the quotedValue production.
+	EnterQuotedValue(c *QuotedValueContext)
 
 	// EnterQuotedString is called when entering the quotedString production.
 	EnterQuotedString(c *QuotedStringContext)
@@ -110,6 +113,9 @@ type AddressParserListener interface {
 	// EnterVchar is called when entering the vchar production.
 	EnterVchar(c *VcharContext)
 
+	// ExitQuotedChar is called when exiting the quotedChar production.
+	ExitQuotedChar(c *QuotedCharContext)
+
 	// ExitQuotedPair is called when exiting the quotedPair production.
 	ExitQuotedPair(c *QuotedPairContext)
 
@@ -146,11 +152,11 @@ type AddressParserListener interface {
 	// ExitQtext is called when exiting the qtext production.
 	ExitQtext(c *QtextContext)
 
-	// ExitQcontent is called when exiting the qcontent production.
-	ExitQcontent(c *QcontentContext)
+	// ExitQuotedContent is called when exiting the quotedContent production.
+	ExitQuotedContent(c *QuotedContentContext)
 
-	// ExitQuotedStringValue is called when exiting the quotedStringValue production.
-	ExitQuotedStringValue(c *QuotedStringValueContext)
+	// ExitQuotedValue is called when exiting the quotedValue production.
+	ExitQuotedValue(c *QuotedValueContext)
 
 	// ExitQuotedString is called when exiting the quotedString production.
 	ExitQuotedString(c *QuotedStringContext)

@@ -34,5 +34,7 @@ func (w *walker) ExitWord(ctx *parser.WordContext) {
 
 	res := w.exit().(*word)
 
-	w.parent().(withWord).withWord(res)
+	if parent, ok := w.parent().(withWord); ok {
+		parent.withWord(res)
+	}
 }

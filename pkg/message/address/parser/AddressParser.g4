@@ -7,11 +7,12 @@ options { tokenVocab=AddressLexer; }
 // 3.2. Lexical tokens
 // -------------------
 
+quotedChar: vchar | wsp;
+
 quotedPair
-	: Backslash (vchar | wsp)
+	: Backslash quotedChar
 //| obsQP
 	;
-
 
 fws 
 	: (wsp* crlf)? wsp+
@@ -137,14 +138,14 @@ qtext
 //| obsQtext
 	;
 
-qcontent
+quotedContent
 	: qtext
 	| quotedPair
 	;
 
-quotedStringValue: (fws? qcontent)*;
+quotedValue: (fws? quotedContent)*;
 
-quotedString: cfws? DQuote quotedStringValue fws? DQuote cfws?;
+quotedString: cfws? DQuote quotedValue fws? DQuote cfws?;
 
 word
 	: atom
