@@ -265,7 +265,6 @@ run-ie-qt:
 run-ie-nogui:
 	TARGET_CMD=Import-Export $(MAKE) run-nogui
 
-
 clean-frontend-qt:
 	$(MAKE) -C internal/frontend/qt -f Makefile.local clean
 clean-frontend-qt-ie:
@@ -282,3 +281,8 @@ clean: clean-vendor
 	rm -rf cmd/Import-Export/deploy
 	rm -f build last.log mem.pprof main.go
 	rm -rf logo.ico icon.rc icon_windows.syso internal/frontend/qt/icon_windows.syso
+
+.PHONY: antlr
+antlr:
+	antlr4 -Dlanguage=Go pkg/message/address/parser/Address.g4
+
