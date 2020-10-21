@@ -14,6 +14,20 @@ import (
 func TestParserValid(t *testing.T) {
 	tests := []string{
 		`user@example.com`,
+		`John Doe <jdoe@machine.example>`,
+		`Mary Smith <mary@example.net>`,
+		`"Joe Q. Public" <john.q.public@example.com>`,
+		`Mary Smith <mary@x.test>`,
+		`jdoe@example.org`,
+		`Who? <one@y.test>`,
+		`<boss@nil.test>`,
+		`"Giant; \"Big\" Box" <sysservices@example.net>`,
+		`Pete <pete@silly.example>`,
+		`A Group:Ed Jones <c@a.test>,joe@where.test,John <jdoe@one.test>;`,
+		`Undisclosed recipients:;`,
+		`"Mary Smith: Personal Account" <smith@home.example>`,
+		`Pete(A nice \) chap) <pete(his account)@silly.test(his host)>`,
+		`(Empty list)(start)Hidden recipients  :(nobody(that I know))  ;`,
 		`Gogh Fir <gf@example.com>`,
 	}
 	for _, input := range tests {
@@ -25,7 +39,7 @@ func TestParserValid(t *testing.T) {
 
 func TestParserBad(t *testing.T) {
 	tests := []string{
-		`this sucks`,
+		`this address sucks`,
 	}
 
 	for _, input := range tests {
@@ -35,28 +49,59 @@ func TestParserBad(t *testing.T) {
 	}
 }
 
-func _TestIsEmailStandardTestSet(t *testing.T) {
+func _TestStandardMessages(t *testing.T) {
 	f, err := os.Open("tests.xml")
 	require.NoError(t, err)
 	defer func() { require.NoError(t, err) }()
 
 	for test := range readTestCases(f) {
-		t.Run(test.id, func(t *testing.T) {
-			msg := parseAddress(test.address)
+		if !test.valid || test.deprecated {
+			continue
+		}
 
-			if test.valid {
-				assert.Empty(t, msg)
-			} else {
-				assert.NotEmpty(t, msg)
-			}
+		t.Run(test.id, func(t *testing.T) {
+			assert.Empty(t, parseAddress(test.address))
+		})
+	}
+}
+
+func _TestInvalidMessages(t *testing.T) {
+	f, err := os.Open("tests.xml")
+	require.NoError(t, err)
+	defer func() { require.NoError(t, err) }()
+
+	for test := range readTestCases(f) {
+		if test.valid || test.deprecated {
+			continue
+		}
+
+		t.Run(test.id, func(t *testing.T) {
+			assert.NotEmpty(t, parseAddress(test.address))
+		})
+	}
+}
+
+func _TestDeprecatedMessages(t *testing.T) {
+	f, err := os.Open("tests.xml")
+	require.NoError(t, err)
+	defer func() { require.NoError(t, err) }()
+
+	for test := range readTestCases(f) {
+		if !test.deprecated {
+			continue
+		}
+
+		t.Run(test.id, func(t *testing.T) {
+			assert.NotEmpty(t, parseAddress(test.address))
 		})
 	}
 }
 
 type testCase struct {
-	id      string
-	address string
-	valid   bool
+	id         string
+	address    string
+	valid      bool
+	deprecated bool
 }
 
 func readTestCases(r io.Reader) chan testCase {
@@ -90,6 +135,7 @@ func readTestCases(r io.Reader) chan testCase {
 
 				case "category":
 					test.valid = data != "ISEMAIL_ERR"
+					test.deprecated = data == "ISEMAIL_DEPREC"
 				}
 
 			case xml.CharData:
@@ -106,18 +152,6 @@ func readTestCases(r io.Reader) chan testCase {
 func parseAddress(address string) string {
 	stream := antlr.NewInputStream(address)
 	lexer := NewAddressLexer(stream)
-
-	/*
-		for {
-			t := lexer.NextToken()
-			if t.GetTokenType() == antlr.TokenEOF {
-				break
-			}
-
-			fmt.Printf("%s (%q)\n", lexer.SymbolicNames[t.GetTokenType()], t.GetText())
-		}
-	*/
-
 	tokens := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
 
 	l := &errorListener{DefaultErrorListener: antlr.NewDefaultErrorListener()}
