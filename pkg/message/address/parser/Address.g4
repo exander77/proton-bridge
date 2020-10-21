@@ -48,3 +48,32 @@ groupList
 		| obsGroupList
 		;
 
+
+// 3.4.1. Addr-Spec Specification
+
+// addr-spec       =   local-part "@" domain
+addrSpec: localPart At domain;
+
+// local-part      =   dot-atom / quoted-string / obs-local-part
+localPart
+		: dotAtom 
+		| quotedString
+		| obsLocalPart
+		;
+
+// domain          =   dot-atom / domain-literal / obs-domain
+domain
+		: dotAtom
+		| domainLiteral
+		| obsDomain
+		;
+
+// domain-literal  =   [CFWS] "[" *([FWS] dtext) [FWS] "]" [CFWS]
+domainLiteral: CFWS? LBracket (FWS? dtext)* RBracket CFWS?;
+
+// dtext           =   ascii 33-90 / ascii 94-126 / obs-dtext
+dtext
+		: ascii 33-90  // TODO
+		| ascii 94-126 // TODO
+		| obsDtext
+		;
