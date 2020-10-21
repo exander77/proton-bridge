@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestParse(t *testing.T) {
+func TestParseSingleAddress(t *testing.T) {
 	tests := []struct {
 		input string
 		addrs []*mail.Address
@@ -16,6 +16,27 @@ func TestParse(t *testing.T) {
 			input: `user@example.com`,
 			addrs: []*mail.Address{{
 				Address: `user@example.com`,
+			}},
+		},
+		{
+			input: ` normal name  <username@server.com>`,
+			addrs: []*mail.Address{{
+				Name:    `normal name`,
+				Address: `username@server.com`,
+			}},
+		},
+		{
+			input: ` "comma, name"  <username@server.com>`,
+			addrs: []*mail.Address{{
+				Name:    `comma, name`,
+				Address: `username@server.com`,
+			}},
+		},
+		{
+			input: ` name  <username@server.com> (ignore comment)`,
+			addrs: []*mail.Address{{
+				Name:    `name`,
+				Address: `username@server.com`,
 			}},
 		},
 		{
@@ -87,22 +108,109 @@ func TestParse(t *testing.T) {
 				Address: `pete@silly.test`,
 			}},
 		},
+	}
+	for _, test := range tests {
+		t.Run(test.input, func(t *testing.T) {
+			addrs, err := Parse(test.input)
+			assert.NoError(t, err)
+			assert.ElementsMatch(t, test.addrs, addrs)
+		})
+	}
+}
+
+func TestParseAddressList(t *testing.T) {
+	tests := []struct {
+		input string
+		addrs []*mail.Address
+	}{
+		{
+			input: `Alice <alice@example.com>, Bob <bob@example.com>, Eve <eve@example.com>`,
+			addrs: []*mail.Address{
+				{
+					Name:    `Alice`,
+					Address: `alice@example.com`,
+				},
+				{
+					Name:    `Bob`,
+					Address: `bob@example.com`,
+				},
+				{
+					Name:    `Eve`,
+					Address: `eve@example.com`,
+				},
+			},
+		},
+		{
+			input: `Ed Jones <c@a.test>,joe@where.test,John <jdoe@one.test>`,
+			addrs: []*mail.Address{
+				{
+					Name:    `Ed Jones`,
+					Address: `c@a.test`,
+				},
+				{
+					Address: `joe@where.test`,
+				},
+				{
+					Name:    `John`,
+					Address: `jdoe@one.test`,
+				},
+			},
+		},
+		{
+			input: ` name (ignore comment)  <username@server.com>,  (Comment as name) username2@server.com`,
+			addrs: []*mail.Address{
+				{
+					Name:    `name`,
+					Address: `username@server.com`,
+				},
+				{
+					Address: `username2@server.com`,
+				},
+			},
+		},
+		{
+			input: ` "normal name"  <username@server.com>, "comma, name" <address@server.com>`,
+			addrs: []*mail.Address{
+				{
+					Name:    `normal name`,
+					Address: `username@server.com`,
+				},
+				{
+					Name:    `comma, name`,
+					Address: `address@server.com`,
+				},
+			},
+		},
+		{
+			input: ` "comma, one"  <username@server.com>, "comma, two" <address@server.com>`,
+			addrs: []*mail.Address{
+				{
+					Name:    `comma, one`,
+					Address: `username@server.com`,
+				},
+				{
+					Name:    `comma, two`,
+					Address: `address@server.com`,
+				},
+			},
+		},
 		/*
 			{
-				input: `(Empty list)(start)Hidden recipients  :(nobody(that I know))  ;`,
+				input: ` "comma, name"  <username@server.com>, another, name <address@server.com>`,
 			},
 			{
-				input: `A Group:Ed Jones <c@a.test>,joe@where.test,John <jdoe@one.test>;`,
+				input: ` normal name  <username@server.com>, (comment)All.(around)address@(the)server.com`,
 			},
 			{
-				input: `Undisclosed recipients:;`,
+				input: ` normal name  <username@server.com>, All.("comma, in comment")address@(the)server.com`,
 			},
 		*/
 	}
 	for _, test := range tests {
 		t.Run(test.input, func(t *testing.T) {
-			_, err := Parse(test.input)
+			addrs, err := Parse(test.input)
 			assert.NoError(t, err)
+			assert.ElementsMatch(t, test.addrs, addrs)
 		})
 	}
 }

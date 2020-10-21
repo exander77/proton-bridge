@@ -26,6 +26,7 @@ import (
 	"net/textproto"
 	"strings"
 
+	"github.com/ProtonMail/proton-bridge/pkg/message/address"
 	"github.com/ProtonMail/proton-bridge/pkg/message/parser"
 	pmmime "github.com/ProtonMail/proton-bridge/pkg/mime"
 	"github.com/ProtonMail/proton-bridge/pkg/pmapi"
@@ -365,7 +366,6 @@ func attachPublicKey(p *parser.Part, key, keyName string) {
 	})
 }
 
-// NOTE: We should use our own ParseAddressList here.
 func parseMessageHeader(m *pmapi.Message, h message.Header) error { // nolint[funlen]
 	mimeHeader, err := toMailHeader(h)
 	if err != nil {
@@ -379,7 +379,7 @@ func parseMessageHeader(m *pmapi.Message, h message.Header) error { // nolint[fu
 			m.Subject = val
 
 		case "from":
-			sender, err := parseAddressList(val)
+			sender, err := address.Parse(val)
 			if err != nil {
 				return err
 			}
@@ -388,28 +388,28 @@ func parseMessageHeader(m *pmapi.Message, h message.Header) error { // nolint[fu
 			}
 
 		case "to":
-			toList, err := parseAddressList(val)
+			toList, err := address.Parse(val)
 			if err != nil {
 				return err
 			}
 			m.ToList = toList
 
 		case "reply-to":
-			replyTos, err := parseAddressList(val)
+			replyTos, err := address.Parse(val)
 			if err != nil {
 				return err
 			}
 			m.ReplyTos = replyTos
 
 		case "cc":
-			ccList, err := parseAddressList(val)
+			ccList, err := address.Parse(val)
 			if err != nil {
 				return err
 			}
 			m.CCList = ccList
 
 		case "bcc":
-			bccList, err := parseAddressList(val)
+			bccList, err := address.Parse(val)
 			if err != nil {
 				return err
 			}

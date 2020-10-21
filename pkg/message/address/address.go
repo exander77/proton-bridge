@@ -14,10 +14,6 @@ func (a *address) withMailbox(mailbox *mailbox) {
 	a.address = mailbox.address
 }
 
-func (a *address) withGroup(group *group) {
-	// TODO
-}
-
 func (w *walker) EnterAddress(ctx *parser.AddressContext) {
 	logrus.Trace("Entering address")
 	w.enter(&address{})
