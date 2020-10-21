@@ -92,9 +92,11 @@ atext
 	| Tilde
 	;
 
-atom: cfws? atext+ cfws?;
+atextString: atext+;
 
-dotAtomText: atext+ (Period atext+)*;
+atom: cfws? atextString cfws?;
+
+dotAtomText: atextString (Period atextString)*;
 
 dotAtom: cfws? dotAtomText cfws?;
 

@@ -29,6 +29,9 @@ type AddressParserListener interface {
 	// EnterAtext is called when entering the atext production.
 	EnterAtext(c *AtextContext)
 
+	// EnterAtextString is called when entering the atextString production.
+	EnterAtextString(c *AtextStringContext)
+
 	// EnterAtom is called when entering the atom production.
 	EnterAtom(c *AtomContext)
 
@@ -124,6 +127,9 @@ type AddressParserListener interface {
 
 	// ExitAtext is called when exiting the atext production.
 	ExitAtext(c *AtextContext)
+
+	// ExitAtextString is called when exiting the atextString production.
+	ExitAtextString(c *AtextStringContext)
 
 	// ExitAtom is called when exiting the atom production.
 	ExitAtom(c *AtomContext)

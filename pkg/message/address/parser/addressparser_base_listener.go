@@ -63,6 +63,12 @@ func (s *BaseAddressParserListener) EnterAtext(ctx *AtextContext) {}
 // ExitAtext is called when production atext is exited.
 func (s *BaseAddressParserListener) ExitAtext(ctx *AtextContext) {}
 
+// EnterAtextString is called when production atextString is entered.
+func (s *BaseAddressParserListener) EnterAtextString(ctx *AtextStringContext) {}
+
+// ExitAtextString is called when production atextString is exited.
+func (s *BaseAddressParserListener) ExitAtextString(ctx *AtextStringContext) {}
+
 // EnterAtom is called when production atom is entered.
 func (s *BaseAddressParserListener) EnterAtom(ctx *AtomContext) {}
 

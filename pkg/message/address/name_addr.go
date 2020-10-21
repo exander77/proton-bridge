@@ -1,6 +1,8 @@
 package address
 
 import (
+	"strings"
+
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
 	"github.com/sirupsen/logrus"
 )
@@ -10,7 +12,7 @@ type nameAddr struct {
 }
 
 func (a *nameAddr) withDisplayName(displayName *displayName) {
-	a.name = displayName.name
+	a.name = strings.Join(displayName.words, " ")
 }
 
 func (a *nameAddr) withAngleAddr(angleAddr *angleAddr) {

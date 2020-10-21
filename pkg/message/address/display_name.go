@@ -6,15 +6,17 @@ import (
 )
 
 type displayName struct {
-	name string
+	words []string
+}
+
+func (n *displayName) withWord(word *word) {
+	n.words = append(n.words, word.value)
 }
 
 func (w *walker) EnterDisplayName(ctx *parser.DisplayNameContext) {
 	logrus.Trace("Entering displayName")
 
-	w.enter(&displayName{
-		name: ctx.GetText(),
-	})
+	w.enter(&displayName{})
 }
 
 func (w *walker) ExitDisplayName(ctx *parser.DisplayNameContext) {
