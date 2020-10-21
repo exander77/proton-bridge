@@ -147,11 +147,6 @@ word
 	| quotedString
 	;
 
-phrase
-	: word+
-//| obsPhrase
-	;
-
 unstructured
 	: (fws? vchar)* wsp*
 //| obsUnstruct
@@ -181,7 +176,10 @@ angleAddr
 
 group: displayName Colon groupList? Semicolon cfws?;
 
-displayName: phrase;
+displayName
+	: word+
+//| obsPhrase
+	;
 
 mailboxList
 	: mailbox (Comma mailbox)*

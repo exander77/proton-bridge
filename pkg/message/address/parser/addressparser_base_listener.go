@@ -105,12 +105,6 @@ func (s *BaseAddressParserListener) EnterWord(ctx *WordContext) {}
 // ExitWord is called when production word is exited.
 func (s *BaseAddressParserListener) ExitWord(ctx *WordContext) {}
 
-// EnterPhrase is called when production phrase is entered.
-func (s *BaseAddressParserListener) EnterPhrase(ctx *PhraseContext) {}
-
-// ExitPhrase is called when production phrase is exited.
-func (s *BaseAddressParserListener) ExitPhrase(ctx *PhraseContext) {}
-
 // EnterUnstructured is called when production unstructured is entered.
 func (s *BaseAddressParserListener) EnterUnstructured(ctx *UnstructuredContext) {}
 

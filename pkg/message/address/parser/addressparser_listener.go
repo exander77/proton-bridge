@@ -50,9 +50,6 @@ type AddressParserListener interface {
 	// EnterWord is called when entering the word production.
 	EnterWord(c *WordContext)
 
-	// EnterPhrase is called when entering the phrase production.
-	EnterPhrase(c *PhraseContext)
-
 	// EnterUnstructured is called when entering the unstructured production.
 	EnterUnstructured(c *UnstructuredContext)
 
@@ -148,9 +145,6 @@ type AddressParserListener interface {
 
 	// ExitWord is called when exiting the word production.
 	ExitWord(c *WordContext)
-
-	// ExitPhrase is called when exiting the phrase production.
-	ExitPhrase(c *PhraseContext)
 
 	// ExitUnstructured is called when exiting the unstructured production.
 	ExitUnstructured(c *UnstructuredContext)

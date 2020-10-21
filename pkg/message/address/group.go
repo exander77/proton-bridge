@@ -13,11 +13,13 @@ func (w *walker) EnterGroup(ctx *parser.GroupContext) {
 }
 
 func (w *walker) ExitGroup(ctx *parser.GroupContext) {
-	logrus.Trace("Exiting address")
+	logrus.Trace("Exiting group")
 
 	type withGroup interface {
 		withGroup(*group)
 	}
 
-	w.parent().(withGroup).withGroup(w.exit().(*group))
+	res := w.exit().(*group)
+
+	w.parent().(withGroup).withGroup(res)
 }
