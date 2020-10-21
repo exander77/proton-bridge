@@ -2,6 +2,7 @@ package address
 
 import (
 	"fmt"
+	"net/mail"
 
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
@@ -13,8 +14,8 @@ type walker struct {
 
 	nodes []interface{}
 
-	name, address string
-	err           error
+	addresses []*mail.Address
+	err       error
 }
 
 func (w *walker) enter(b interface{}) {

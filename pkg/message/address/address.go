@@ -26,8 +26,13 @@ func (w *walker) EnterAddress(ctx *parser.AddressContext) {
 func (w *walker) ExitAddress(ctx *parser.AddressContext) {
 	logrus.Trace("Exiting address")
 
+	type withAddress interface {
+		withAddress(*address)
+	}
+
 	res := w.exit().(*address)
 
-	w.name = res.name
-	w.address = res.address
+	if parent, ok := w.parent().(withAddress); ok {
+		parent.withAddress(res)
+	}
 }
