@@ -8,7 +8,7 @@ options { tokenVocab=AddressLexer; }
 // quoted-pair     =   ("\" (VCHAR / WSP)) / obs-qp
 quotedPair
 	: Backslash (vchar | wsp)
-	| obsQP
+//| obsQP
 	;
 
 
@@ -16,8 +16,8 @@ quotedPair
 
 // FWS             =   ([*WSP CRLF] 1*WSP) /  obs-FWS
 fws 
-	: (WSP* CRLF) WSP+
-	| obsFWS
+	: (wsp* CRLF) wsp+
+//| obsFWS
 	;
 
 // ctext           =   ascii 33-39 / ascii 42-91 / ascii 93-126 / obs-ctext
@@ -54,7 +54,7 @@ ctext
 	| Pipe
 	| RCurly
 	| Tilde
-	| obsCtext
+//| obsCtext
 	;
 
 // ccontent        =   ctext / quoted-pair / comment
@@ -159,6 +159,7 @@ qtext
 	| Pipe
 	| RCurly
 	| Tilde
+//| obsQtext
 	;
 
 // qcontent        =   qtext / quoted-pair
@@ -182,13 +183,13 @@ word
 // phrase          =   1*word / obs-phrase
 phrase
 	: word+
-	| obsPhrase
+//| obsPhrase
 	;
 
 // unstructured    =   (*([FWS] VCHAR) *WSP) / obs-unstruct
 unstructured
 	: (fws? vchar)* wsp*
-	| obsUnstruct
+//| obsUnstruct
 	;
 
 
@@ -211,8 +212,8 @@ nameAddr: displayName? angleAddr;
 
 // angle-addr      =   [CFWS] "<" addr-spec ">" [CFWS] / obs-angle-addr
 angleAddr
-	: cfws? LAngle addrSpec RAngle cfws?
-	| obsAngleAddr
+	: cfws? Less addrSpec Greater cfws?
+//| obsAngleAddr
 	;
 
 // group           =   display-name ":" [group-list] ";" [CFWS]
@@ -224,20 +225,20 @@ displayName: phrase;
 // mailbox-list    =   (mailbox *("," mailbox)) / obs-mbox-list
 mailboxList
 	: mailbox (Comma mailbox)*
-	| obsMboxList
+//| obsMboxList
 	;
 
 // address-list    =   (address *("," address)) / obs-addr-list
 addressList
 	: address (Comma address)*
-	| obsAddrList
+//| obsAddrList
 	;
 
 // group-list      =   mailbox-list / CFWS / obs-group-list
 groupList
 	: mailboxList
 	| cfws
-	| obsGroupList
+//| obsGroupList
 	;
 
 
@@ -250,14 +251,14 @@ addrSpec: localPart At domain;
 localPart
 	: dotAtom 
 	| quotedString
-	| obsLocalPart
+//| obsLocalPart
 	;
 
 // domain          =   dot-atom / domain-literal / obs-domain
 domain
 	: dotAtom
 	| domainLiteral
-	| obsDomain
+//| obsDomain
 	;
 
 // domain-literal  =   [CFWS] "[" *([FWS] dtext) [FWS] "]" [CFWS]
@@ -297,7 +298,7 @@ dtext
 	| Pipe
 	| RCurly
 	| Tilde
-	| obsDtext
+//| obsDtext
 	;
 
 
