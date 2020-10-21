@@ -1,13 +1,11 @@
 lexer grammar AddressLexer;
 
-// Control chars (unprintable)
-CRLF: '\r\n';
-DEL:  '\u007F';
-
-HTAB:							'\t';     // \u0009
+TAB:              '\t';     // \u0009
+LF:               '\n';     // \u000A
+CR:               '\r';     // \u000D
 SP:               ' ';      // \u0020
 
-// Printable chars.
+// Printable (0x21-0x7E)
 Exclamation:      '!';      // \u0021
 DQuote:           '"';      // \u0022
 Hash:             '#';      // \u0023
@@ -44,30 +42,5 @@ Pipe:             '|';      // \u007C
 RCurly:           '}';      // \u007D
 Tilde:            '~';      // \u007E
 
-
-fragment A: 'A'|'a';
-fragment B: 'B'|'b';
-fragment C: 'C'|'c';
-fragment D: 'D'|'d';
-fragment E: 'E'|'e';
-fragment F: 'F'|'f';
-fragment G: 'G'|'g';
-fragment H: 'H'|'h';
-fragment I: 'I'|'i';
-fragment J: 'J'|'j';
-fragment K: 'K'|'k';
-fragment L: 'L'|'l';
-fragment M: 'M'|'m';
-fragment N: 'N'|'n';
-fragment O: 'O'|'o';
-fragment P: 'P'|'p';
-fragment Q: 'Q'|'q';
-fragment R: 'R'|'r';
-fragment S: 'S'|'s';
-fragment T: 'T'|'t';
-fragment U: 'U'|'u';
-fragment V: 'V'|'v';
-fragment W: 'W'|'w';
-fragment X: 'X'|'x';
-fragment Y: 'Y'|'y';
-fragment Z: 'Z'|'z';
+// Other
+DEL:  '\u007F';

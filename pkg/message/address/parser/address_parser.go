@@ -16,157 +16,161 @@ var _ = reflect.Copy
 var _ = strconv.Itoa
 
 var parserATN = []uint16{
-	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 41, 295,
+	3, 24715, 42794, 33075, 47597, 16764, 15335, 30598, 22884, 3, 42, 304,
 	4, 2, 9, 2, 4, 3, 9, 3, 4, 4, 9, 4, 4, 5, 9, 5, 4, 6, 9, 6, 4, 7, 9, 7,
 	4, 8, 9, 8, 4, 9, 9, 9, 4, 10, 9, 10, 4, 11, 9, 11, 4, 12, 9, 12, 4, 13,
 	9, 13, 4, 14, 9, 14, 4, 15, 9, 15, 4, 16, 9, 16, 4, 17, 9, 17, 4, 18, 9,
 	18, 4, 19, 9, 19, 4, 20, 9, 20, 4, 21, 9, 21, 4, 22, 9, 22, 4, 23, 9, 23,
 	4, 24, 9, 24, 4, 25, 9, 25, 4, 26, 9, 26, 4, 27, 9, 27, 4, 28, 9, 28, 4,
-	29, 9, 29, 4, 30, 9, 30, 4, 31, 9, 31, 4, 32, 9, 32, 4, 33, 9, 33, 3, 2,
-	3, 2, 3, 2, 5, 2, 70, 10, 2, 3, 3, 7, 3, 73, 10, 3, 12, 3, 14, 3, 76, 11,
-	3, 3, 3, 3, 3, 3, 3, 6, 3, 81, 10, 3, 13, 3, 14, 3, 82, 3, 4, 3, 4, 3,
-	5, 3, 5, 3, 5, 5, 5, 90, 10, 5, 3, 6, 3, 6, 5, 6, 94, 10, 6, 3, 6, 7, 6,
-	97, 10, 6, 12, 6, 14, 6, 100, 11, 6, 3, 6, 5, 6, 103, 10, 6, 3, 6, 3, 6,
-	3, 7, 5, 7, 108, 10, 7, 3, 7, 6, 7, 111, 10, 7, 13, 7, 14, 7, 112, 3, 7,
-	5, 7, 116, 10, 7, 3, 7, 5, 7, 119, 10, 7, 3, 8, 3, 8, 3, 9, 5, 9, 124,
-	10, 9, 3, 9, 6, 9, 127, 10, 9, 13, 9, 14, 9, 128, 3, 9, 5, 9, 132, 10,
-	9, 3, 10, 6, 10, 135, 10, 10, 13, 10, 14, 10, 136, 3, 10, 3, 10, 6, 10,
-	141, 10, 10, 13, 10, 14, 10, 142, 7, 10, 145, 10, 10, 12, 10, 14, 10, 148,
-	11, 10, 3, 11, 5, 11, 151, 10, 11, 3, 11, 3, 11, 5, 11, 155, 10, 11, 3,
-	12, 3, 12, 3, 13, 3, 13, 5, 13, 161, 10, 13, 3, 14, 5, 14, 164, 10, 14,
-	3, 14, 3, 14, 5, 14, 168, 10, 14, 3, 14, 7, 14, 171, 10, 14, 12, 14, 14,
-	14, 174, 11, 14, 3, 14, 5, 14, 177, 10, 14, 3, 14, 3, 14, 5, 14, 181, 10,
-	14, 3, 15, 3, 15, 5, 15, 185, 10, 15, 3, 16, 6, 16, 188, 10, 16, 13, 16,
-	14, 16, 189, 3, 17, 5, 17, 193, 10, 17, 3, 17, 7, 17, 196, 10, 17, 12,
-	17, 14, 17, 199, 11, 17, 3, 17, 7, 17, 202, 10, 17, 12, 17, 14, 17, 205,
-	11, 17, 3, 18, 3, 18, 5, 18, 209, 10, 18, 3, 19, 3, 19, 5, 19, 213, 10,
-	19, 3, 20, 5, 20, 216, 10, 20, 3, 20, 3, 20, 3, 21, 5, 21, 221, 10, 21,
-	3, 21, 3, 21, 3, 21, 3, 21, 5, 21, 227, 10, 21, 3, 22, 3, 22, 3, 22, 5,
-	22, 232, 10, 22, 3, 22, 3, 22, 5, 22, 236, 10, 22, 3, 23, 3, 23, 3, 24,
-	3, 24, 3, 24, 7, 24, 243, 10, 24, 12, 24, 14, 24, 246, 11, 24, 3, 25, 3,
-	25, 3, 25, 7, 25, 251, 10, 25, 12, 25, 14, 25, 254, 11, 25, 3, 26, 3, 26,
-	5, 26, 258, 10, 26, 3, 27, 3, 27, 3, 27, 3, 27, 3, 28, 3, 28, 5, 28, 266,
-	10, 28, 3, 29, 3, 29, 5, 29, 270, 10, 29, 3, 30, 5, 30, 273, 10, 30, 3,
-	30, 3, 30, 5, 30, 277, 10, 30, 3, 30, 7, 30, 280, 10, 30, 12, 30, 14, 30,
-	283, 11, 30, 3, 30, 3, 30, 5, 30, 287, 10, 30, 3, 31, 3, 31, 3, 32, 3,
-	32, 3, 33, 3, 33, 3, 33, 2, 2, 34, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20,
-	22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56,
-	58, 60, 62, 64, 2, 8, 5, 2, 7, 13, 16, 31, 33, 41, 11, 2, 7, 7, 9, 13,
-	16, 17, 19, 19, 21, 22, 26, 26, 28, 28, 30, 30, 34, 41, 5, 2, 7, 7, 9,
-	31, 33, 41, 4, 2, 7, 30, 34, 41, 3, 2, 5, 6, 3, 2, 7, 41, 2, 309, 2, 66,
-	3, 2, 2, 2, 4, 74, 3, 2, 2, 2, 6, 84, 3, 2, 2, 2, 8, 89, 3, 2, 2, 2, 10,
-	91, 3, 2, 2, 2, 12, 118, 3, 2, 2, 2, 14, 120, 3, 2, 2, 2, 16, 123, 3, 2,
-	2, 2, 18, 134, 3, 2, 2, 2, 20, 150, 3, 2, 2, 2, 22, 156, 3, 2, 2, 2, 24,
-	160, 3, 2, 2, 2, 26, 163, 3, 2, 2, 2, 28, 184, 3, 2, 2, 2, 30, 187, 3,
-	2, 2, 2, 32, 197, 3, 2, 2, 2, 34, 208, 3, 2, 2, 2, 36, 212, 3, 2, 2, 2,
-	38, 215, 3, 2, 2, 2, 40, 220, 3, 2, 2, 2, 42, 228, 3, 2, 2, 2, 44, 237,
-	3, 2, 2, 2, 46, 239, 3, 2, 2, 2, 48, 247, 3, 2, 2, 2, 50, 257, 3, 2, 2,
-	2, 52, 259, 3, 2, 2, 2, 54, 265, 3, 2, 2, 2, 56, 269, 3, 2, 2, 2, 58, 272,
-	3, 2, 2, 2, 60, 288, 3, 2, 2, 2, 62, 290, 3, 2, 2, 2, 64, 292, 3, 2, 2,
-	2, 66, 69, 7, 32, 2, 2, 67, 70, 5, 64, 33, 2, 68, 70, 5, 62, 32, 2, 69,
-	67, 3, 2, 2, 2, 69, 68, 3, 2, 2, 2, 70, 3, 3, 2, 2, 2, 71, 73, 5, 62, 32,
-	2, 72, 71, 3, 2, 2, 2, 73, 76, 3, 2, 2, 2, 74, 72, 3, 2, 2, 2, 74, 75,
-	3, 2, 2, 2, 75, 77, 3, 2, 2, 2, 76, 74, 3, 2, 2, 2, 77, 78, 7, 3, 2, 2,
-	78, 80, 3, 2, 2, 2, 79, 81, 5, 62, 32, 2, 80, 79, 3, 2, 2, 2, 81, 82, 3,
-	2, 2, 2, 82, 80, 3, 2, 2, 2, 82, 83, 3, 2, 2, 2, 83, 5, 3, 2, 2, 2, 84,
-	85, 9, 2, 2, 2, 85, 7, 3, 2, 2, 2, 86, 90, 5, 6, 4, 2, 87, 90, 5, 2, 2,
-	2, 88, 90, 5, 10, 6, 2, 89, 86, 3, 2, 2, 2, 89, 87, 3, 2, 2, 2, 89, 88,
-	3, 2, 2, 2, 90, 9, 3, 2, 2, 2, 91, 98, 7, 14, 2, 2, 92, 94, 5, 4, 3, 2,
-	93, 92, 3, 2, 2, 2, 93, 94, 3, 2, 2, 2, 94, 95, 3, 2, 2, 2, 95, 97, 5,
-	8, 5, 2, 96, 93, 3, 2, 2, 2, 97, 100, 3, 2, 2, 2, 98, 96, 3, 2, 2, 2, 98,
-	99, 3, 2, 2, 2, 99, 102, 3, 2, 2, 2, 100, 98, 3, 2, 2, 2, 101, 103, 5,
-	4, 3, 2, 102, 101, 3, 2, 2, 2, 102, 103, 3, 2, 2, 2, 103, 104, 3, 2, 2,
-	2, 104, 105, 7, 15, 2, 2, 105, 11, 3, 2, 2, 2, 106, 108, 5, 4, 3, 2, 107,
-	106, 3, 2, 2, 2, 107, 108, 3, 2, 2, 2, 108, 109, 3, 2, 2, 2, 109, 111,
-	5, 10, 6, 2, 110, 107, 3, 2, 2, 2, 111, 112, 3, 2, 2, 2, 112, 110, 3, 2,
-	2, 2, 112, 113, 3, 2, 2, 2, 113, 115, 3, 2, 2, 2, 114, 116, 5, 4, 3, 2,
-	115, 114, 3, 2, 2, 2, 115, 116, 3, 2, 2, 2, 116, 119, 3, 2, 2, 2, 117,
-	119, 5, 4, 3, 2, 118, 110, 3, 2, 2, 2, 118, 117, 3, 2, 2, 2, 119, 13, 3,
-	2, 2, 2, 120, 121, 9, 3, 2, 2, 121, 15, 3, 2, 2, 2, 122, 124, 5, 12, 7,
-	2, 123, 122, 3, 2, 2, 2, 123, 124, 3, 2, 2, 2, 124, 126, 3, 2, 2, 2, 125,
-	127, 5, 14, 8, 2, 126, 125, 3, 2, 2, 2, 127, 128, 3, 2, 2, 2, 128, 126,
-	3, 2, 2, 2, 128, 129, 3, 2, 2, 2, 129, 131, 3, 2, 2, 2, 130, 132, 5, 12,
-	7, 2, 131, 130, 3, 2, 2, 2, 131, 132, 3, 2, 2, 2, 132, 17, 3, 2, 2, 2,
-	133, 135, 5, 14, 8, 2, 134, 133, 3, 2, 2, 2, 135, 136, 3, 2, 2, 2, 136,
-	134, 3, 2, 2, 2, 136, 137, 3, 2, 2, 2, 137, 146, 3, 2, 2, 2, 138, 140,
-	7, 20, 2, 2, 139, 141, 5, 14, 8, 2, 140, 139, 3, 2, 2, 2, 141, 142, 3,
-	2, 2, 2, 142, 140, 3, 2, 2, 2, 142, 143, 3, 2, 2, 2, 143, 145, 3, 2, 2,
-	2, 144, 138, 3, 2, 2, 2, 145, 148, 3, 2, 2, 2, 146, 144, 3, 2, 2, 2, 146,
-	147, 3, 2, 2, 2, 147, 19, 3, 2, 2, 2, 148, 146, 3, 2, 2, 2, 149, 151, 5,
-	12, 7, 2, 150, 149, 3, 2, 2, 2, 150, 151, 3, 2, 2, 2, 151, 152, 3, 2, 2,
-	2, 152, 154, 5, 18, 10, 2, 153, 155, 5, 12, 7, 2, 154, 153, 3, 2, 2, 2,
-	154, 155, 3, 2, 2, 2, 155, 21, 3, 2, 2, 2, 156, 157, 9, 4, 2, 2, 157, 23,
-	3, 2, 2, 2, 158, 161, 5, 22, 12, 2, 159, 161, 5, 2, 2, 2, 160, 158, 3,
-	2, 2, 2, 160, 159, 3, 2, 2, 2, 161, 25, 3, 2, 2, 2, 162, 164, 5, 12, 7,
-	2, 163, 162, 3, 2, 2, 2, 163, 164, 3, 2, 2, 2, 164, 165, 3, 2, 2, 2, 165,
-	172, 7, 8, 2, 2, 166, 168, 5, 4, 3, 2, 167, 166, 3, 2, 2, 2, 167, 168,
-	3, 2, 2, 2, 168, 169, 3, 2, 2, 2, 169, 171, 5, 24, 13, 2, 170, 167, 3,
-	2, 2, 2, 171, 174, 3, 2, 2, 2, 172, 170, 3, 2, 2, 2, 172, 173, 3, 2, 2,
-	2, 173, 176, 3, 2, 2, 2, 174, 172, 3, 2, 2, 2, 175, 177, 5, 4, 3, 2, 176,
-	175, 3, 2, 2, 2, 176, 177, 3, 2, 2, 2, 177, 178, 3, 2, 2, 2, 178, 180,
-	7, 8, 2, 2, 179, 181, 5, 12, 7, 2, 180, 179, 3, 2, 2, 2, 180, 181, 3, 2,
-	2, 2, 181, 27, 3, 2, 2, 2, 182, 185, 5, 16, 9, 2, 183, 185, 5, 26, 14,
-	2, 184, 182, 3, 2, 2, 2, 184, 183, 3, 2, 2, 2, 185, 29, 3, 2, 2, 2, 186,
-	188, 5, 28, 15, 2, 187, 186, 3, 2, 2, 2, 188, 189, 3, 2, 2, 2, 189, 187,
-	3, 2, 2, 2, 189, 190, 3, 2, 2, 2, 190, 31, 3, 2, 2, 2, 191, 193, 5, 4,
-	3, 2, 192, 191, 3, 2, 2, 2, 192, 193, 3, 2, 2, 2, 193, 194, 3, 2, 2, 2,
-	194, 196, 5, 64, 33, 2, 195, 192, 3, 2, 2, 2, 196, 199, 3, 2, 2, 2, 197,
-	195, 3, 2, 2, 2, 197, 198, 3, 2, 2, 2, 198, 203, 3, 2, 2, 2, 199, 197,
-	3, 2, 2, 2, 200, 202, 5, 62, 32, 2, 201, 200, 3, 2, 2, 2, 202, 205, 3,
-	2, 2, 2, 203, 201, 3, 2, 2, 2, 203, 204, 3, 2, 2, 2, 204, 33, 3, 2, 2,
-	2, 205, 203, 3, 2, 2, 2, 206, 209, 5, 36, 19, 2, 207, 209, 5, 42, 22, 2,
-	208, 206, 3, 2, 2, 2, 208, 207, 3, 2, 2, 2, 209, 35, 3, 2, 2, 2, 210, 213,
-	5, 38, 20, 2, 211, 213, 5, 52, 27, 2, 212, 210, 3, 2, 2, 2, 212, 211, 3,
-	2, 2, 2, 213, 37, 3, 2, 2, 2, 214, 216, 5, 44, 23, 2, 215, 214, 3, 2, 2,
-	2, 215, 216, 3, 2, 2, 2, 216, 217, 3, 2, 2, 2, 217, 218, 5, 40, 21, 2,
-	218, 39, 3, 2, 2, 2, 219, 221, 5, 12, 7, 2, 220, 219, 3, 2, 2, 2, 220,
-	221, 3, 2, 2, 2, 221, 222, 3, 2, 2, 2, 222, 223, 7, 25, 2, 2, 223, 224,
-	5, 52, 27, 2, 224, 226, 7, 27, 2, 2, 225, 227, 5, 12, 7, 2, 226, 225, 3,
-	2, 2, 2, 226, 227, 3, 2, 2, 2, 227, 41, 3, 2, 2, 2, 228, 229, 5, 44, 23,
-	2, 229, 231, 7, 23, 2, 2, 230, 232, 5, 50, 26, 2, 231, 230, 3, 2, 2, 2,
-	231, 232, 3, 2, 2, 2, 232, 233, 3, 2, 2, 2, 233, 235, 7, 24, 2, 2, 234,
-	236, 5, 12, 7, 2, 235, 234, 3, 2, 2, 2, 235, 236, 3, 2, 2, 2, 236, 43,
-	3, 2, 2, 2, 237, 238, 5, 30, 16, 2, 238, 45, 3, 2, 2, 2, 239, 244, 5, 36,
-	19, 2, 240, 241, 7, 18, 2, 2, 241, 243, 5, 36, 19, 2, 242, 240, 3, 2, 2,
-	2, 243, 246, 3, 2, 2, 2, 244, 242, 3, 2, 2, 2, 244, 245, 3, 2, 2, 2, 245,
-	47, 3, 2, 2, 2, 246, 244, 3, 2, 2, 2, 247, 252, 5, 34, 18, 2, 248, 249,
-	7, 18, 2, 2, 249, 251, 5, 34, 18, 2, 250, 248, 3, 2, 2, 2, 251, 254, 3,
-	2, 2, 2, 252, 250, 3, 2, 2, 2, 252, 253, 3, 2, 2, 2, 253, 49, 3, 2, 2,
-	2, 254, 252, 3, 2, 2, 2, 255, 258, 5, 46, 24, 2, 256, 258, 5, 12, 7, 2,
-	257, 255, 3, 2, 2, 2, 257, 256, 3, 2, 2, 2, 258, 51, 3, 2, 2, 2, 259, 260,
-	5, 54, 28, 2, 260, 261, 7, 29, 2, 2, 261, 262, 5, 56, 29, 2, 262, 53, 3,
-	2, 2, 2, 263, 266, 5, 20, 11, 2, 264, 266, 5, 26, 14, 2, 265, 263, 3, 2,
-	2, 2, 265, 264, 3, 2, 2, 2, 266, 55, 3, 2, 2, 2, 267, 270, 5, 20, 11, 2,
-	268, 270, 5, 58, 30, 2, 269, 267, 3, 2, 2, 2, 269, 268, 3, 2, 2, 2, 270,
-	57, 3, 2, 2, 2, 271, 273, 5, 12, 7, 2, 272, 271, 3, 2, 2, 2, 272, 273,
-	3, 2, 2, 2, 273, 274, 3, 2, 2, 2, 274, 281, 7, 31, 2, 2, 275, 277, 5, 4,
-	3, 2, 276, 275, 3, 2, 2, 2, 276, 277, 3, 2, 2, 2, 277, 278, 3, 2, 2, 2,
-	278, 280, 5, 60, 31, 2, 279, 276, 3, 2, 2, 2, 280, 283, 3, 2, 2, 2, 281,
-	279, 3, 2, 2, 2, 281, 282, 3, 2, 2, 2, 282, 284, 3, 2, 2, 2, 283, 281,
-	3, 2, 2, 2, 284, 286, 7, 33, 2, 2, 285, 287, 5, 12, 7, 2, 286, 285, 3,
-	2, 2, 2, 286, 287, 3, 2, 2, 2, 287, 59, 3, 2, 2, 2, 288, 289, 9, 5, 2,
-	2, 289, 61, 3, 2, 2, 2, 290, 291, 9, 6, 2, 2, 291, 63, 3, 2, 2, 2, 292,
-	293, 9, 7, 2, 2, 293, 65, 3, 2, 2, 2, 48, 69, 74, 82, 89, 93, 98, 102,
-	107, 112, 115, 118, 123, 128, 131, 136, 142, 146, 150, 154, 160, 163, 167,
-	172, 176, 180, 184, 189, 192, 197, 203, 208, 212, 215, 220, 226, 231, 235,
-	244, 252, 257, 265, 269, 272, 276, 281, 286,
+	29, 9, 29, 4, 30, 9, 30, 4, 31, 9, 31, 4, 32, 9, 32, 4, 33, 9, 33, 4, 34,
+	9, 34, 3, 2, 3, 2, 3, 2, 5, 2, 72, 10, 2, 3, 3, 7, 3, 75, 10, 3, 12, 3,
+	14, 3, 78, 11, 3, 3, 3, 5, 3, 81, 10, 3, 3, 3, 6, 3, 84, 10, 3, 13, 3,
+	14, 3, 85, 3, 4, 3, 4, 3, 5, 3, 5, 3, 5, 5, 5, 93, 10, 5, 3, 6, 3, 6, 5,
+	6, 97, 10, 6, 3, 6, 7, 6, 100, 10, 6, 12, 6, 14, 6, 103, 11, 6, 3, 6, 5,
+	6, 106, 10, 6, 3, 6, 3, 6, 3, 7, 5, 7, 111, 10, 7, 3, 7, 6, 7, 114, 10,
+	7, 13, 7, 14, 7, 115, 3, 7, 5, 7, 119, 10, 7, 3, 7, 5, 7, 122, 10, 7, 3,
+	8, 3, 8, 3, 9, 5, 9, 127, 10, 9, 3, 9, 6, 9, 130, 10, 9, 13, 9, 14, 9,
+	131, 3, 9, 5, 9, 135, 10, 9, 3, 10, 6, 10, 138, 10, 10, 13, 10, 14, 10,
+	139, 3, 10, 3, 10, 6, 10, 144, 10, 10, 13, 10, 14, 10, 145, 7, 10, 148,
+	10, 10, 12, 10, 14, 10, 151, 11, 10, 3, 11, 5, 11, 154, 10, 11, 3, 11,
+	3, 11, 5, 11, 158, 10, 11, 3, 12, 3, 12, 3, 13, 3, 13, 5, 13, 164, 10,
+	13, 3, 14, 5, 14, 167, 10, 14, 3, 14, 3, 14, 5, 14, 171, 10, 14, 3, 14,
+	7, 14, 174, 10, 14, 12, 14, 14, 14, 177, 11, 14, 3, 14, 5, 14, 180, 10,
+	14, 3, 14, 3, 14, 5, 14, 184, 10, 14, 3, 15, 3, 15, 5, 15, 188, 10, 15,
+	3, 16, 6, 16, 191, 10, 16, 13, 16, 14, 16, 192, 3, 17, 5, 17, 196, 10,
+	17, 3, 17, 7, 17, 199, 10, 17, 12, 17, 14, 17, 202, 11, 17, 3, 17, 7, 17,
+	205, 10, 17, 12, 17, 14, 17, 208, 11, 17, 3, 18, 3, 18, 5, 18, 212, 10,
+	18, 3, 19, 3, 19, 5, 19, 216, 10, 19, 3, 20, 5, 20, 219, 10, 20, 3, 20,
+	3, 20, 3, 21, 5, 21, 224, 10, 21, 3, 21, 3, 21, 3, 21, 3, 21, 5, 21, 230,
+	10, 21, 3, 22, 3, 22, 3, 22, 5, 22, 235, 10, 22, 3, 22, 3, 22, 5, 22, 239,
+	10, 22, 3, 23, 3, 23, 3, 24, 3, 24, 3, 24, 7, 24, 246, 10, 24, 12, 24,
+	14, 24, 249, 11, 24, 3, 25, 3, 25, 3, 25, 7, 25, 254, 10, 25, 12, 25, 14,
+	25, 257, 11, 25, 3, 26, 3, 26, 5, 26, 261, 10, 26, 3, 27, 3, 27, 3, 27,
+	3, 27, 3, 28, 3, 28, 5, 28, 269, 10, 28, 3, 29, 3, 29, 5, 29, 273, 10,
+	29, 3, 30, 5, 30, 276, 10, 30, 3, 30, 3, 30, 5, 30, 280, 10, 30, 3, 30,
+	7, 30, 283, 10, 30, 12, 30, 14, 30, 286, 11, 30, 3, 30, 5, 30, 289, 10,
+	30, 3, 30, 3, 30, 5, 30, 293, 10, 30, 3, 31, 3, 31, 3, 32, 3, 32, 3, 32,
+	3, 33, 3, 33, 3, 34, 3, 34, 3, 34, 2, 2, 35, 2, 4, 6, 8, 10, 12, 14, 16,
+	18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52,
+	54, 56, 58, 60, 62, 64, 66, 2, 8, 5, 2, 7, 13, 16, 31, 33, 41, 11, 2, 7,
+	7, 9, 13, 16, 17, 19, 19, 21, 22, 26, 26, 28, 28, 30, 30, 34, 41, 5, 2,
+	7, 7, 9, 31, 33, 41, 4, 2, 7, 30, 34, 41, 4, 2, 3, 3, 6, 6, 3, 2, 7, 41,
+	2, 319, 2, 68, 3, 2, 2, 2, 4, 80, 3, 2, 2, 2, 6, 87, 3, 2, 2, 2, 8, 92,
+	3, 2, 2, 2, 10, 94, 3, 2, 2, 2, 12, 121, 3, 2, 2, 2, 14, 123, 3, 2, 2,
+	2, 16, 126, 3, 2, 2, 2, 18, 137, 3, 2, 2, 2, 20, 153, 3, 2, 2, 2, 22, 159,
+	3, 2, 2, 2, 24, 163, 3, 2, 2, 2, 26, 166, 3, 2, 2, 2, 28, 187, 3, 2, 2,
+	2, 30, 190, 3, 2, 2, 2, 32, 200, 3, 2, 2, 2, 34, 211, 3, 2, 2, 2, 36, 215,
+	3, 2, 2, 2, 38, 218, 3, 2, 2, 2, 40, 223, 3, 2, 2, 2, 42, 231, 3, 2, 2,
+	2, 44, 240, 3, 2, 2, 2, 46, 242, 3, 2, 2, 2, 48, 250, 3, 2, 2, 2, 50, 260,
+	3, 2, 2, 2, 52, 262, 3, 2, 2, 2, 54, 268, 3, 2, 2, 2, 56, 272, 3, 2, 2,
+	2, 58, 275, 3, 2, 2, 2, 60, 294, 3, 2, 2, 2, 62, 296, 3, 2, 2, 2, 64, 299,
+	3, 2, 2, 2, 66, 301, 3, 2, 2, 2, 68, 71, 7, 32, 2, 2, 69, 72, 5, 66, 34,
+	2, 70, 72, 5, 64, 33, 2, 71, 69, 3, 2, 2, 2, 71, 70, 3, 2, 2, 2, 72, 3,
+	3, 2, 2, 2, 73, 75, 5, 64, 33, 2, 74, 73, 3, 2, 2, 2, 75, 78, 3, 2, 2,
+	2, 76, 74, 3, 2, 2, 2, 76, 77, 3, 2, 2, 2, 77, 79, 3, 2, 2, 2, 78, 76,
+	3, 2, 2, 2, 79, 81, 5, 62, 32, 2, 80, 76, 3, 2, 2, 2, 80, 81, 3, 2, 2,
+	2, 81, 83, 3, 2, 2, 2, 82, 84, 5, 64, 33, 2, 83, 82, 3, 2, 2, 2, 84, 85,
+	3, 2, 2, 2, 85, 83, 3, 2, 2, 2, 85, 86, 3, 2, 2, 2, 86, 5, 3, 2, 2, 2,
+	87, 88, 9, 2, 2, 2, 88, 7, 3, 2, 2, 2, 89, 93, 5, 6, 4, 2, 90, 93, 5, 2,
+	2, 2, 91, 93, 5, 10, 6, 2, 92, 89, 3, 2, 2, 2, 92, 90, 3, 2, 2, 2, 92,
+	91, 3, 2, 2, 2, 93, 9, 3, 2, 2, 2, 94, 101, 7, 14, 2, 2, 95, 97, 5, 4,
+	3, 2, 96, 95, 3, 2, 2, 2, 96, 97, 3, 2, 2, 2, 97, 98, 3, 2, 2, 2, 98, 100,
+	5, 8, 5, 2, 99, 96, 3, 2, 2, 2, 100, 103, 3, 2, 2, 2, 101, 99, 3, 2, 2,
+	2, 101, 102, 3, 2, 2, 2, 102, 105, 3, 2, 2, 2, 103, 101, 3, 2, 2, 2, 104,
+	106, 5, 4, 3, 2, 105, 104, 3, 2, 2, 2, 105, 106, 3, 2, 2, 2, 106, 107,
+	3, 2, 2, 2, 107, 108, 7, 15, 2, 2, 108, 11, 3, 2, 2, 2, 109, 111, 5, 4,
+	3, 2, 110, 109, 3, 2, 2, 2, 110, 111, 3, 2, 2, 2, 111, 112, 3, 2, 2, 2,
+	112, 114, 5, 10, 6, 2, 113, 110, 3, 2, 2, 2, 114, 115, 3, 2, 2, 2, 115,
+	113, 3, 2, 2, 2, 115, 116, 3, 2, 2, 2, 116, 118, 3, 2, 2, 2, 117, 119,
+	5, 4, 3, 2, 118, 117, 3, 2, 2, 2, 118, 119, 3, 2, 2, 2, 119, 122, 3, 2,
+	2, 2, 120, 122, 5, 4, 3, 2, 121, 113, 3, 2, 2, 2, 121, 120, 3, 2, 2, 2,
+	122, 13, 3, 2, 2, 2, 123, 124, 9, 3, 2, 2, 124, 15, 3, 2, 2, 2, 125, 127,
+	5, 12, 7, 2, 126, 125, 3, 2, 2, 2, 126, 127, 3, 2, 2, 2, 127, 129, 3, 2,
+	2, 2, 128, 130, 5, 14, 8, 2, 129, 128, 3, 2, 2, 2, 130, 131, 3, 2, 2, 2,
+	131, 129, 3, 2, 2, 2, 131, 132, 3, 2, 2, 2, 132, 134, 3, 2, 2, 2, 133,
+	135, 5, 12, 7, 2, 134, 133, 3, 2, 2, 2, 134, 135, 3, 2, 2, 2, 135, 17,
+	3, 2, 2, 2, 136, 138, 5, 14, 8, 2, 137, 136, 3, 2, 2, 2, 138, 139, 3, 2,
+	2, 2, 139, 137, 3, 2, 2, 2, 139, 140, 3, 2, 2, 2, 140, 149, 3, 2, 2, 2,
+	141, 143, 7, 20, 2, 2, 142, 144, 5, 14, 8, 2, 143, 142, 3, 2, 2, 2, 144,
+	145, 3, 2, 2, 2, 145, 143, 3, 2, 2, 2, 145, 146, 3, 2, 2, 2, 146, 148,
+	3, 2, 2, 2, 147, 141, 3, 2, 2, 2, 148, 151, 3, 2, 2, 2, 149, 147, 3, 2,
+	2, 2, 149, 150, 3, 2, 2, 2, 150, 19, 3, 2, 2, 2, 151, 149, 3, 2, 2, 2,
+	152, 154, 5, 12, 7, 2, 153, 152, 3, 2, 2, 2, 153, 154, 3, 2, 2, 2, 154,
+	155, 3, 2, 2, 2, 155, 157, 5, 18, 10, 2, 156, 158, 5, 12, 7, 2, 157, 156,
+	3, 2, 2, 2, 157, 158, 3, 2, 2, 2, 158, 21, 3, 2, 2, 2, 159, 160, 9, 4,
+	2, 2, 160, 23, 3, 2, 2, 2, 161, 164, 5, 22, 12, 2, 162, 164, 5, 2, 2, 2,
+	163, 161, 3, 2, 2, 2, 163, 162, 3, 2, 2, 2, 164, 25, 3, 2, 2, 2, 165, 167,
+	5, 12, 7, 2, 166, 165, 3, 2, 2, 2, 166, 167, 3, 2, 2, 2, 167, 168, 3, 2,
+	2, 2, 168, 175, 7, 8, 2, 2, 169, 171, 5, 4, 3, 2, 170, 169, 3, 2, 2, 2,
+	170, 171, 3, 2, 2, 2, 171, 172, 3, 2, 2, 2, 172, 174, 5, 24, 13, 2, 173,
+	170, 3, 2, 2, 2, 174, 177, 3, 2, 2, 2, 175, 173, 3, 2, 2, 2, 175, 176,
+	3, 2, 2, 2, 176, 179, 3, 2, 2, 2, 177, 175, 3, 2, 2, 2, 178, 180, 5, 4,
+	3, 2, 179, 178, 3, 2, 2, 2, 179, 180, 3, 2, 2, 2, 180, 181, 3, 2, 2, 2,
+	181, 183, 7, 8, 2, 2, 182, 184, 5, 12, 7, 2, 183, 182, 3, 2, 2, 2, 183,
+	184, 3, 2, 2, 2, 184, 27, 3, 2, 2, 2, 185, 188, 5, 16, 9, 2, 186, 188,
+	5, 26, 14, 2, 187, 185, 3, 2, 2, 2, 187, 186, 3, 2, 2, 2, 188, 29, 3, 2,
+	2, 2, 189, 191, 5, 28, 15, 2, 190, 189, 3, 2, 2, 2, 191, 192, 3, 2, 2,
+	2, 192, 190, 3, 2, 2, 2, 192, 193, 3, 2, 2, 2, 193, 31, 3, 2, 2, 2, 194,
+	196, 5, 4, 3, 2, 195, 194, 3, 2, 2, 2, 195, 196, 3, 2, 2, 2, 196, 197,
+	3, 2, 2, 2, 197, 199, 5, 66, 34, 2, 198, 195, 3, 2, 2, 2, 199, 202, 3,
+	2, 2, 2, 200, 198, 3, 2, 2, 2, 200, 201, 3, 2, 2, 2, 201, 206, 3, 2, 2,
+	2, 202, 200, 3, 2, 2, 2, 203, 205, 5, 64, 33, 2, 204, 203, 3, 2, 2, 2,
+	205, 208, 3, 2, 2, 2, 206, 204, 3, 2, 2, 2, 206, 207, 3, 2, 2, 2, 207,
+	33, 3, 2, 2, 2, 208, 206, 3, 2, 2, 2, 209, 212, 5, 36, 19, 2, 210, 212,
+	5, 42, 22, 2, 211, 209, 3, 2, 2, 2, 211, 210, 3, 2, 2, 2, 212, 35, 3, 2,
+	2, 2, 213, 216, 5, 38, 20, 2, 214, 216, 5, 52, 27, 2, 215, 213, 3, 2, 2,
+	2, 215, 214, 3, 2, 2, 2, 216, 37, 3, 2, 2, 2, 217, 219, 5, 44, 23, 2, 218,
+	217, 3, 2, 2, 2, 218, 219, 3, 2, 2, 2, 219, 220, 3, 2, 2, 2, 220, 221,
+	5, 40, 21, 2, 221, 39, 3, 2, 2, 2, 222, 224, 5, 12, 7, 2, 223, 222, 3,
+	2, 2, 2, 223, 224, 3, 2, 2, 2, 224, 225, 3, 2, 2, 2, 225, 226, 7, 25, 2,
+	2, 226, 227, 5, 52, 27, 2, 227, 229, 7, 27, 2, 2, 228, 230, 5, 12, 7, 2,
+	229, 228, 3, 2, 2, 2, 229, 230, 3, 2, 2, 2, 230, 41, 3, 2, 2, 2, 231, 232,
+	5, 44, 23, 2, 232, 234, 7, 23, 2, 2, 233, 235, 5, 50, 26, 2, 234, 233,
+	3, 2, 2, 2, 234, 235, 3, 2, 2, 2, 235, 236, 3, 2, 2, 2, 236, 238, 7, 24,
+	2, 2, 237, 239, 5, 12, 7, 2, 238, 237, 3, 2, 2, 2, 238, 239, 3, 2, 2, 2,
+	239, 43, 3, 2, 2, 2, 240, 241, 5, 30, 16, 2, 241, 45, 3, 2, 2, 2, 242,
+	247, 5, 36, 19, 2, 243, 244, 7, 18, 2, 2, 244, 246, 5, 36, 19, 2, 245,
+	243, 3, 2, 2, 2, 246, 249, 3, 2, 2, 2, 247, 245, 3, 2, 2, 2, 247, 248,
+	3, 2, 2, 2, 248, 47, 3, 2, 2, 2, 249, 247, 3, 2, 2, 2, 250, 255, 5, 34,
+	18, 2, 251, 252, 7, 18, 2, 2, 252, 254, 5, 34, 18, 2, 253, 251, 3, 2, 2,
+	2, 254, 257, 3, 2, 2, 2, 255, 253, 3, 2, 2, 2, 255, 256, 3, 2, 2, 2, 256,
+	49, 3, 2, 2, 2, 257, 255, 3, 2, 2, 2, 258, 261, 5, 46, 24, 2, 259, 261,
+	5, 12, 7, 2, 260, 258, 3, 2, 2, 2, 260, 259, 3, 2, 2, 2, 261, 51, 3, 2,
+	2, 2, 262, 263, 5, 54, 28, 2, 263, 264, 7, 29, 2, 2, 264, 265, 5, 56, 29,
+	2, 265, 53, 3, 2, 2, 2, 266, 269, 5, 20, 11, 2, 267, 269, 5, 26, 14, 2,
+	268, 266, 3, 2, 2, 2, 268, 267, 3, 2, 2, 2, 269, 55, 3, 2, 2, 2, 270, 273,
+	5, 20, 11, 2, 271, 273, 5, 58, 30, 2, 272, 270, 3, 2, 2, 2, 272, 271, 3,
+	2, 2, 2, 273, 57, 3, 2, 2, 2, 274, 276, 5, 12, 7, 2, 275, 274, 3, 2, 2,
+	2, 275, 276, 3, 2, 2, 2, 276, 277, 3, 2, 2, 2, 277, 284, 7, 31, 2, 2, 278,
+	280, 5, 4, 3, 2, 279, 278, 3, 2, 2, 2, 279, 280, 3, 2, 2, 2, 280, 281,
+	3, 2, 2, 2, 281, 283, 5, 60, 31, 2, 282, 279, 3, 2, 2, 2, 283, 286, 3,
+	2, 2, 2, 284, 282, 3, 2, 2, 2, 284, 285, 3, 2, 2, 2, 285, 288, 3, 2, 2,
+	2, 286, 284, 3, 2, 2, 2, 287, 289, 5, 4, 3, 2, 288, 287, 3, 2, 2, 2, 288,
+	289, 3, 2, 2, 2, 289, 290, 3, 2, 2, 2, 290, 292, 7, 33, 2, 2, 291, 293,
+	5, 12, 7, 2, 292, 291, 3, 2, 2, 2, 292, 293, 3, 2, 2, 2, 293, 59, 3, 2,
+	2, 2, 294, 295, 9, 5, 2, 2, 295, 61, 3, 2, 2, 2, 296, 297, 7, 5, 2, 2,
+	297, 298, 7, 4, 2, 2, 298, 63, 3, 2, 2, 2, 299, 300, 9, 6, 2, 2, 300, 65,
+	3, 2, 2, 2, 301, 302, 9, 7, 2, 2, 302, 67, 3, 2, 2, 2, 50, 71, 76, 80,
+	85, 92, 96, 101, 105, 110, 115, 118, 121, 126, 131, 134, 139, 145, 149,
+	153, 157, 163, 166, 170, 175, 179, 183, 187, 192, 195, 200, 206, 211, 215,
+	218, 223, 229, 234, 238, 247, 255, 260, 268, 272, 275, 279, 284, 288, 292,
 }
 var deserializer = antlr.NewATNDeserializer(nil)
 var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
-	"", "'\r\n'", "'\u007F'", "'\t'", "' '", "'!'", "'\"'", "'#'", "'$'", "'%'",
+	"", "'\t'", "'\n'", "'\r'", "' '", "'!'", "'\"'", "'#'", "'$'", "'%'",
 	"'&'", "'''", "'('", "')'", "'*'", "'+'", "','", "'-'", "'.'", "'/'", "",
 	"':'", "';'", "'<'", "'='", "'>'", "'?'", "'@'", "", "'['", "'\\'", "']'",
-	"'^'", "'_'", "'`'", "", "'{'", "'|'", "'}'", "'~'",
+	"'^'", "'_'", "'`'", "", "'{'", "'|'", "'}'", "'~'", "'\u007F'",
 }
 var symbolicNames = []string{
-	"", "CRLF", "DEL", "HTAB", "SP", "Exclamation", "DQuote", "Hash", "Dollar",
+	"", "TAB", "LF", "CR", "SP", "Exclamation", "DQuote", "Hash", "Dollar",
 	"Percent", "Ampersand", "SQuote", "LParens", "RParens", "Asterisk", "Plus",
 	"Comma", "Minus", "Period", "Slash", "Digit", "Colon", "Semicolon", "Less",
 	"Equal", "Greater", "Question", "At", "AlphaUpper", "LBracket", "Backslash",
 	"RBracket", "Caret", "Underscore", "Backtick", "AlphaLower", "LCurly",
-	"Pipe", "RCurly", "Tilde",
+	"Pipe", "RCurly", "Tilde", "DEL",
 }
 
 var ruleNames = []string{
@@ -174,7 +178,7 @@ var ruleNames = []string{
 	"dotAtomText", "dotAtom", "qtext", "qcontent", "quotedString", "word",
 	"phrase", "unstructured", "address", "mailbox", "nameAddr", "angleAddr",
 	"group", "displayName", "mailboxList", "addressList", "groupList", "addrSpec",
-	"localPart", "domain", "domainLiteral", "dtext", "wsp", "vchar",
+	"localPart", "domain", "domainLiteral", "dtext", "crlf", "wsp", "vchar",
 }
 var decisionToDFA = make([]*antlr.DFA, len(deserializedATN.DecisionToState))
 
@@ -205,9 +209,9 @@ func NewAddressParser(input antlr.TokenStream) *AddressParser {
 // AddressParser tokens.
 const (
 	AddressParserEOF         = antlr.TokenEOF
-	AddressParserCRLF        = 1
-	AddressParserDEL         = 2
-	AddressParserHTAB        = 3
+	AddressParserTAB         = 1
+	AddressParserLF          = 2
+	AddressParserCR          = 3
 	AddressParserSP          = 4
 	AddressParserExclamation = 5
 	AddressParserDQuote      = 6
@@ -244,6 +248,7 @@ const (
 	AddressParserPipe        = 37
 	AddressParserRCurly      = 38
 	AddressParserTilde       = 39
+	AddressParserDEL         = 40
 )
 
 // AddressParser rules.
@@ -278,8 +283,9 @@ const (
 	AddressParserRULE_domain        = 27
 	AddressParserRULE_domainLiteral = 28
 	AddressParserRULE_dtext         = 29
-	AddressParserRULE_wsp           = 30
-	AddressParserRULE_vchar         = 31
+	AddressParserRULE_crlf          = 30
+	AddressParserRULE_wsp           = 31
+	AddressParserRULE_vchar         = 32
 )
 
 // IQuotedPairContext is an interface to support dynamic dispatch.
@@ -386,22 +392,22 @@ func (p *AddressParser) QuotedPair() (localctx IQuotedPairContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(64)
+		p.SetState(66)
 		p.Match(AddressParserBackslash)
 	}
-	p.SetState(67)
+	p.SetState(69)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case AddressParserExclamation, AddressParserDQuote, AddressParserHash, AddressParserDollar, AddressParserPercent, AddressParserAmpersand, AddressParserSQuote, AddressParserLParens, AddressParserRParens, AddressParserAsterisk, AddressParserPlus, AddressParserComma, AddressParserMinus, AddressParserPeriod, AddressParserSlash, AddressParserDigit, AddressParserColon, AddressParserSemicolon, AddressParserLess, AddressParserEqual, AddressParserGreater, AddressParserQuestion, AddressParserAt, AddressParserAlphaUpper, AddressParserLBracket, AddressParserBackslash, AddressParserRBracket, AddressParserCaret, AddressParserUnderscore, AddressParserBacktick, AddressParserAlphaLower, AddressParserLCurly, AddressParserPipe, AddressParserRCurly, AddressParserTilde:
 		{
-			p.SetState(65)
+			p.SetState(67)
 			p.Vchar()
 		}
 
-	case AddressParserHTAB, AddressParserSP:
+	case AddressParserTAB, AddressParserSP:
 		{
-			p.SetState(66)
+			p.SetState(68)
 			p.Wsp()
 		}
 
@@ -450,8 +456,14 @@ func NewFwsContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoking
 
 func (s *FwsContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *FwsContext) CRLF() antlr.TerminalNode {
-	return s.GetToken(AddressParserCRLF, 0)
+func (s *FwsContext) Crlf() ICrlfContext {
+	var t = s.GetTypedRuleContext(reflect.TypeOf((*ICrlfContext)(nil)).Elem(), 0)
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ICrlfContext)
 }
 
 func (s *FwsContext) AllWsp() []IWspContext {
@@ -521,33 +533,38 @@ func (p *AddressParser) Fws() (localctx IFwsContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(72)
+	p.SetState(78)
 	p.GetErrorHandler().Sync(p)
-	_la = p.GetTokenStream().LA(1)
 
-	for _la == AddressParserHTAB || _la == AddressParserSP {
-		{
-			p.SetState(69)
-			p.Wsp()
-		}
-
+	if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 2, p.GetParserRuleContext()) == 1 {
 		p.SetState(74)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
-	}
-	{
-		p.SetState(75)
-		p.Match(AddressParserCRLF)
-	}
 
-	p.SetState(78)
+		for _la == AddressParserTAB || _la == AddressParserSP {
+			{
+				p.SetState(71)
+				p.Wsp()
+			}
+
+			p.SetState(76)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
+		}
+		{
+			p.SetState(77)
+			p.Crlf()
+		}
+
+	}
+	p.SetState(81)
 	p.GetErrorHandler().Sync(p)
 	_alt = 1
 	for ok := true; ok; ok = _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		switch _alt {
 		case 1:
 			{
-				p.SetState(77)
+				p.SetState(80)
 				p.Wsp()
 			}
 
@@ -555,9 +572,9 @@ func (p *AddressParser) Fws() (localctx IFwsContext) {
 			panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 		}
 
-		p.SetState(80)
+		p.SetState(83)
 		p.GetErrorHandler().Sync(p)
-		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 2, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 3, p.GetParserRuleContext())
 	}
 
 	return localctx
@@ -772,7 +789,7 @@ func (p *AddressParser) Ctext() (localctx ICtextContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(82)
+		p.SetState(85)
 		_la = p.GetTokenStream().LA(1)
 
 		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserExclamation)|(1<<AddressParserDQuote)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserComma)|(1<<AddressParserMinus)|(1<<AddressParserPeriod)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserColon)|(1<<AddressParserSemicolon)|(1<<AddressParserLess)|(1<<AddressParserEqual)|(1<<AddressParserGreater)|(1<<AddressParserQuestion)|(1<<AddressParserAt)|(1<<AddressParserAlphaUpper)|(1<<AddressParserLBracket)|(1<<AddressParserRBracket))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0)) {
@@ -894,28 +911,28 @@ func (p *AddressParser) Ccontent() (localctx ICcontentContext) {
 		}
 	}()
 
-	p.SetState(87)
+	p.SetState(90)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case AddressParserExclamation, AddressParserDQuote, AddressParserHash, AddressParserDollar, AddressParserPercent, AddressParserAmpersand, AddressParserSQuote, AddressParserAsterisk, AddressParserPlus, AddressParserComma, AddressParserMinus, AddressParserPeriod, AddressParserSlash, AddressParserDigit, AddressParserColon, AddressParserSemicolon, AddressParserLess, AddressParserEqual, AddressParserGreater, AddressParserQuestion, AddressParserAt, AddressParserAlphaUpper, AddressParserLBracket, AddressParserRBracket, AddressParserCaret, AddressParserUnderscore, AddressParserBacktick, AddressParserAlphaLower, AddressParserLCurly, AddressParserPipe, AddressParserRCurly, AddressParserTilde:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(84)
+			p.SetState(87)
 			p.Ctext()
 		}
 
 	case AddressParserBackslash:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(85)
+			p.SetState(88)
 			p.QuotedPair()
 		}
 
 	case AddressParserLParens:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(86)
+			p.SetState(89)
 			p.Comment()
 		}
 
@@ -1063,49 +1080,49 @@ func (p *AddressParser) Comment() (localctx ICommentContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(89)
+		p.SetState(92)
 		p.Match(AddressParserLParens)
 	}
-	p.SetState(96)
+	p.SetState(99)
 	p.GetErrorHandler().Sync(p)
-	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext())
+	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 6, p.GetParserRuleContext())
 
 	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1 {
-			p.SetState(91)
+			p.SetState(94)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP))) != 0 {
+			if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP))) != 0 {
 				{
-					p.SetState(90)
+					p.SetState(93)
 					p.Fws()
 				}
 
 			}
 			{
-				p.SetState(93)
+				p.SetState(96)
 				p.Ccontent()
 			}
 
 		}
-		p.SetState(98)
+		p.SetState(101)
 		p.GetErrorHandler().Sync(p)
-		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 5, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 6, p.GetParserRuleContext())
 	}
-	p.SetState(100)
+	p.SetState(103)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP))) != 0 {
 		{
-			p.SetState(99)
+			p.SetState(102)
 			p.Fws()
 		}
 
 	}
 	{
-		p.SetState(102)
+		p.SetState(105)
 		p.Match(AddressParserRParens)
 	}
 
@@ -1239,30 +1256,30 @@ func (p *AddressParser) Cfws() (localctx ICfwsContext) {
 
 	var _alt int
 
-	p.SetState(116)
+	p.SetState(119)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 10, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 11, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
-		p.SetState(108)
+		p.SetState(111)
 		p.GetErrorHandler().Sync(p)
 		_alt = 1
 		for ok := true; ok; ok = _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 			switch _alt {
 			case 1:
-				p.SetState(105)
+				p.SetState(108)
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 
-				if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP))) != 0 {
+				if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP))) != 0 {
 					{
-						p.SetState(104)
+						p.SetState(107)
 						p.Fws()
 					}
 
 				}
 				{
-					p.SetState(107)
+					p.SetState(110)
 					p.Comment()
 				}
 
@@ -1270,16 +1287,16 @@ func (p *AddressParser) Cfws() (localctx ICfwsContext) {
 				panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 			}
 
-			p.SetState(110)
+			p.SetState(113)
 			p.GetErrorHandler().Sync(p)
-			_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 8, p.GetParserRuleContext())
+			_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 9, p.GetParserRuleContext())
 		}
-		p.SetState(113)
+		p.SetState(116)
 		p.GetErrorHandler().Sync(p)
 
-		if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 9, p.GetParserRuleContext()) == 1 {
+		if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 10, p.GetParserRuleContext()) == 1 {
 			{
-				p.SetState(112)
+				p.SetState(115)
 				p.Fws()
 			}
 
@@ -1288,7 +1305,7 @@ func (p *AddressParser) Cfws() (localctx ICfwsContext) {
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(115)
+			p.SetState(118)
 			p.Fws()
 		}
 
@@ -1466,7 +1483,7 @@ func (p *AddressParser) Atext() (localctx IAtextContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(118)
+		p.SetState(121)
 		_la = p.GetTokenStream().LA(1)
 
 		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserExclamation)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserMinus)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserEqual)|(1<<AddressParserQuestion)|(1<<AddressParserAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0)) {
@@ -1608,25 +1625,25 @@ func (p *AddressParser) Atom() (localctx IAtomContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(121)
+	p.SetState(124)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
-			p.SetState(120)
+			p.SetState(123)
 			p.Cfws()
 		}
 
 	}
-	p.SetState(124)
+	p.SetState(127)
 	p.GetErrorHandler().Sync(p)
 	_alt = 1
 	for ok := true; ok; ok = _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		switch _alt {
 		case 1:
 			{
-				p.SetState(123)
+				p.SetState(126)
 				p.Atext()
 			}
 
@@ -1634,16 +1651,16 @@ func (p *AddressParser) Atom() (localctx IAtomContext) {
 			panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 		}
 
-		p.SetState(126)
+		p.SetState(129)
 		p.GetErrorHandler().Sync(p)
-		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 12, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 13, p.GetParserRuleContext())
 	}
-	p.SetState(129)
+	p.SetState(132)
 	p.GetErrorHandler().Sync(p)
 
-	if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 13, p.GetParserRuleContext()) == 1 {
+	if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 14, p.GetParserRuleContext()) == 1 {
 		{
-			p.SetState(128)
+			p.SetState(131)
 			p.Cfws()
 		}
 
@@ -1763,45 +1780,45 @@ func (p *AddressParser) DotAtomText() (localctx IDotAtomTextContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(132)
+	p.SetState(135)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for ok := true; ok; ok = (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserExclamation)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserMinus)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserEqual)|(1<<AddressParserQuestion)|(1<<AddressParserAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0) {
 		{
-			p.SetState(131)
+			p.SetState(134)
 			p.Atext()
 		}
 
-		p.SetState(134)
+		p.SetState(137)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
-	p.SetState(144)
+	p.SetState(147)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for _la == AddressParserPeriod {
 		{
-			p.SetState(136)
+			p.SetState(139)
 			p.Match(AddressParserPeriod)
 		}
-		p.SetState(138)
+		p.SetState(141)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
 		for ok := true; ok; ok = (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserExclamation)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserMinus)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserEqual)|(1<<AddressParserQuestion)|(1<<AddressParserAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0) {
 			{
-				p.SetState(137)
+				p.SetState(140)
 				p.Atext()
 			}
 
-			p.SetState(140)
+			p.SetState(143)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 		}
 
-		p.SetState(146)
+		p.SetState(149)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -1922,28 +1939,28 @@ func (p *AddressParser) DotAtom() (localctx IDotAtomContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(148)
+	p.SetState(151)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
-			p.SetState(147)
+			p.SetState(150)
 			p.Cfws()
 		}
 
 	}
 	{
-		p.SetState(150)
+		p.SetState(153)
 		p.DotAtomText()
 	}
-	p.SetState(152)
+	p.SetState(155)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
-			p.SetState(151)
+			p.SetState(154)
 			p.Cfws()
 		}
 
@@ -2165,7 +2182,7 @@ func (p *AddressParser) Qtext() (localctx IQtextContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(154)
+		p.SetState(157)
 		_la = p.GetTokenStream().LA(1)
 
 		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserExclamation)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserLParens)|(1<<AddressParserRParens)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserComma)|(1<<AddressParserMinus)|(1<<AddressParserPeriod)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserColon)|(1<<AddressParserSemicolon)|(1<<AddressParserLess)|(1<<AddressParserEqual)|(1<<AddressParserGreater)|(1<<AddressParserQuestion)|(1<<AddressParserAt)|(1<<AddressParserAlphaUpper)|(1<<AddressParserLBracket)|(1<<AddressParserRBracket))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0)) {
@@ -2277,21 +2294,21 @@ func (p *AddressParser) Qcontent() (localctx IQcontentContext) {
 		}
 	}()
 
-	p.SetState(158)
+	p.SetState(161)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
 	case AddressParserExclamation, AddressParserHash, AddressParserDollar, AddressParserPercent, AddressParserAmpersand, AddressParserSQuote, AddressParserLParens, AddressParserRParens, AddressParserAsterisk, AddressParserPlus, AddressParserComma, AddressParserMinus, AddressParserPeriod, AddressParserSlash, AddressParserDigit, AddressParserColon, AddressParserSemicolon, AddressParserLess, AddressParserEqual, AddressParserGreater, AddressParserQuestion, AddressParserAt, AddressParserAlphaUpper, AddressParserLBracket, AddressParserRBracket, AddressParserCaret, AddressParserUnderscore, AddressParserBacktick, AddressParserAlphaLower, AddressParserLCurly, AddressParserPipe, AddressParserRCurly, AddressParserTilde:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(156)
+			p.SetState(159)
 			p.Qtext()
 		}
 
 	case AddressParserBackslash:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(157)
+			p.SetState(160)
 			p.QuotedPair()
 		}
 
@@ -2461,69 +2478,69 @@ func (p *AddressParser) QuotedString() (localctx IQuotedStringContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(161)
+	p.SetState(164)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
-			p.SetState(160)
+			p.SetState(163)
 			p.Cfws()
 		}
 
 	}
 	{
-		p.SetState(163)
+		p.SetState(166)
 		p.Match(AddressParserDQuote)
 	}
-	p.SetState(170)
+	p.SetState(173)
 	p.GetErrorHandler().Sync(p)
-	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 22, p.GetParserRuleContext())
+	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 23, p.GetParserRuleContext())
 
 	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1 {
-			p.SetState(165)
+			p.SetState(168)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP))) != 0 {
+			if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP))) != 0 {
 				{
-					p.SetState(164)
+					p.SetState(167)
 					p.Fws()
 				}
 
 			}
 			{
-				p.SetState(167)
+				p.SetState(170)
 				p.Qcontent()
 			}
 
 		}
-		p.SetState(172)
+		p.SetState(175)
 		p.GetErrorHandler().Sync(p)
-		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 22, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 23, p.GetParserRuleContext())
 	}
-	p.SetState(174)
+	p.SetState(177)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP))) != 0 {
 		{
-			p.SetState(173)
+			p.SetState(176)
 			p.Fws()
 		}
 
 	}
 	{
-		p.SetState(176)
+		p.SetState(179)
 		p.Match(AddressParserDQuote)
 	}
-	p.SetState(178)
+	p.SetState(181)
 	p.GetErrorHandler().Sync(p)
 
-	if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 24, p.GetParserRuleContext()) == 1 {
+	if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 25, p.GetParserRuleContext()) == 1 {
 		{
-			p.SetState(177)
+			p.SetState(180)
 			p.Cfws()
 		}
 
@@ -2630,20 +2647,20 @@ func (p *AddressParser) Word() (localctx IWordContext) {
 		}
 	}()
 
-	p.SetState(182)
+	p.SetState(185)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 25, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 26, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(180)
+			p.SetState(183)
 			p.Atom()
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(181)
+			p.SetState(184)
 			p.QuotedString()
 		}
 
@@ -2756,14 +2773,14 @@ func (p *AddressParser) Phrase() (localctx IPhraseContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(185)
+	p.SetState(188)
 	p.GetErrorHandler().Sync(p)
 	_alt = 1
 	for ok := true; ok; ok = _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		switch _alt {
 		case 1:
 			{
-				p.SetState(184)
+				p.SetState(187)
 				p.Word()
 			}
 
@@ -2771,9 +2788,9 @@ func (p *AddressParser) Phrase() (localctx IPhraseContext) {
 			panic(antlr.NewNoViableAltException(p, nil, nil, nil, nil, nil))
 		}
 
-		p.SetState(187)
+		p.SetState(190)
 		p.GetErrorHandler().Sync(p)
-		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 26, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 27, p.GetParserRuleContext())
 	}
 
 	return localctx
@@ -2930,44 +2947,44 @@ func (p *AddressParser) Unstructured() (localctx IUnstructuredContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(195)
+	p.SetState(198)
 	p.GetErrorHandler().Sync(p)
-	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 28, p.GetParserRuleContext())
+	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 29, p.GetParserRuleContext())
 
 	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 		if _alt == 1 {
-			p.SetState(190)
+			p.SetState(193)
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP))) != 0 {
+			if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP))) != 0 {
 				{
-					p.SetState(189)
+					p.SetState(192)
 					p.Fws()
 				}
 
 			}
 			{
-				p.SetState(192)
+				p.SetState(195)
 				p.Vchar()
 			}
 
 		}
-		p.SetState(197)
+		p.SetState(200)
 		p.GetErrorHandler().Sync(p)
-		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 28, p.GetParserRuleContext())
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 29, p.GetParserRuleContext())
 	}
-	p.SetState(201)
+	p.SetState(204)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for _la == AddressParserHTAB || _la == AddressParserSP {
+	for _la == AddressParserTAB || _la == AddressParserSP {
 		{
-			p.SetState(198)
+			p.SetState(201)
 			p.Wsp()
 		}
 
-		p.SetState(203)
+		p.SetState(206)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -3073,20 +3090,20 @@ func (p *AddressParser) Address() (localctx IAddressContext) {
 		}
 	}()
 
-	p.SetState(206)
+	p.SetState(209)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 30, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 31, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(204)
+			p.SetState(207)
 			p.Mailbox()
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(205)
+			p.SetState(208)
 			p.Group()
 		}
 
@@ -3193,20 +3210,20 @@ func (p *AddressParser) Mailbox() (localctx IMailboxContext) {
 		}
 	}()
 
-	p.SetState(210)
+	p.SetState(213)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 31, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 32, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(208)
+			p.SetState(211)
 			p.NameAddr()
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(209)
+			p.SetState(212)
 			p.AddrSpec()
 		}
 
@@ -3314,18 +3331,18 @@ func (p *AddressParser) NameAddr() (localctx INameAddrContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(213)
+	p.SetState(216)
 	p.GetErrorHandler().Sync(p)
 
-	if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 32, p.GetParserRuleContext()) == 1 {
+	if p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 33, p.GetParserRuleContext()) == 1 {
 		{
-			p.SetState(212)
+			p.SetState(215)
 			p.DisplayName()
 		}
 
 	}
 	{
-		p.SetState(215)
+		p.SetState(218)
 		p.AngleAddr()
 	}
 
@@ -3453,36 +3470,36 @@ func (p *AddressParser) AngleAddr() (localctx IAngleAddrContext) {
 	}()
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(218)
+	p.SetState(221)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
-			p.SetState(217)
+			p.SetState(220)
 			p.Cfws()
 		}
 
 	}
 	{
-		p.SetState(220)
+		p.SetState(223)
 		p.Match(AddressParserLess)
 	}
 	{
-		p.SetState(221)
+		p.SetState(224)
 		p.AddrSpec()
 	}
 	{
-		p.SetState(222)
+		p.SetState(225)
 		p.Match(AddressParserGreater)
 	}
-	p.SetState(224)
+	p.SetState(227)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
-			p.SetState(223)
+			p.SetState(226)
 			p.Cfws()
 		}
 
@@ -3610,35 +3627,35 @@ func (p *AddressParser) Group() (localctx IGroupContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(226)
+		p.SetState(229)
 		p.DisplayName()
 	}
 	{
-		p.SetState(227)
+		p.SetState(230)
 		p.Match(AddressParserColon)
 	}
-	p.SetState(229)
+	p.SetState(232)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserExclamation)|(1<<AddressParserDQuote)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserLParens)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserMinus)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserLess)|(1<<AddressParserEqual)|(1<<AddressParserQuestion)|(1<<AddressParserAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0) {
+	if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP)|(1<<AddressParserExclamation)|(1<<AddressParserDQuote)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserLParens)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserMinus)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserLess)|(1<<AddressParserEqual)|(1<<AddressParserQuestion)|(1<<AddressParserAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0) {
 		{
-			p.SetState(228)
+			p.SetState(231)
 			p.GroupList()
 		}
 
 	}
 	{
-		p.SetState(231)
+		p.SetState(234)
 		p.Match(AddressParserSemicolon)
 	}
-	p.SetState(233)
+	p.SetState(236)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
-			p.SetState(232)
+			p.SetState(235)
 			p.Cfws()
 		}
 
@@ -3737,7 +3754,7 @@ func (p *AddressParser) DisplayName() (localctx IDisplayNameContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(235)
+		p.SetState(238)
 		p.Phrase()
 	}
 
@@ -3856,24 +3873,24 @@ func (p *AddressParser) MailboxList() (localctx IMailboxListContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(237)
+		p.SetState(240)
 		p.Mailbox()
 	}
-	p.SetState(242)
+	p.SetState(245)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for _la == AddressParserComma {
 		{
-			p.SetState(238)
+			p.SetState(241)
 			p.Match(AddressParserComma)
 		}
 		{
-			p.SetState(239)
+			p.SetState(242)
 			p.Mailbox()
 		}
 
-		p.SetState(244)
+		p.SetState(247)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -3993,24 +4010,24 @@ func (p *AddressParser) AddressList() (localctx IAddressListContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(245)
+		p.SetState(248)
 		p.Address()
 	}
-	p.SetState(250)
+	p.SetState(253)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
 	for _la == AddressParserComma {
 		{
-			p.SetState(246)
+			p.SetState(249)
 			p.Match(AddressParserComma)
 		}
 		{
-			p.SetState(247)
+			p.SetState(250)
 			p.Address()
 		}
 
-		p.SetState(252)
+		p.SetState(255)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 	}
@@ -4116,20 +4133,20 @@ func (p *AddressParser) GroupList() (localctx IGroupListContext) {
 		}
 	}()
 
-	p.SetState(255)
+	p.SetState(258)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 39, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 40, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(253)
+			p.SetState(256)
 			p.MailboxList()
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(254)
+			p.SetState(257)
 			p.Cfws()
 		}
 
@@ -4242,15 +4259,15 @@ func (p *AddressParser) AddrSpec() (localctx IAddrSpecContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(257)
+		p.SetState(260)
 		p.LocalPart()
 	}
 	{
-		p.SetState(258)
+		p.SetState(261)
 		p.Match(AddressParserAt)
 	}
 	{
-		p.SetState(259)
+		p.SetState(262)
 		p.Domain()
 	}
 
@@ -4355,20 +4372,20 @@ func (p *AddressParser) LocalPart() (localctx ILocalPartContext) {
 		}
 	}()
 
-	p.SetState(263)
+	p.SetState(266)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 40, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 41, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(261)
+			p.SetState(264)
 			p.DotAtom()
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(262)
+			p.SetState(265)
 			p.QuotedString()
 		}
 
@@ -4475,20 +4492,20 @@ func (p *AddressParser) Domain() (localctx IDomainContext) {
 		}
 	}()
 
-	p.SetState(267)
+	p.SetState(270)
 	p.GetErrorHandler().Sync(p)
-	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 41, p.GetParserRuleContext()) {
+	switch p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 42, p.GetParserRuleContext()) {
 	case 1:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(265)
+			p.SetState(268)
 			p.DotAtom()
 		}
 
 	case 2:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(266)
+			p.SetState(269)
 			p.DomainLiteral()
 		}
 
@@ -4653,58 +4670,73 @@ func (p *AddressParser) DomainLiteral() (localctx IDomainLiteralContext) {
 		}
 	}()
 
+	var _alt int
+
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(270)
+	p.SetState(273)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
-			p.SetState(269)
+			p.SetState(272)
 			p.Cfws()
 		}
 
 	}
 	{
-		p.SetState(272)
+		p.SetState(275)
 		p.Match(AddressParserLBracket)
 	}
-	p.SetState(279)
+	p.SetState(282)
 	p.GetErrorHandler().Sync(p)
-	_la = p.GetTokenStream().LA(1)
+	_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 45, p.GetParserRuleContext())
 
-	for (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserExclamation)|(1<<AddressParserDQuote)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserLParens)|(1<<AddressParserRParens)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserComma)|(1<<AddressParserMinus)|(1<<AddressParserPeriod)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserColon)|(1<<AddressParserSemicolon)|(1<<AddressParserLess)|(1<<AddressParserEqual)|(1<<AddressParserGreater)|(1<<AddressParserQuestion)|(1<<AddressParserAt)|(1<<AddressParserAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0) {
-		p.SetState(274)
-		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
+	for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
+		if _alt == 1 {
+			p.SetState(277)
+			p.GetErrorHandler().Sync(p)
+			_la = p.GetTokenStream().LA(1)
 
-		if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP))) != 0 {
+			if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP))) != 0 {
+				{
+					p.SetState(276)
+					p.Fws()
+				}
+
+			}
 			{
-				p.SetState(273)
-				p.Fws()
+				p.SetState(279)
+				p.Dtext()
 			}
 
 		}
-		{
-			p.SetState(276)
-			p.Dtext()
-		}
-
-		p.SetState(281)
+		p.SetState(284)
 		p.GetErrorHandler().Sync(p)
-		_la = p.GetTokenStream().LA(1)
+		_alt = p.GetInterpreter().AdaptivePredict(p.GetTokenStream(), 45, p.GetParserRuleContext())
 	}
-	{
-		p.SetState(282)
-		p.Match(AddressParserRBracket)
-	}
-	p.SetState(284)
+	p.SetState(286)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP))) != 0 {
 		{
-			p.SetState(283)
+			p.SetState(285)
+			p.Fws()
+		}
+
+	}
+	{
+		p.SetState(288)
+		p.Match(AddressParserRBracket)
+	}
+	p.SetState(290)
+	p.GetErrorHandler().Sync(p)
+	_la = p.GetTokenStream().LA(1)
+
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserTAB)|(1<<AddressParserCR)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
+		{
+			p.SetState(289)
 			p.Cfws()
 		}
 
@@ -4922,7 +4954,7 @@ func (p *AddressParser) Dtext() (localctx IDtextContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(286)
+		p.SetState(292)
 		_la = p.GetTokenStream().LA(1)
 
 		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserExclamation)|(1<<AddressParserDQuote)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserLParens)|(1<<AddressParserRParens)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserComma)|(1<<AddressParserMinus)|(1<<AddressParserPeriod)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserColon)|(1<<AddressParserSemicolon)|(1<<AddressParserLess)|(1<<AddressParserEqual)|(1<<AddressParserGreater)|(1<<AddressParserQuestion)|(1<<AddressParserAt)|(1<<AddressParserAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0)) {
@@ -4931,6 +4963,105 @@ func (p *AddressParser) Dtext() (localctx IDtextContext) {
 			p.GetErrorHandler().ReportMatch(p)
 			p.Consume()
 		}
+	}
+
+	return localctx
+}
+
+// ICrlfContext is an interface to support dynamic dispatch.
+type ICrlfContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// IsCrlfContext differentiates from other interfaces.
+	IsCrlfContext()
+}
+
+type CrlfContext struct {
+	*antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyCrlfContext() *CrlfContext {
+	var p = new(CrlfContext)
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
+	p.RuleIndex = AddressParserRULE_crlf
+	return p
+}
+
+func (*CrlfContext) IsCrlfContext() {}
+
+func NewCrlfContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *CrlfContext {
+	var p = new(CrlfContext)
+
+	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = AddressParserRULE_crlf
+
+	return p
+}
+
+func (s *CrlfContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *CrlfContext) CR() antlr.TerminalNode {
+	return s.GetToken(AddressParserCR, 0)
+}
+
+func (s *CrlfContext) LF() antlr.TerminalNode {
+	return s.GetToken(AddressParserLF, 0)
+}
+
+func (s *CrlfContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *CrlfContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *CrlfContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AddressParserListener); ok {
+		listenerT.EnterCrlf(s)
+	}
+}
+
+func (s *CrlfContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(AddressParserListener); ok {
+		listenerT.ExitCrlf(s)
+	}
+}
+
+func (p *AddressParser) Crlf() (localctx ICrlfContext) {
+	localctx = NewCrlfContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 60, AddressParserRULE_crlf)
+
+	defer func() {
+		p.ExitRule()
+	}()
+
+	defer func() {
+		if err := recover(); err != nil {
+			if v, ok := err.(antlr.RecognitionException); ok {
+				localctx.SetException(v)
+				p.GetErrorHandler().ReportError(p, v)
+				p.GetErrorHandler().Recover(p, v)
+			} else {
+				panic(err)
+			}
+		}
+	}()
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(294)
+		p.Match(AddressParserCR)
+	}
+	{
+		p.SetState(295)
+		p.Match(AddressParserLF)
 	}
 
 	return localctx
@@ -4978,8 +5109,8 @@ func (s *WspContext) SP() antlr.TerminalNode {
 	return s.GetToken(AddressParserSP, 0)
 }
 
-func (s *WspContext) HTAB() antlr.TerminalNode {
-	return s.GetToken(AddressParserHTAB, 0)
+func (s *WspContext) TAB() antlr.TerminalNode {
+	return s.GetToken(AddressParserTAB, 0)
 }
 
 func (s *WspContext) GetRuleContext() antlr.RuleContext {
@@ -5004,7 +5135,7 @@ func (s *WspContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *AddressParser) Wsp() (localctx IWspContext) {
 	localctx = NewWspContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 60, AddressParserRULE_wsp)
+	p.EnterRule(localctx, 62, AddressParserRULE_wsp)
 	var _la int
 
 	defer func() {
@@ -5025,10 +5156,10 @@ func (p *AddressParser) Wsp() (localctx IWspContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(288)
+		p.SetState(297)
 		_la = p.GetTokenStream().LA(1)
 
-		if !(_la == AddressParserHTAB || _la == AddressParserSP) {
+		if !(_la == AddressParserTAB || _la == AddressParserSP) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
@@ -5239,7 +5370,7 @@ func (s *VcharContext) ExitRule(listener antlr.ParseTreeListener) {
 
 func (p *AddressParser) Vchar() (localctx IVcharContext) {
 	localctx = NewVcharContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 62, AddressParserRULE_vchar)
+	p.EnterRule(localctx, 64, AddressParserRULE_vchar)
 	var _la int
 
 	defer func() {
@@ -5260,7 +5391,7 @@ func (p *AddressParser) Vchar() (localctx IVcharContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(290)
+		p.SetState(299)
 		_la = p.GetTokenStream().LA(1)
 
 		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserExclamation)|(1<<AddressParserDQuote)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserLParens)|(1<<AddressParserRParens)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserComma)|(1<<AddressParserMinus)|(1<<AddressParserPeriod)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserColon)|(1<<AddressParserSemicolon)|(1<<AddressParserLess)|(1<<AddressParserEqual)|(1<<AddressParserGreater)|(1<<AddressParserQuestion)|(1<<AddressParserAt)|(1<<AddressParserAlphaUpper)|(1<<AddressParserLBracket)|(1<<AddressParserBackslash)|(1<<AddressParserRBracket))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0)) {

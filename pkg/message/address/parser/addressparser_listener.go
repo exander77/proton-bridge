@@ -98,6 +98,9 @@ type AddressParserListener interface {
 	// EnterDtext is called when entering the dtext production.
 	EnterDtext(c *DtextContext)
 
+	// EnterCrlf is called when entering the crlf production.
+	EnterCrlf(c *CrlfContext)
+
 	// EnterWsp is called when entering the wsp production.
 	EnterWsp(c *WspContext)
 
@@ -193,6 +196,9 @@ type AddressParserListener interface {
 
 	// ExitDtext is called when exiting the dtext production.
 	ExitDtext(c *DtextContext)
+
+	// ExitCrlf is called when exiting the crlf production.
+	ExitCrlf(c *CrlfContext)
 
 	// ExitWsp is called when exiting the wsp production.
 	ExitWsp(c *WspContext)

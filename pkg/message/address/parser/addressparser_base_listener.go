@@ -201,6 +201,12 @@ func (s *BaseAddressParserListener) EnterDtext(ctx *DtextContext) {}
 // ExitDtext is called when production dtext is exited.
 func (s *BaseAddressParserListener) ExitDtext(ctx *DtextContext) {}
 
+// EnterCrlf is called when production crlf is entered.
+func (s *BaseAddressParserListener) EnterCrlf(ctx *CrlfContext) {}
+
+// ExitCrlf is called when production crlf is exited.
+func (s *BaseAddressParserListener) ExitCrlf(ctx *CrlfContext) {}
+
 // EnterWsp is called when production wsp is entered.
 func (s *BaseAddressParserListener) EnterWsp(ctx *WspContext) {}
 
