@@ -8,37 +8,38 @@ import (
 
 func TestParse(t *testing.T) {
 	tests := []struct {
-		input              string
-		wantName, wantAddr string
+		input      string
+		name, addr string
 	}{
 		{
-			input:    `user@example.com`,
-			wantAddr: `user@example.com`,
+			input: `user@example.com`,
+			addr:  `user@example.com`,
 		},
 		{
-			input:    `John Doe <jdoe@machine.example>`,
-			wantName: `John Doe`,
-			wantAddr: `jdoe@machine.example`,
+			input: `John Doe <jdoe@machine.example>`,
+			name:  `John Doe`,
+			addr:  `jdoe@machine.example`,
+		},
+		{
+			input: `Mary Smith <mary@example.net>`,
+			name:  `Mary Smith`,
+			addr:  `mary@example.net`,
+		},
+		{
+			input: `"Joe Q. Public" <john.q.public@example.com>`,
+			name:  `Joe Q. Public`,
+			addr:  `john.q.public@example.com`,
+		},
+		{
+			input: `Who? <one@y.test>`,
+			name:  `Who?`,
+			addr:  `one@y.test`,
+		},
+		{
+			input: `<boss@nil.test>`,
+			addr:  `boss@nil.test`,
 		},
 		/*
-			{
-				input: `Mary Smith <mary@example.net>`,
-			},
-			{
-				input: `"Joe Q. Public" <john.q.public@example.com>`,
-			},
-			{
-				input: `Mary Smith <mary@x.test>`,
-			},
-			{
-				input: `jdoe@example.org`,
-			},
-			{
-				input: `Who? <one@y.test>`,
-			},
-			{
-				input: `<boss@nil.test>`,
-			},
 			{
 				input: `"Giant; \"Big\" Box" <sysservices@example.net>`,
 			},
@@ -69,8 +70,8 @@ func TestParse(t *testing.T) {
 		t.Run(test.input, func(t *testing.T) {
 			name, addr, err := Parse(test.input)
 			assert.NoError(t, err)
-			assert.Equal(t, test.wantName, name)
-			assert.Equal(t, test.wantAddr, addr)
+			assert.Equal(t, test.name, name)
+			assert.Equal(t, test.addr, addr)
 		})
 	}
 }

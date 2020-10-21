@@ -13,7 +13,7 @@ func (w *walker) EnterQuotedString(ctx *parser.QuotedStringContext) {
 	logrus.Trace("Entering quotedString")
 
 	w.enter(&quotedString{
-		value: ctx.GetText(),
+		value: ctx.QuotedStringValue().GetText(),
 	})
 }
 

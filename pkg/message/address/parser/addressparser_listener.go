@@ -47,6 +47,9 @@ type AddressParserListener interface {
 	// EnterQcontent is called when entering the qcontent production.
 	EnterQcontent(c *QcontentContext)
 
+	// EnterQuotedStringValue is called when entering the quotedStringValue production.
+	EnterQuotedStringValue(c *QuotedStringValueContext)
+
 	// EnterQuotedString is called when entering the quotedString production.
 	EnterQuotedString(c *QuotedStringContext)
 
@@ -145,6 +148,9 @@ type AddressParserListener interface {
 
 	// ExitQcontent is called when exiting the qcontent production.
 	ExitQcontent(c *QcontentContext)
+
+	// ExitQuotedStringValue is called when exiting the quotedStringValue production.
+	ExitQuotedStringValue(c *QuotedStringValueContext)
 
 	// ExitQuotedString is called when exiting the quotedString production.
 	ExitQuotedString(c *QuotedStringContext)

@@ -99,6 +99,12 @@ func (s *BaseAddressParserListener) EnterQcontent(ctx *QcontentContext) {}
 // ExitQcontent is called when production qcontent is exited.
 func (s *BaseAddressParserListener) ExitQcontent(ctx *QcontentContext) {}
 
+// EnterQuotedStringValue is called when production quotedStringValue is entered.
+func (s *BaseAddressParserListener) EnterQuotedStringValue(ctx *QuotedStringValueContext) {}
+
+// ExitQuotedStringValue is called when production quotedStringValue is exited.
+func (s *BaseAddressParserListener) ExitQuotedStringValue(ctx *QuotedStringValueContext) {}
+
 // EnterQuotedString is called when production quotedString is entered.
 func (s *BaseAddressParserListener) EnterQuotedString(ctx *QuotedStringContext) {}
 

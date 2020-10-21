@@ -142,7 +142,9 @@ qcontent
 	| quotedPair
 	;
 
-quotedString: cfws? DQuote (fws? qcontent)* fws? DQuote cfws?;
+quotedStringValue: (fws? qcontent)*;
+
+quotedString: cfws? DQuote quotedStringValue fws? DQuote cfws?;
 
 word
 	: atom
