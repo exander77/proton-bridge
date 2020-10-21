@@ -74,13 +74,41 @@ domain
 domainLiteral: cfws? LBracket (fws? dtext)* RBracket cfws?;
 
 // dtext           =   ascii 33-90 / ascii 94-126 / obs-dtext
-/*
 dtext
-	: ascii 33-90  // TODO
-	| ascii 94-126 // TODO
+	: Exclamation
+	| DQuote
+	| Hash
+	| Dollar
+	| Percent
+	| Ampersand
+	| SQuote
+	| LParens
+	| RParens
+	| Asterisk
+	| Plus
+	| Comma
+	| Minus
+	| Period
+	| Slash
+	| Digit
+	| Colon
+	| Semicolon
+	| Less
+	| Equal
+	| Greater
+	| Question
+	| At
+	| AlphaUpper
+	| Caret
+	| Underscore
+	| Backtick
+	| AlphaLower
+	| LCurly
+	| Pipe
+	| RCurly
+	| Tilde
 	| obsDtext
 	;
-*/
 
 
 // 3.2.1. Quoted characters
@@ -101,14 +129,41 @@ fws
 	;
 
 // ctext           =   ascii 33-39 / ascii 42-91 / ascii 93-126 / obs-ctext
-/*
 ctext
-	: ascii 33-39  // TODO
-	| aasci 42-91  // TODO
-	| ascii 93-126 // TODO
+	: Exclamation
+	| DQuote
+	| Hash
+	| Dollar
+	| Percent
+	| Ampersand
+	| SQuote
+	| Asterisk
+	| Plus
+	| Comma
+	| Minus
+	| Period
+	| Slash
+	| Digit
+	| Colon
+	| Semicolon
+	| Less
+	| Equal
+	| Greater
+	| Question
+	| At
+	| AlphaUpper
+	| LBracket
+	| RBracket
+	| Caret
+	| Underscore
+	| Backtick
+	| AlphaLower
+	| LCurly
+	| Pipe
+	| RCurly
+	| Tilde
 	| obsCtext
 	;
-*/
 
 // ccontent        =   ctext / quoted-pair / comment
 ccontent
@@ -126,4 +181,47 @@ cfws
 	| fws
 	;
 
-// vchar: hex 21-7E; // TODO
+
+// B.1. Core Rules (RFC5234)
+
+// WSP            =  SP / HTAB
+wsp: SP | HTAB;
+
+// VCHAR          =  %x21-7E
+vchar
+	: Exclamation
+	| DQuote
+	| Hash
+	| Dollar
+	| Percent
+	| Ampersand
+	| SQuote
+	| LParens
+	| RParens
+	| Asterisk
+	| Plus
+	| Comma
+	| Minus
+	| Period
+	| Slash
+	| Digit
+	| Colon
+	| Semicolon
+	| Less
+	| Equal
+	| Greater
+	| Question
+	| At
+	| AlphaUpper
+	| LBracket
+	| Backslash
+	| RBracket
+	| Caret
+	| Underscore
+	| Backtick
+	| AlphaLower
+	| LCurly
+	| Pipe
+	| RCurly
+	| Tilde
+	;
