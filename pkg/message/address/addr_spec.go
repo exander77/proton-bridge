@@ -6,15 +6,21 @@ import (
 )
 
 type addrSpec struct {
-	address string
+	localPart, domain string
+}
+
+func (a *addrSpec) withLocalPart(localPart *localPart) {
+	a.localPart = localPart.value
+}
+
+func (a *addrSpec) withDomain(domain *domain) {
+	a.domain = domain.value
 }
 
 func (w *walker) EnterAddrSpec(ctx *parser.AddrSpecContext) {
 	logrus.Trace("Entering addrSpec")
 
-	w.enter(&addrSpec{
-		address: ctx.GetText(),
-	})
+	w.enter(&addrSpec{})
 }
 
 func (w *walker) ExitAddrSpec(ctx *parser.AddrSpecContext) {

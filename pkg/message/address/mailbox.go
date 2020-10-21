@@ -1,6 +1,8 @@
 package address
 
 import (
+	"fmt"
+
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
 	"github.com/sirupsen/logrus"
 )
@@ -15,7 +17,7 @@ func (m *mailbox) withNameAddr(nameAddr *nameAddr) {
 }
 
 func (m *mailbox) withAddrSpec(addrSpec *addrSpec) {
-	m.address = addrSpec.address
+	m.address = fmt.Sprintf("%v@%v", addrSpec.localPart, addrSpec.domain)
 }
 
 func (w *walker) EnterMailbox(ctx *parser.MailboxContext) {

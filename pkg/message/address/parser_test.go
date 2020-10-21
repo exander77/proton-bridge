@@ -59,12 +59,12 @@ func TestParse(t *testing.T) {
 			name:  `Gogh Fir`,
 			addr:  `gf@example.com`,
 		},
+		{
+			input: `Pete(A nice \) chap) <pete(his account)@silly.test(his host)>`,
+			name:  `Pete`,
+			addr:  `pete@silly.test`,
+		},
 		/*
-			{
-				input: `Pete(A nice \) chap) <pete(his account)@silly.test(his host)>`,
-				name:  `Pete`,
-				addr:  `pete@silly.test`,
-			},
 			{
 				input: `(Empty list)(start)Hidden recipients  :(nobody(that I know))  ;`,
 			},

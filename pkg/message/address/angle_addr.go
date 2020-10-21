@@ -1,6 +1,8 @@
 package address
 
 import (
+	"fmt"
+
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
 	"github.com/sirupsen/logrus"
 )
@@ -10,7 +12,7 @@ type angleAddr struct {
 }
 
 func (a *angleAddr) withAddrSpec(addrSpec *addrSpec) {
-	a.address = addrSpec.address
+	a.address = fmt.Sprintf("%v@%v", addrSpec.localPart, addrSpec.domain)
 }
 
 func (w *walker) EnterAngleAddr(ctx *parser.AngleAddrContext) {
