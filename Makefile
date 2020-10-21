@@ -284,5 +284,5 @@ clean: clean-vendor
 
 .PHONY: antlr
 antlr:
-	antlr4 -Dlanguage=Go pkg/message/address/parser/Address.g4 pkg/message/address/parser/AddressLexer.g4
+	antlr4 -Dlanguage=Go pkg/message/address/parser/AddressParser.g4 pkg/message/address/parser/AddressLexer.g4
 

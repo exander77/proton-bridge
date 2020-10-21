@@ -1,6 +1,6 @@
-// Code generated from pkg/message/address/parser/Address.g4 by ANTLR 4.8. DO NOT EDIT.
+// Code generated from pkg/message/address/parser/AddressParser.g4 by ANTLR 4.8. DO NOT EDIT.
 
-package parser // Address
+package parser // AddressParser
 
 import (
 	"fmt"
@@ -184,12 +184,12 @@ func init() {
 	}
 }
 
-type Address struct {
+type AddressParser struct {
 	*antlr.BaseParser
 }
 
-func NewAddress(input antlr.TokenStream) *Address {
-	this := new(Address)
+func NewAddressParser(input antlr.TokenStream) *AddressParser {
+	this := new(AddressParser)
 
 	this.BaseParser = antlr.NewBaseParser(input)
 
@@ -197,89 +197,89 @@ func NewAddress(input antlr.TokenStream) *Address {
 	this.RuleNames = ruleNames
 	this.LiteralNames = literalNames
 	this.SymbolicNames = symbolicNames
-	this.GrammarFileName = "Address.g4"
+	this.GrammarFileName = "AddressParser.g4"
 
 	return this
 }
 
-// Address tokens.
+// AddressParser tokens.
 const (
-	AddressEOF         = antlr.TokenEOF
-	AddressCRLF        = 1
-	AddressDEL         = 2
-	AddressHTAB        = 3
-	AddressSP          = 4
-	AddressExclamation = 5
-	AddressDQuote      = 6
-	AddressHash        = 7
-	AddressDollar      = 8
-	AddressPercent     = 9
-	AddressAmpersand   = 10
-	AddressSQuote      = 11
-	AddressLParens     = 12
-	AddressRParens     = 13
-	AddressAsterisk    = 14
-	AddressPlus        = 15
-	AddressComma       = 16
-	AddressMinus       = 17
-	AddressPeriod      = 18
-	AddressSlash       = 19
-	AddressDigit       = 20
-	AddressColon       = 21
-	AddressSemicolon   = 22
-	AddressLess        = 23
-	AddressEqual       = 24
-	AddressGreater     = 25
-	AddressQuestion    = 26
-	AddressAt          = 27
-	AddressAlphaUpper  = 28
-	AddressLBracket    = 29
-	AddressBackslash   = 30
-	AddressRBracket    = 31
-	AddressCaret       = 32
-	AddressUnderscore  = 33
-	AddressBacktick    = 34
-	AddressAlphaLower  = 35
-	AddressLCurly      = 36
-	AddressPipe        = 37
-	AddressRCurly      = 38
-	AddressTilde       = 39
+	AddressParserEOF         = antlr.TokenEOF
+	AddressParserCRLF        = 1
+	AddressParserDEL         = 2
+	AddressParserHTAB        = 3
+	AddressParserSP          = 4
+	AddressParserExclamation = 5
+	AddressParserDQuote      = 6
+	AddressParserHash        = 7
+	AddressParserDollar      = 8
+	AddressParserPercent     = 9
+	AddressParserAmpersand   = 10
+	AddressParserSQuote      = 11
+	AddressParserLParens     = 12
+	AddressParserRParens     = 13
+	AddressParserAsterisk    = 14
+	AddressParserPlus        = 15
+	AddressParserComma       = 16
+	AddressParserMinus       = 17
+	AddressParserPeriod      = 18
+	AddressParserSlash       = 19
+	AddressParserDigit       = 20
+	AddressParserColon       = 21
+	AddressParserSemicolon   = 22
+	AddressParserLess        = 23
+	AddressParserEqual       = 24
+	AddressParserGreater     = 25
+	AddressParserQuestion    = 26
+	AddressParserAt          = 27
+	AddressParserAlphaUpper  = 28
+	AddressParserLBracket    = 29
+	AddressParserBackslash   = 30
+	AddressParserRBracket    = 31
+	AddressParserCaret       = 32
+	AddressParserUnderscore  = 33
+	AddressParserBacktick    = 34
+	AddressParserAlphaLower  = 35
+	AddressParserLCurly      = 36
+	AddressParserPipe        = 37
+	AddressParserRCurly      = 38
+	AddressParserTilde       = 39
 )
 
-// Address rules.
+// AddressParser rules.
 const (
-	AddressRULE_quotedPair    = 0
-	AddressRULE_fws           = 1
-	AddressRULE_ctext         = 2
-	AddressRULE_ccontent      = 3
-	AddressRULE_comment       = 4
-	AddressRULE_cfws          = 5
-	AddressRULE_atext         = 6
-	AddressRULE_atom          = 7
-	AddressRULE_dotAtomText   = 8
-	AddressRULE_dotAtom       = 9
-	AddressRULE_qtext         = 10
-	AddressRULE_qcontent      = 11
-	AddressRULE_quotedString  = 12
-	AddressRULE_word          = 13
-	AddressRULE_phrase        = 14
-	AddressRULE_unstructured  = 15
-	AddressRULE_address       = 16
-	AddressRULE_mailbox       = 17
-	AddressRULE_nameAddr      = 18
-	AddressRULE_angleAddr     = 19
-	AddressRULE_group         = 20
-	AddressRULE_displayName   = 21
-	AddressRULE_mailboxList   = 22
-	AddressRULE_addressList   = 23
-	AddressRULE_groupList     = 24
-	AddressRULE_addrSpec      = 25
-	AddressRULE_localPart     = 26
-	AddressRULE_domain        = 27
-	AddressRULE_domainLiteral = 28
-	AddressRULE_dtext         = 29
-	AddressRULE_wsp           = 30
-	AddressRULE_vchar         = 31
+	AddressParserRULE_quotedPair    = 0
+	AddressParserRULE_fws           = 1
+	AddressParserRULE_ctext         = 2
+	AddressParserRULE_ccontent      = 3
+	AddressParserRULE_comment       = 4
+	AddressParserRULE_cfws          = 5
+	AddressParserRULE_atext         = 6
+	AddressParserRULE_atom          = 7
+	AddressParserRULE_dotAtomText   = 8
+	AddressParserRULE_dotAtom       = 9
+	AddressParserRULE_qtext         = 10
+	AddressParserRULE_qcontent      = 11
+	AddressParserRULE_quotedString  = 12
+	AddressParserRULE_word          = 13
+	AddressParserRULE_phrase        = 14
+	AddressParserRULE_unstructured  = 15
+	AddressParserRULE_address       = 16
+	AddressParserRULE_mailbox       = 17
+	AddressParserRULE_nameAddr      = 18
+	AddressParserRULE_angleAddr     = 19
+	AddressParserRULE_group         = 20
+	AddressParserRULE_displayName   = 21
+	AddressParserRULE_mailboxList   = 22
+	AddressParserRULE_addressList   = 23
+	AddressParserRULE_groupList     = 24
+	AddressParserRULE_addrSpec      = 25
+	AddressParserRULE_localPart     = 26
+	AddressParserRULE_domain        = 27
+	AddressParserRULE_domainLiteral = 28
+	AddressParserRULE_dtext         = 29
+	AddressParserRULE_wsp           = 30
+	AddressParserRULE_vchar         = 31
 )
 
 // IQuotedPairContext is an interface to support dynamic dispatch.
@@ -301,7 +301,7 @@ type QuotedPairContext struct {
 func NewEmptyQuotedPairContext() *QuotedPairContext {
 	var p = new(QuotedPairContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_quotedPair
+	p.RuleIndex = AddressParserRULE_quotedPair
 	return p
 }
 
@@ -313,7 +313,7 @@ func NewQuotedPairContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_quotedPair
+	p.RuleIndex = AddressParserRULE_quotedPair
 
 	return p
 }
@@ -321,7 +321,7 @@ func NewQuotedPairContext(parser antlr.Parser, parent antlr.ParserRuleContext, i
 func (s *QuotedPairContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *QuotedPairContext) Backslash() antlr.TerminalNode {
-	return s.GetToken(AddressBackslash, 0)
+	return s.GetToken(AddressParserBackslash, 0)
 }
 
 func (s *QuotedPairContext) Vchar() IVcharContext {
@@ -353,20 +353,20 @@ func (s *QuotedPairContext) ToStringTree(ruleNames []string, recog antlr.Recogni
 }
 
 func (s *QuotedPairContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterQuotedPair(s)
 	}
 }
 
 func (s *QuotedPairContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitQuotedPair(s)
 	}
 }
 
-func (p *Address) QuotedPair() (localctx IQuotedPairContext) {
+func (p *AddressParser) QuotedPair() (localctx IQuotedPairContext) {
 	localctx = NewQuotedPairContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 0, AddressRULE_quotedPair)
+	p.EnterRule(localctx, 0, AddressParserRULE_quotedPair)
 
 	defer func() {
 		p.ExitRule()
@@ -387,19 +387,19 @@ func (p *Address) QuotedPair() (localctx IQuotedPairContext) {
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(64)
-		p.Match(AddressBackslash)
+		p.Match(AddressParserBackslash)
 	}
 	p.SetState(67)
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
-	case AddressExclamation, AddressDQuote, AddressHash, AddressDollar, AddressPercent, AddressAmpersand, AddressSQuote, AddressLParens, AddressRParens, AddressAsterisk, AddressPlus, AddressComma, AddressMinus, AddressPeriod, AddressSlash, AddressDigit, AddressColon, AddressSemicolon, AddressLess, AddressEqual, AddressGreater, AddressQuestion, AddressAt, AddressAlphaUpper, AddressLBracket, AddressBackslash, AddressRBracket, AddressCaret, AddressUnderscore, AddressBacktick, AddressAlphaLower, AddressLCurly, AddressPipe, AddressRCurly, AddressTilde:
+	case AddressParserExclamation, AddressParserDQuote, AddressParserHash, AddressParserDollar, AddressParserPercent, AddressParserAmpersand, AddressParserSQuote, AddressParserLParens, AddressParserRParens, AddressParserAsterisk, AddressParserPlus, AddressParserComma, AddressParserMinus, AddressParserPeriod, AddressParserSlash, AddressParserDigit, AddressParserColon, AddressParserSemicolon, AddressParserLess, AddressParserEqual, AddressParserGreater, AddressParserQuestion, AddressParserAt, AddressParserAlphaUpper, AddressParserLBracket, AddressParserBackslash, AddressParserRBracket, AddressParserCaret, AddressParserUnderscore, AddressParserBacktick, AddressParserAlphaLower, AddressParserLCurly, AddressParserPipe, AddressParserRCurly, AddressParserTilde:
 		{
 			p.SetState(65)
 			p.Vchar()
 		}
 
-	case AddressHTAB, AddressSP:
+	case AddressParserHTAB, AddressParserSP:
 		{
 			p.SetState(66)
 			p.Wsp()
@@ -431,7 +431,7 @@ type FwsContext struct {
 func NewEmptyFwsContext() *FwsContext {
 	var p = new(FwsContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_fws
+	p.RuleIndex = AddressParserRULE_fws
 	return p
 }
 
@@ -443,7 +443,7 @@ func NewFwsContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoking
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_fws
+	p.RuleIndex = AddressParserRULE_fws
 
 	return p
 }
@@ -451,7 +451,7 @@ func NewFwsContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoking
 func (s *FwsContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *FwsContext) CRLF() antlr.TerminalNode {
-	return s.GetToken(AddressCRLF, 0)
+	return s.GetToken(AddressParserCRLF, 0)
 }
 
 func (s *FwsContext) AllWsp() []IWspContext {
@@ -486,20 +486,20 @@ func (s *FwsContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) st
 }
 
 func (s *FwsContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterFws(s)
 	}
 }
 
 func (s *FwsContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitFws(s)
 	}
 }
 
-func (p *Address) Fws() (localctx IFwsContext) {
+func (p *AddressParser) Fws() (localctx IFwsContext) {
 	localctx = NewFwsContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 2, AddressRULE_fws)
+	p.EnterRule(localctx, 2, AddressParserRULE_fws)
 	var _la int
 
 	defer func() {
@@ -525,7 +525,7 @@ func (p *Address) Fws() (localctx IFwsContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for _la == AddressHTAB || _la == AddressSP {
+	for _la == AddressParserHTAB || _la == AddressParserSP {
 		{
 			p.SetState(69)
 			p.Wsp()
@@ -537,7 +537,7 @@ func (p *Address) Fws() (localctx IFwsContext) {
 	}
 	{
 		p.SetState(75)
-		p.Match(AddressCRLF)
+		p.Match(AddressParserCRLF)
 	}
 
 	p.SetState(78)
@@ -582,7 +582,7 @@ type CtextContext struct {
 func NewEmptyCtextContext() *CtextContext {
 	var p = new(CtextContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_ctext
+	p.RuleIndex = AddressParserRULE_ctext
 	return p
 }
 
@@ -594,7 +594,7 @@ func NewCtextContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_ctext
+	p.RuleIndex = AddressParserRULE_ctext
 
 	return p
 }
@@ -602,131 +602,131 @@ func NewCtextContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 func (s *CtextContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *CtextContext) Exclamation() antlr.TerminalNode {
-	return s.GetToken(AddressExclamation, 0)
+	return s.GetToken(AddressParserExclamation, 0)
 }
 
 func (s *CtextContext) DQuote() antlr.TerminalNode {
-	return s.GetToken(AddressDQuote, 0)
+	return s.GetToken(AddressParserDQuote, 0)
 }
 
 func (s *CtextContext) Hash() antlr.TerminalNode {
-	return s.GetToken(AddressHash, 0)
+	return s.GetToken(AddressParserHash, 0)
 }
 
 func (s *CtextContext) Dollar() antlr.TerminalNode {
-	return s.GetToken(AddressDollar, 0)
+	return s.GetToken(AddressParserDollar, 0)
 }
 
 func (s *CtextContext) Percent() antlr.TerminalNode {
-	return s.GetToken(AddressPercent, 0)
+	return s.GetToken(AddressParserPercent, 0)
 }
 
 func (s *CtextContext) Ampersand() antlr.TerminalNode {
-	return s.GetToken(AddressAmpersand, 0)
+	return s.GetToken(AddressParserAmpersand, 0)
 }
 
 func (s *CtextContext) SQuote() antlr.TerminalNode {
-	return s.GetToken(AddressSQuote, 0)
+	return s.GetToken(AddressParserSQuote, 0)
 }
 
 func (s *CtextContext) Asterisk() antlr.TerminalNode {
-	return s.GetToken(AddressAsterisk, 0)
+	return s.GetToken(AddressParserAsterisk, 0)
 }
 
 func (s *CtextContext) Plus() antlr.TerminalNode {
-	return s.GetToken(AddressPlus, 0)
+	return s.GetToken(AddressParserPlus, 0)
 }
 
 func (s *CtextContext) Comma() antlr.TerminalNode {
-	return s.GetToken(AddressComma, 0)
+	return s.GetToken(AddressParserComma, 0)
 }
 
 func (s *CtextContext) Minus() antlr.TerminalNode {
-	return s.GetToken(AddressMinus, 0)
+	return s.GetToken(AddressParserMinus, 0)
 }
 
 func (s *CtextContext) Period() antlr.TerminalNode {
-	return s.GetToken(AddressPeriod, 0)
+	return s.GetToken(AddressParserPeriod, 0)
 }
 
 func (s *CtextContext) Slash() antlr.TerminalNode {
-	return s.GetToken(AddressSlash, 0)
+	return s.GetToken(AddressParserSlash, 0)
 }
 
 func (s *CtextContext) Digit() antlr.TerminalNode {
-	return s.GetToken(AddressDigit, 0)
+	return s.GetToken(AddressParserDigit, 0)
 }
 
 func (s *CtextContext) Colon() antlr.TerminalNode {
-	return s.GetToken(AddressColon, 0)
+	return s.GetToken(AddressParserColon, 0)
 }
 
 func (s *CtextContext) Semicolon() antlr.TerminalNode {
-	return s.GetToken(AddressSemicolon, 0)
+	return s.GetToken(AddressParserSemicolon, 0)
 }
 
 func (s *CtextContext) Less() antlr.TerminalNode {
-	return s.GetToken(AddressLess, 0)
+	return s.GetToken(AddressParserLess, 0)
 }
 
 func (s *CtextContext) Equal() antlr.TerminalNode {
-	return s.GetToken(AddressEqual, 0)
+	return s.GetToken(AddressParserEqual, 0)
 }
 
 func (s *CtextContext) Greater() antlr.TerminalNode {
-	return s.GetToken(AddressGreater, 0)
+	return s.GetToken(AddressParserGreater, 0)
 }
 
 func (s *CtextContext) Question() antlr.TerminalNode {
-	return s.GetToken(AddressQuestion, 0)
+	return s.GetToken(AddressParserQuestion, 0)
 }
 
 func (s *CtextContext) At() antlr.TerminalNode {
-	return s.GetToken(AddressAt, 0)
+	return s.GetToken(AddressParserAt, 0)
 }
 
 func (s *CtextContext) AlphaUpper() antlr.TerminalNode {
-	return s.GetToken(AddressAlphaUpper, 0)
+	return s.GetToken(AddressParserAlphaUpper, 0)
 }
 
 func (s *CtextContext) LBracket() antlr.TerminalNode {
-	return s.GetToken(AddressLBracket, 0)
+	return s.GetToken(AddressParserLBracket, 0)
 }
 
 func (s *CtextContext) RBracket() antlr.TerminalNode {
-	return s.GetToken(AddressRBracket, 0)
+	return s.GetToken(AddressParserRBracket, 0)
 }
 
 func (s *CtextContext) Caret() antlr.TerminalNode {
-	return s.GetToken(AddressCaret, 0)
+	return s.GetToken(AddressParserCaret, 0)
 }
 
 func (s *CtextContext) Underscore() antlr.TerminalNode {
-	return s.GetToken(AddressUnderscore, 0)
+	return s.GetToken(AddressParserUnderscore, 0)
 }
 
 func (s *CtextContext) Backtick() antlr.TerminalNode {
-	return s.GetToken(AddressBacktick, 0)
+	return s.GetToken(AddressParserBacktick, 0)
 }
 
 func (s *CtextContext) AlphaLower() antlr.TerminalNode {
-	return s.GetToken(AddressAlphaLower, 0)
+	return s.GetToken(AddressParserAlphaLower, 0)
 }
 
 func (s *CtextContext) LCurly() antlr.TerminalNode {
-	return s.GetToken(AddressLCurly, 0)
+	return s.GetToken(AddressParserLCurly, 0)
 }
 
 func (s *CtextContext) Pipe() antlr.TerminalNode {
-	return s.GetToken(AddressPipe, 0)
+	return s.GetToken(AddressParserPipe, 0)
 }
 
 func (s *CtextContext) RCurly() antlr.TerminalNode {
-	return s.GetToken(AddressRCurly, 0)
+	return s.GetToken(AddressParserRCurly, 0)
 }
 
 func (s *CtextContext) Tilde() antlr.TerminalNode {
-	return s.GetToken(AddressTilde, 0)
+	return s.GetToken(AddressParserTilde, 0)
 }
 
 func (s *CtextContext) GetRuleContext() antlr.RuleContext {
@@ -738,20 +738,20 @@ func (s *CtextContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) 
 }
 
 func (s *CtextContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterCtext(s)
 	}
 }
 
 func (s *CtextContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitCtext(s)
 	}
 }
 
-func (p *Address) Ctext() (localctx ICtextContext) {
+func (p *AddressParser) Ctext() (localctx ICtextContext) {
 	localctx = NewCtextContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 4, AddressRULE_ctext)
+	p.EnterRule(localctx, 4, AddressParserRULE_ctext)
 	var _la int
 
 	defer func() {
@@ -775,7 +775,7 @@ func (p *Address) Ctext() (localctx ICtextContext) {
 		p.SetState(82)
 		_la = p.GetTokenStream().LA(1)
 
-		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressExclamation)|(1<<AddressDQuote)|(1<<AddressHash)|(1<<AddressDollar)|(1<<AddressPercent)|(1<<AddressAmpersand)|(1<<AddressSQuote)|(1<<AddressAsterisk)|(1<<AddressPlus)|(1<<AddressComma)|(1<<AddressMinus)|(1<<AddressPeriod)|(1<<AddressSlash)|(1<<AddressDigit)|(1<<AddressColon)|(1<<AddressSemicolon)|(1<<AddressLess)|(1<<AddressEqual)|(1<<AddressGreater)|(1<<AddressQuestion)|(1<<AddressAt)|(1<<AddressAlphaUpper)|(1<<AddressLBracket)|(1<<AddressRBracket))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressCaret-32))|(1<<(AddressUnderscore-32))|(1<<(AddressBacktick-32))|(1<<(AddressAlphaLower-32))|(1<<(AddressLCurly-32))|(1<<(AddressPipe-32))|(1<<(AddressRCurly-32))|(1<<(AddressTilde-32)))) != 0)) {
+		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserExclamation)|(1<<AddressParserDQuote)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserComma)|(1<<AddressParserMinus)|(1<<AddressParserPeriod)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserColon)|(1<<AddressParserSemicolon)|(1<<AddressParserLess)|(1<<AddressParserEqual)|(1<<AddressParserGreater)|(1<<AddressParserQuestion)|(1<<AddressParserAt)|(1<<AddressParserAlphaUpper)|(1<<AddressParserLBracket)|(1<<AddressParserRBracket))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0)) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
@@ -805,7 +805,7 @@ type CcontentContext struct {
 func NewEmptyCcontentContext() *CcontentContext {
 	var p = new(CcontentContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_ccontent
+	p.RuleIndex = AddressParserRULE_ccontent
 	return p
 }
 
@@ -817,7 +817,7 @@ func NewCcontentContext(parser antlr.Parser, parent antlr.ParserRuleContext, inv
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_ccontent
+	p.RuleIndex = AddressParserRULE_ccontent
 
 	return p
 }
@@ -863,20 +863,20 @@ func (s *CcontentContext) ToStringTree(ruleNames []string, recog antlr.Recognize
 }
 
 func (s *CcontentContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterCcontent(s)
 	}
 }
 
 func (s *CcontentContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitCcontent(s)
 	}
 }
 
-func (p *Address) Ccontent() (localctx ICcontentContext) {
+func (p *AddressParser) Ccontent() (localctx ICcontentContext) {
 	localctx = NewCcontentContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 6, AddressRULE_ccontent)
+	p.EnterRule(localctx, 6, AddressParserRULE_ccontent)
 
 	defer func() {
 		p.ExitRule()
@@ -898,21 +898,21 @@ func (p *Address) Ccontent() (localctx ICcontentContext) {
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
-	case AddressExclamation, AddressDQuote, AddressHash, AddressDollar, AddressPercent, AddressAmpersand, AddressSQuote, AddressAsterisk, AddressPlus, AddressComma, AddressMinus, AddressPeriod, AddressSlash, AddressDigit, AddressColon, AddressSemicolon, AddressLess, AddressEqual, AddressGreater, AddressQuestion, AddressAt, AddressAlphaUpper, AddressLBracket, AddressRBracket, AddressCaret, AddressUnderscore, AddressBacktick, AddressAlphaLower, AddressLCurly, AddressPipe, AddressRCurly, AddressTilde:
+	case AddressParserExclamation, AddressParserDQuote, AddressParserHash, AddressParserDollar, AddressParserPercent, AddressParserAmpersand, AddressParserSQuote, AddressParserAsterisk, AddressParserPlus, AddressParserComma, AddressParserMinus, AddressParserPeriod, AddressParserSlash, AddressParserDigit, AddressParserColon, AddressParserSemicolon, AddressParserLess, AddressParserEqual, AddressParserGreater, AddressParserQuestion, AddressParserAt, AddressParserAlphaUpper, AddressParserLBracket, AddressParserRBracket, AddressParserCaret, AddressParserUnderscore, AddressParserBacktick, AddressParserAlphaLower, AddressParserLCurly, AddressParserPipe, AddressParserRCurly, AddressParserTilde:
 		p.EnterOuterAlt(localctx, 1)
 		{
 			p.SetState(84)
 			p.Ctext()
 		}
 
-	case AddressBackslash:
+	case AddressParserBackslash:
 		p.EnterOuterAlt(localctx, 2)
 		{
 			p.SetState(85)
 			p.QuotedPair()
 		}
 
-	case AddressLParens:
+	case AddressParserLParens:
 		p.EnterOuterAlt(localctx, 3)
 		{
 			p.SetState(86)
@@ -945,7 +945,7 @@ type CommentContext struct {
 func NewEmptyCommentContext() *CommentContext {
 	var p = new(CommentContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_comment
+	p.RuleIndex = AddressParserRULE_comment
 	return p
 }
 
@@ -957,7 +957,7 @@ func NewCommentContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_comment
+	p.RuleIndex = AddressParserRULE_comment
 
 	return p
 }
@@ -965,11 +965,11 @@ func NewCommentContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 func (s *CommentContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *CommentContext) LParens() antlr.TerminalNode {
-	return s.GetToken(AddressLParens, 0)
+	return s.GetToken(AddressParserLParens, 0)
 }
 
 func (s *CommentContext) RParens() antlr.TerminalNode {
-	return s.GetToken(AddressRParens, 0)
+	return s.GetToken(AddressParserRParens, 0)
 }
 
 func (s *CommentContext) AllCcontent() []ICcontentContext {
@@ -1027,20 +1027,20 @@ func (s *CommentContext) ToStringTree(ruleNames []string, recog antlr.Recognizer
 }
 
 func (s *CommentContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterComment(s)
 	}
 }
 
 func (s *CommentContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitComment(s)
 	}
 }
 
-func (p *Address) Comment() (localctx ICommentContext) {
+func (p *AddressParser) Comment() (localctx ICommentContext) {
 	localctx = NewCommentContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 8, AddressRULE_comment)
+	p.EnterRule(localctx, 8, AddressParserRULE_comment)
 	var _la int
 
 	defer func() {
@@ -1064,7 +1064,7 @@ func (p *Address) Comment() (localctx ICommentContext) {
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(89)
-		p.Match(AddressLParens)
+		p.Match(AddressParserLParens)
 	}
 	p.SetState(96)
 	p.GetErrorHandler().Sync(p)
@@ -1076,7 +1076,7 @@ func (p *Address) Comment() (localctx ICommentContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP))) != 0 {
+			if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP))) != 0 {
 				{
 					p.SetState(90)
 					p.Fws()
@@ -1097,7 +1097,7 @@ func (p *Address) Comment() (localctx ICommentContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP))) != 0 {
 		{
 			p.SetState(99)
 			p.Fws()
@@ -1106,7 +1106,7 @@ func (p *Address) Comment() (localctx ICommentContext) {
 	}
 	{
 		p.SetState(102)
-		p.Match(AddressRParens)
+		p.Match(AddressParserRParens)
 	}
 
 	return localctx
@@ -1131,7 +1131,7 @@ type CfwsContext struct {
 func NewEmptyCfwsContext() *CfwsContext {
 	var p = new(CfwsContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_cfws
+	p.RuleIndex = AddressParserRULE_cfws
 	return p
 }
 
@@ -1143,7 +1143,7 @@ func NewCfwsContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokin
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_cfws
+	p.RuleIndex = AddressParserRULE_cfws
 
 	return p
 }
@@ -1205,20 +1205,20 @@ func (s *CfwsContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) s
 }
 
 func (s *CfwsContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterCfws(s)
 	}
 }
 
 func (s *CfwsContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitCfws(s)
 	}
 }
 
-func (p *Address) Cfws() (localctx ICfwsContext) {
+func (p *AddressParser) Cfws() (localctx ICfwsContext) {
 	localctx = NewCfwsContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 10, AddressRULE_cfws)
+	p.EnterRule(localctx, 10, AddressParserRULE_cfws)
 	var _la int
 
 	defer func() {
@@ -1254,7 +1254,7 @@ func (p *Address) Cfws() (localctx ICfwsContext) {
 				p.GetErrorHandler().Sync(p)
 				_la = p.GetTokenStream().LA(1)
 
-				if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP))) != 0 {
+				if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP))) != 0 {
 					{
 						p.SetState(104)
 						p.Fws()
@@ -1316,7 +1316,7 @@ type AtextContext struct {
 func NewEmptyAtextContext() *AtextContext {
 	var p = new(AtextContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_atext
+	p.RuleIndex = AddressParserRULE_atext
 	return p
 }
 
@@ -1328,7 +1328,7 @@ func NewAtextContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_atext
+	p.RuleIndex = AddressParserRULE_atext
 
 	return p
 }
@@ -1336,91 +1336,91 @@ func NewAtextContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 func (s *AtextContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *AtextContext) AlphaUpper() antlr.TerminalNode {
-	return s.GetToken(AddressAlphaUpper, 0)
+	return s.GetToken(AddressParserAlphaUpper, 0)
 }
 
 func (s *AtextContext) AlphaLower() antlr.TerminalNode {
-	return s.GetToken(AddressAlphaLower, 0)
+	return s.GetToken(AddressParserAlphaLower, 0)
 }
 
 func (s *AtextContext) Digit() antlr.TerminalNode {
-	return s.GetToken(AddressDigit, 0)
+	return s.GetToken(AddressParserDigit, 0)
 }
 
 func (s *AtextContext) Exclamation() antlr.TerminalNode {
-	return s.GetToken(AddressExclamation, 0)
+	return s.GetToken(AddressParserExclamation, 0)
 }
 
 func (s *AtextContext) Hash() antlr.TerminalNode {
-	return s.GetToken(AddressHash, 0)
+	return s.GetToken(AddressParserHash, 0)
 }
 
 func (s *AtextContext) Dollar() antlr.TerminalNode {
-	return s.GetToken(AddressDollar, 0)
+	return s.GetToken(AddressParserDollar, 0)
 }
 
 func (s *AtextContext) Percent() antlr.TerminalNode {
-	return s.GetToken(AddressPercent, 0)
+	return s.GetToken(AddressParserPercent, 0)
 }
 
 func (s *AtextContext) Ampersand() antlr.TerminalNode {
-	return s.GetToken(AddressAmpersand, 0)
+	return s.GetToken(AddressParserAmpersand, 0)
 }
 
 func (s *AtextContext) SQuote() antlr.TerminalNode {
-	return s.GetToken(AddressSQuote, 0)
+	return s.GetToken(AddressParserSQuote, 0)
 }
 
 func (s *AtextContext) Asterisk() antlr.TerminalNode {
-	return s.GetToken(AddressAsterisk, 0)
+	return s.GetToken(AddressParserAsterisk, 0)
 }
 
 func (s *AtextContext) Plus() antlr.TerminalNode {
-	return s.GetToken(AddressPlus, 0)
+	return s.GetToken(AddressParserPlus, 0)
 }
 
 func (s *AtextContext) Minus() antlr.TerminalNode {
-	return s.GetToken(AddressMinus, 0)
+	return s.GetToken(AddressParserMinus, 0)
 }
 
 func (s *AtextContext) Slash() antlr.TerminalNode {
-	return s.GetToken(AddressSlash, 0)
+	return s.GetToken(AddressParserSlash, 0)
 }
 
 func (s *AtextContext) Equal() antlr.TerminalNode {
-	return s.GetToken(AddressEqual, 0)
+	return s.GetToken(AddressParserEqual, 0)
 }
 
 func (s *AtextContext) Question() antlr.TerminalNode {
-	return s.GetToken(AddressQuestion, 0)
+	return s.GetToken(AddressParserQuestion, 0)
 }
 
 func (s *AtextContext) Caret() antlr.TerminalNode {
-	return s.GetToken(AddressCaret, 0)
+	return s.GetToken(AddressParserCaret, 0)
 }
 
 func (s *AtextContext) Underscore() antlr.TerminalNode {
-	return s.GetToken(AddressUnderscore, 0)
+	return s.GetToken(AddressParserUnderscore, 0)
 }
 
 func (s *AtextContext) Backtick() antlr.TerminalNode {
-	return s.GetToken(AddressBacktick, 0)
+	return s.GetToken(AddressParserBacktick, 0)
 }
 
 func (s *AtextContext) LCurly() antlr.TerminalNode {
-	return s.GetToken(AddressLCurly, 0)
+	return s.GetToken(AddressParserLCurly, 0)
 }
 
 func (s *AtextContext) Pipe() antlr.TerminalNode {
-	return s.GetToken(AddressPipe, 0)
+	return s.GetToken(AddressParserPipe, 0)
 }
 
 func (s *AtextContext) RCurly() antlr.TerminalNode {
-	return s.GetToken(AddressRCurly, 0)
+	return s.GetToken(AddressParserRCurly, 0)
 }
 
 func (s *AtextContext) Tilde() antlr.TerminalNode {
-	return s.GetToken(AddressTilde, 0)
+	return s.GetToken(AddressParserTilde, 0)
 }
 
 func (s *AtextContext) GetRuleContext() antlr.RuleContext {
@@ -1432,20 +1432,20 @@ func (s *AtextContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) 
 }
 
 func (s *AtextContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterAtext(s)
 	}
 }
 
 func (s *AtextContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitAtext(s)
 	}
 }
 
-func (p *Address) Atext() (localctx IAtextContext) {
+func (p *AddressParser) Atext() (localctx IAtextContext) {
 	localctx = NewAtextContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 12, AddressRULE_atext)
+	p.EnterRule(localctx, 12, AddressParserRULE_atext)
 	var _la int
 
 	defer func() {
@@ -1469,7 +1469,7 @@ func (p *Address) Atext() (localctx IAtextContext) {
 		p.SetState(118)
 		_la = p.GetTokenStream().LA(1)
 
-		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressExclamation)|(1<<AddressHash)|(1<<AddressDollar)|(1<<AddressPercent)|(1<<AddressAmpersand)|(1<<AddressSQuote)|(1<<AddressAsterisk)|(1<<AddressPlus)|(1<<AddressMinus)|(1<<AddressSlash)|(1<<AddressDigit)|(1<<AddressEqual)|(1<<AddressQuestion)|(1<<AddressAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressCaret-32))|(1<<(AddressUnderscore-32))|(1<<(AddressBacktick-32))|(1<<(AddressAlphaLower-32))|(1<<(AddressLCurly-32))|(1<<(AddressPipe-32))|(1<<(AddressRCurly-32))|(1<<(AddressTilde-32)))) != 0)) {
+		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserExclamation)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserMinus)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserEqual)|(1<<AddressParserQuestion)|(1<<AddressParserAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0)) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
@@ -1499,7 +1499,7 @@ type AtomContext struct {
 func NewEmptyAtomContext() *AtomContext {
 	var p = new(AtomContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_atom
+	p.RuleIndex = AddressParserRULE_atom
 	return p
 }
 
@@ -1511,7 +1511,7 @@ func NewAtomContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokin
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_atom
+	p.RuleIndex = AddressParserRULE_atom
 
 	return p
 }
@@ -1573,20 +1573,20 @@ func (s *AtomContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) s
 }
 
 func (s *AtomContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterAtom(s)
 	}
 }
 
 func (s *AtomContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitAtom(s)
 	}
 }
 
-func (p *Address) Atom() (localctx IAtomContext) {
+func (p *AddressParser) Atom() (localctx IAtomContext) {
 	localctx = NewAtomContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 14, AddressRULE_atom)
+	p.EnterRule(localctx, 14, AddressParserRULE_atom)
 	var _la int
 
 	defer func() {
@@ -1612,7 +1612,7 @@ func (p *Address) Atom() (localctx IAtomContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP)|(1<<AddressLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
 			p.SetState(120)
 			p.Cfws()
@@ -1671,7 +1671,7 @@ type DotAtomTextContext struct {
 func NewEmptyDotAtomTextContext() *DotAtomTextContext {
 	var p = new(DotAtomTextContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_dotAtomText
+	p.RuleIndex = AddressParserRULE_dotAtomText
 	return p
 }
 
@@ -1683,7 +1683,7 @@ func NewDotAtomTextContext(parser antlr.Parser, parent antlr.ParserRuleContext, 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_dotAtomText
+	p.RuleIndex = AddressParserRULE_dotAtomText
 
 	return p
 }
@@ -1714,11 +1714,11 @@ func (s *DotAtomTextContext) Atext(i int) IAtextContext {
 }
 
 func (s *DotAtomTextContext) AllPeriod() []antlr.TerminalNode {
-	return s.GetTokens(AddressPeriod)
+	return s.GetTokens(AddressParserPeriod)
 }
 
 func (s *DotAtomTextContext) Period(i int) antlr.TerminalNode {
-	return s.GetToken(AddressPeriod, i)
+	return s.GetToken(AddressParserPeriod, i)
 }
 
 func (s *DotAtomTextContext) GetRuleContext() antlr.RuleContext {
@@ -1730,20 +1730,20 @@ func (s *DotAtomTextContext) ToStringTree(ruleNames []string, recog antlr.Recogn
 }
 
 func (s *DotAtomTextContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterDotAtomText(s)
 	}
 }
 
 func (s *DotAtomTextContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitDotAtomText(s)
 	}
 }
 
-func (p *Address) DotAtomText() (localctx IDotAtomTextContext) {
+func (p *AddressParser) DotAtomText() (localctx IDotAtomTextContext) {
 	localctx = NewDotAtomTextContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 16, AddressRULE_dotAtomText)
+	p.EnterRule(localctx, 16, AddressParserRULE_dotAtomText)
 	var _la int
 
 	defer func() {
@@ -1767,7 +1767,7 @@ func (p *Address) DotAtomText() (localctx IDotAtomTextContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for ok := true; ok; ok = (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressExclamation)|(1<<AddressHash)|(1<<AddressDollar)|(1<<AddressPercent)|(1<<AddressAmpersand)|(1<<AddressSQuote)|(1<<AddressAsterisk)|(1<<AddressPlus)|(1<<AddressMinus)|(1<<AddressSlash)|(1<<AddressDigit)|(1<<AddressEqual)|(1<<AddressQuestion)|(1<<AddressAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressCaret-32))|(1<<(AddressUnderscore-32))|(1<<(AddressBacktick-32))|(1<<(AddressAlphaLower-32))|(1<<(AddressLCurly-32))|(1<<(AddressPipe-32))|(1<<(AddressRCurly-32))|(1<<(AddressTilde-32)))) != 0) {
+	for ok := true; ok; ok = (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserExclamation)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserMinus)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserEqual)|(1<<AddressParserQuestion)|(1<<AddressParserAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0) {
 		{
 			p.SetState(131)
 			p.Atext()
@@ -1781,16 +1781,16 @@ func (p *Address) DotAtomText() (localctx IDotAtomTextContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for _la == AddressPeriod {
+	for _la == AddressParserPeriod {
 		{
 			p.SetState(136)
-			p.Match(AddressPeriod)
+			p.Match(AddressParserPeriod)
 		}
 		p.SetState(138)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		for ok := true; ok; ok = (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressExclamation)|(1<<AddressHash)|(1<<AddressDollar)|(1<<AddressPercent)|(1<<AddressAmpersand)|(1<<AddressSQuote)|(1<<AddressAsterisk)|(1<<AddressPlus)|(1<<AddressMinus)|(1<<AddressSlash)|(1<<AddressDigit)|(1<<AddressEqual)|(1<<AddressQuestion)|(1<<AddressAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressCaret-32))|(1<<(AddressUnderscore-32))|(1<<(AddressBacktick-32))|(1<<(AddressAlphaLower-32))|(1<<(AddressLCurly-32))|(1<<(AddressPipe-32))|(1<<(AddressRCurly-32))|(1<<(AddressTilde-32)))) != 0) {
+		for ok := true; ok; ok = (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserExclamation)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserMinus)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserEqual)|(1<<AddressParserQuestion)|(1<<AddressParserAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0) {
 			{
 				p.SetState(137)
 				p.Atext()
@@ -1828,7 +1828,7 @@ type DotAtomContext struct {
 func NewEmptyDotAtomContext() *DotAtomContext {
 	var p = new(DotAtomContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_dotAtom
+	p.RuleIndex = AddressParserRULE_dotAtom
 	return p
 }
 
@@ -1840,7 +1840,7 @@ func NewDotAtomContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_dotAtom
+	p.RuleIndex = AddressParserRULE_dotAtom
 
 	return p
 }
@@ -1889,20 +1889,20 @@ func (s *DotAtomContext) ToStringTree(ruleNames []string, recog antlr.Recognizer
 }
 
 func (s *DotAtomContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterDotAtom(s)
 	}
 }
 
 func (s *DotAtomContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitDotAtom(s)
 	}
 }
 
-func (p *Address) DotAtom() (localctx IDotAtomContext) {
+func (p *AddressParser) DotAtom() (localctx IDotAtomContext) {
 	localctx = NewDotAtomContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 18, AddressRULE_dotAtom)
+	p.EnterRule(localctx, 18, AddressParserRULE_dotAtom)
 	var _la int
 
 	defer func() {
@@ -1926,7 +1926,7 @@ func (p *Address) DotAtom() (localctx IDotAtomContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP)|(1<<AddressLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
 			p.SetState(147)
 			p.Cfws()
@@ -1941,7 +1941,7 @@ func (p *Address) DotAtom() (localctx IDotAtomContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP)|(1<<AddressLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
 			p.SetState(151)
 			p.Cfws()
@@ -1971,7 +1971,7 @@ type QtextContext struct {
 func NewEmptyQtextContext() *QtextContext {
 	var p = new(QtextContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_qtext
+	p.RuleIndex = AddressParserRULE_qtext
 	return p
 }
 
@@ -1983,7 +1983,7 @@ func NewQtextContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_qtext
+	p.RuleIndex = AddressParserRULE_qtext
 
 	return p
 }
@@ -1991,135 +1991,135 @@ func NewQtextContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 func (s *QtextContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *QtextContext) Exclamation() antlr.TerminalNode {
-	return s.GetToken(AddressExclamation, 0)
+	return s.GetToken(AddressParserExclamation, 0)
 }
 
 func (s *QtextContext) Hash() antlr.TerminalNode {
-	return s.GetToken(AddressHash, 0)
+	return s.GetToken(AddressParserHash, 0)
 }
 
 func (s *QtextContext) Dollar() antlr.TerminalNode {
-	return s.GetToken(AddressDollar, 0)
+	return s.GetToken(AddressParserDollar, 0)
 }
 
 func (s *QtextContext) Percent() antlr.TerminalNode {
-	return s.GetToken(AddressPercent, 0)
+	return s.GetToken(AddressParserPercent, 0)
 }
 
 func (s *QtextContext) Ampersand() antlr.TerminalNode {
-	return s.GetToken(AddressAmpersand, 0)
+	return s.GetToken(AddressParserAmpersand, 0)
 }
 
 func (s *QtextContext) SQuote() antlr.TerminalNode {
-	return s.GetToken(AddressSQuote, 0)
+	return s.GetToken(AddressParserSQuote, 0)
 }
 
 func (s *QtextContext) LParens() antlr.TerminalNode {
-	return s.GetToken(AddressLParens, 0)
+	return s.GetToken(AddressParserLParens, 0)
 }
 
 func (s *QtextContext) RParens() antlr.TerminalNode {
-	return s.GetToken(AddressRParens, 0)
+	return s.GetToken(AddressParserRParens, 0)
 }
 
 func (s *QtextContext) Asterisk() antlr.TerminalNode {
-	return s.GetToken(AddressAsterisk, 0)
+	return s.GetToken(AddressParserAsterisk, 0)
 }
 
 func (s *QtextContext) Plus() antlr.TerminalNode {
-	return s.GetToken(AddressPlus, 0)
+	return s.GetToken(AddressParserPlus, 0)
 }
 
 func (s *QtextContext) Comma() antlr.TerminalNode {
-	return s.GetToken(AddressComma, 0)
+	return s.GetToken(AddressParserComma, 0)
 }
 
 func (s *QtextContext) Minus() antlr.TerminalNode {
-	return s.GetToken(AddressMinus, 0)
+	return s.GetToken(AddressParserMinus, 0)
 }
 
 func (s *QtextContext) Period() antlr.TerminalNode {
-	return s.GetToken(AddressPeriod, 0)
+	return s.GetToken(AddressParserPeriod, 0)
 }
 
 func (s *QtextContext) Slash() antlr.TerminalNode {
-	return s.GetToken(AddressSlash, 0)
+	return s.GetToken(AddressParserSlash, 0)
 }
 
 func (s *QtextContext) Digit() antlr.TerminalNode {
-	return s.GetToken(AddressDigit, 0)
+	return s.GetToken(AddressParserDigit, 0)
 }
 
 func (s *QtextContext) Colon() antlr.TerminalNode {
-	return s.GetToken(AddressColon, 0)
+	return s.GetToken(AddressParserColon, 0)
 }
 
 func (s *QtextContext) Semicolon() antlr.TerminalNode {
-	return s.GetToken(AddressSemicolon, 0)
+	return s.GetToken(AddressParserSemicolon, 0)
 }
 
 func (s *QtextContext) Less() antlr.TerminalNode {
-	return s.GetToken(AddressLess, 0)
+	return s.GetToken(AddressParserLess, 0)
 }
 
 func (s *QtextContext) Equal() antlr.TerminalNode {
-	return s.GetToken(AddressEqual, 0)
+	return s.GetToken(AddressParserEqual, 0)
 }
 
 func (s *QtextContext) Greater() antlr.TerminalNode {
-	return s.GetToken(AddressGreater, 0)
+	return s.GetToken(AddressParserGreater, 0)
 }
 
 func (s *QtextContext) Question() antlr.TerminalNode {
-	return s.GetToken(AddressQuestion, 0)
+	return s.GetToken(AddressParserQuestion, 0)
 }
 
 func (s *QtextContext) At() antlr.TerminalNode {
-	return s.GetToken(AddressAt, 0)
+	return s.GetToken(AddressParserAt, 0)
 }
 
 func (s *QtextContext) AlphaUpper() antlr.TerminalNode {
-	return s.GetToken(AddressAlphaUpper, 0)
+	return s.GetToken(AddressParserAlphaUpper, 0)
 }
 
 func (s *QtextContext) LBracket() antlr.TerminalNode {
-	return s.GetToken(AddressLBracket, 0)
+	return s.GetToken(AddressParserLBracket, 0)
 }
 
 func (s *QtextContext) RBracket() antlr.TerminalNode {
-	return s.GetToken(AddressRBracket, 0)
+	return s.GetToken(AddressParserRBracket, 0)
 }
 
 func (s *QtextContext) Caret() antlr.TerminalNode {
-	return s.GetToken(AddressCaret, 0)
+	return s.GetToken(AddressParserCaret, 0)
 }
 
 func (s *QtextContext) Underscore() antlr.TerminalNode {
-	return s.GetToken(AddressUnderscore, 0)
+	return s.GetToken(AddressParserUnderscore, 0)
 }
 
 func (s *QtextContext) Backtick() antlr.TerminalNode {
-	return s.GetToken(AddressBacktick, 0)
+	return s.GetToken(AddressParserBacktick, 0)
 }
 
 func (s *QtextContext) AlphaLower() antlr.TerminalNode {
-	return s.GetToken(AddressAlphaLower, 0)
+	return s.GetToken(AddressParserAlphaLower, 0)
 }
 
 func (s *QtextContext) LCurly() antlr.TerminalNode {
-	return s.GetToken(AddressLCurly, 0)
+	return s.GetToken(AddressParserLCurly, 0)
 }
 
 func (s *QtextContext) Pipe() antlr.TerminalNode {
-	return s.GetToken(AddressPipe, 0)
+	return s.GetToken(AddressParserPipe, 0)
 }
 
 func (s *QtextContext) RCurly() antlr.TerminalNode {
-	return s.GetToken(AddressRCurly, 0)
+	return s.GetToken(AddressParserRCurly, 0)
 }
 
 func (s *QtextContext) Tilde() antlr.TerminalNode {
-	return s.GetToken(AddressTilde, 0)
+	return s.GetToken(AddressParserTilde, 0)
 }
 
 func (s *QtextContext) GetRuleContext() antlr.RuleContext {
@@ -2131,20 +2131,20 @@ func (s *QtextContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) 
 }
 
 func (s *QtextContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterQtext(s)
 	}
 }
 
 func (s *QtextContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitQtext(s)
 	}
 }
 
-func (p *Address) Qtext() (localctx IQtextContext) {
+func (p *AddressParser) Qtext() (localctx IQtextContext) {
 	localctx = NewQtextContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 20, AddressRULE_qtext)
+	p.EnterRule(localctx, 20, AddressParserRULE_qtext)
 	var _la int
 
 	defer func() {
@@ -2168,7 +2168,7 @@ func (p *Address) Qtext() (localctx IQtextContext) {
 		p.SetState(154)
 		_la = p.GetTokenStream().LA(1)
 
-		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressExclamation)|(1<<AddressHash)|(1<<AddressDollar)|(1<<AddressPercent)|(1<<AddressAmpersand)|(1<<AddressSQuote)|(1<<AddressLParens)|(1<<AddressRParens)|(1<<AddressAsterisk)|(1<<AddressPlus)|(1<<AddressComma)|(1<<AddressMinus)|(1<<AddressPeriod)|(1<<AddressSlash)|(1<<AddressDigit)|(1<<AddressColon)|(1<<AddressSemicolon)|(1<<AddressLess)|(1<<AddressEqual)|(1<<AddressGreater)|(1<<AddressQuestion)|(1<<AddressAt)|(1<<AddressAlphaUpper)|(1<<AddressLBracket)|(1<<AddressRBracket))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressCaret-32))|(1<<(AddressUnderscore-32))|(1<<(AddressBacktick-32))|(1<<(AddressAlphaLower-32))|(1<<(AddressLCurly-32))|(1<<(AddressPipe-32))|(1<<(AddressRCurly-32))|(1<<(AddressTilde-32)))) != 0)) {
+		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserExclamation)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserLParens)|(1<<AddressParserRParens)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserComma)|(1<<AddressParserMinus)|(1<<AddressParserPeriod)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserColon)|(1<<AddressParserSemicolon)|(1<<AddressParserLess)|(1<<AddressParserEqual)|(1<<AddressParserGreater)|(1<<AddressParserQuestion)|(1<<AddressParserAt)|(1<<AddressParserAlphaUpper)|(1<<AddressParserLBracket)|(1<<AddressParserRBracket))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0)) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
@@ -2198,7 +2198,7 @@ type QcontentContext struct {
 func NewEmptyQcontentContext() *QcontentContext {
 	var p = new(QcontentContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_qcontent
+	p.RuleIndex = AddressParserRULE_qcontent
 	return p
 }
 
@@ -2210,7 +2210,7 @@ func NewQcontentContext(parser antlr.Parser, parent antlr.ParserRuleContext, inv
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_qcontent
+	p.RuleIndex = AddressParserRULE_qcontent
 
 	return p
 }
@@ -2246,20 +2246,20 @@ func (s *QcontentContext) ToStringTree(ruleNames []string, recog antlr.Recognize
 }
 
 func (s *QcontentContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterQcontent(s)
 	}
 }
 
 func (s *QcontentContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitQcontent(s)
 	}
 }
 
-func (p *Address) Qcontent() (localctx IQcontentContext) {
+func (p *AddressParser) Qcontent() (localctx IQcontentContext) {
 	localctx = NewQcontentContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 22, AddressRULE_qcontent)
+	p.EnterRule(localctx, 22, AddressParserRULE_qcontent)
 
 	defer func() {
 		p.ExitRule()
@@ -2281,14 +2281,14 @@ func (p *Address) Qcontent() (localctx IQcontentContext) {
 	p.GetErrorHandler().Sync(p)
 
 	switch p.GetTokenStream().LA(1) {
-	case AddressExclamation, AddressHash, AddressDollar, AddressPercent, AddressAmpersand, AddressSQuote, AddressLParens, AddressRParens, AddressAsterisk, AddressPlus, AddressComma, AddressMinus, AddressPeriod, AddressSlash, AddressDigit, AddressColon, AddressSemicolon, AddressLess, AddressEqual, AddressGreater, AddressQuestion, AddressAt, AddressAlphaUpper, AddressLBracket, AddressRBracket, AddressCaret, AddressUnderscore, AddressBacktick, AddressAlphaLower, AddressLCurly, AddressPipe, AddressRCurly, AddressTilde:
+	case AddressParserExclamation, AddressParserHash, AddressParserDollar, AddressParserPercent, AddressParserAmpersand, AddressParserSQuote, AddressParserLParens, AddressParserRParens, AddressParserAsterisk, AddressParserPlus, AddressParserComma, AddressParserMinus, AddressParserPeriod, AddressParserSlash, AddressParserDigit, AddressParserColon, AddressParserSemicolon, AddressParserLess, AddressParserEqual, AddressParserGreater, AddressParserQuestion, AddressParserAt, AddressParserAlphaUpper, AddressParserLBracket, AddressParserRBracket, AddressParserCaret, AddressParserUnderscore, AddressParserBacktick, AddressParserAlphaLower, AddressParserLCurly, AddressParserPipe, AddressParserRCurly, AddressParserTilde:
 		p.EnterOuterAlt(localctx, 1)
 		{
 			p.SetState(156)
 			p.Qtext()
 		}
 
-	case AddressBackslash:
+	case AddressParserBackslash:
 		p.EnterOuterAlt(localctx, 2)
 		{
 			p.SetState(157)
@@ -2321,7 +2321,7 @@ type QuotedStringContext struct {
 func NewEmptyQuotedStringContext() *QuotedStringContext {
 	var p = new(QuotedStringContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_quotedString
+	p.RuleIndex = AddressParserRULE_quotedString
 	return p
 }
 
@@ -2333,7 +2333,7 @@ func NewQuotedStringContext(parser antlr.Parser, parent antlr.ParserRuleContext,
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_quotedString
+	p.RuleIndex = AddressParserRULE_quotedString
 
 	return p
 }
@@ -2341,11 +2341,11 @@ func NewQuotedStringContext(parser antlr.Parser, parent antlr.ParserRuleContext,
 func (s *QuotedStringContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *QuotedStringContext) AllDQuote() []antlr.TerminalNode {
-	return s.GetTokens(AddressDQuote)
+	return s.GetTokens(AddressParserDQuote)
 }
 
 func (s *QuotedStringContext) DQuote(i int) antlr.TerminalNode {
-	return s.GetToken(AddressDQuote, i)
+	return s.GetToken(AddressParserDQuote, i)
 }
 
 func (s *QuotedStringContext) AllCfws() []ICfwsContext {
@@ -2426,20 +2426,20 @@ func (s *QuotedStringContext) ToStringTree(ruleNames []string, recog antlr.Recog
 }
 
 func (s *QuotedStringContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterQuotedString(s)
 	}
 }
 
 func (s *QuotedStringContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitQuotedString(s)
 	}
 }
 
-func (p *Address) QuotedString() (localctx IQuotedStringContext) {
+func (p *AddressParser) QuotedString() (localctx IQuotedStringContext) {
 	localctx = NewQuotedStringContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 24, AddressRULE_quotedString)
+	p.EnterRule(localctx, 24, AddressParserRULE_quotedString)
 	var _la int
 
 	defer func() {
@@ -2465,7 +2465,7 @@ func (p *Address) QuotedString() (localctx IQuotedStringContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP)|(1<<AddressLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
 			p.SetState(160)
 			p.Cfws()
@@ -2474,7 +2474,7 @@ func (p *Address) QuotedString() (localctx IQuotedStringContext) {
 	}
 	{
 		p.SetState(163)
-		p.Match(AddressDQuote)
+		p.Match(AddressParserDQuote)
 	}
 	p.SetState(170)
 	p.GetErrorHandler().Sync(p)
@@ -2486,7 +2486,7 @@ func (p *Address) QuotedString() (localctx IQuotedStringContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP))) != 0 {
+			if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP))) != 0 {
 				{
 					p.SetState(164)
 					p.Fws()
@@ -2507,7 +2507,7 @@ func (p *Address) QuotedString() (localctx IQuotedStringContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP))) != 0 {
 		{
 			p.SetState(173)
 			p.Fws()
@@ -2516,7 +2516,7 @@ func (p *Address) QuotedString() (localctx IQuotedStringContext) {
 	}
 	{
 		p.SetState(176)
-		p.Match(AddressDQuote)
+		p.Match(AddressParserDQuote)
 	}
 	p.SetState(178)
 	p.GetErrorHandler().Sync(p)
@@ -2551,7 +2551,7 @@ type WordContext struct {
 func NewEmptyWordContext() *WordContext {
 	var p = new(WordContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_word
+	p.RuleIndex = AddressParserRULE_word
 	return p
 }
 
@@ -2563,7 +2563,7 @@ func NewWordContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokin
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_word
+	p.RuleIndex = AddressParserRULE_word
 
 	return p
 }
@@ -2599,20 +2599,20 @@ func (s *WordContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) s
 }
 
 func (s *WordContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterWord(s)
 	}
 }
 
 func (s *WordContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitWord(s)
 	}
 }
 
-func (p *Address) Word() (localctx IWordContext) {
+func (p *AddressParser) Word() (localctx IWordContext) {
 	localctx = NewWordContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 26, AddressRULE_word)
+	p.EnterRule(localctx, 26, AddressParserRULE_word)
 
 	defer func() {
 		p.ExitRule()
@@ -2671,7 +2671,7 @@ type PhraseContext struct {
 func NewEmptyPhraseContext() *PhraseContext {
 	var p = new(PhraseContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_phrase
+	p.RuleIndex = AddressParserRULE_phrase
 	return p
 }
 
@@ -2683,7 +2683,7 @@ func NewPhraseContext(parser antlr.Parser, parent antlr.ParserRuleContext, invok
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_phrase
+	p.RuleIndex = AddressParserRULE_phrase
 
 	return p
 }
@@ -2722,20 +2722,20 @@ func (s *PhraseContext) ToStringTree(ruleNames []string, recog antlr.Recognizer)
 }
 
 func (s *PhraseContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterPhrase(s)
 	}
 }
 
 func (s *PhraseContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitPhrase(s)
 	}
 }
 
-func (p *Address) Phrase() (localctx IPhraseContext) {
+func (p *AddressParser) Phrase() (localctx IPhraseContext) {
 	localctx = NewPhraseContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 28, AddressRULE_phrase)
+	p.EnterRule(localctx, 28, AddressParserRULE_phrase)
 
 	defer func() {
 		p.ExitRule()
@@ -2798,7 +2798,7 @@ type UnstructuredContext struct {
 func NewEmptyUnstructuredContext() *UnstructuredContext {
 	var p = new(UnstructuredContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_unstructured
+	p.RuleIndex = AddressParserRULE_unstructured
 	return p
 }
 
@@ -2810,7 +2810,7 @@ func NewUnstructuredContext(parser antlr.Parser, parent antlr.ParserRuleContext,
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_unstructured
+	p.RuleIndex = AddressParserRULE_unstructured
 
 	return p
 }
@@ -2895,20 +2895,20 @@ func (s *UnstructuredContext) ToStringTree(ruleNames []string, recog antlr.Recog
 }
 
 func (s *UnstructuredContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterUnstructured(s)
 	}
 }
 
 func (s *UnstructuredContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitUnstructured(s)
 	}
 }
 
-func (p *Address) Unstructured() (localctx IUnstructuredContext) {
+func (p *AddressParser) Unstructured() (localctx IUnstructuredContext) {
 	localctx = NewUnstructuredContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 30, AddressRULE_unstructured)
+	p.EnterRule(localctx, 30, AddressParserRULE_unstructured)
 	var _la int
 
 	defer func() {
@@ -2940,7 +2940,7 @@ func (p *Address) Unstructured() (localctx IUnstructuredContext) {
 			p.GetErrorHandler().Sync(p)
 			_la = p.GetTokenStream().LA(1)
 
-			if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP))) != 0 {
+			if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP))) != 0 {
 				{
 					p.SetState(189)
 					p.Fws()
@@ -2961,7 +2961,7 @@ func (p *Address) Unstructured() (localctx IUnstructuredContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for _la == AddressHTAB || _la == AddressSP {
+	for _la == AddressParserHTAB || _la == AddressParserSP {
 		{
 			p.SetState(198)
 			p.Wsp()
@@ -2994,7 +2994,7 @@ type AddressContext struct {
 func NewEmptyAddressContext() *AddressContext {
 	var p = new(AddressContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_address
+	p.RuleIndex = AddressParserRULE_address
 	return p
 }
 
@@ -3006,7 +3006,7 @@ func NewAddressContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_address
+	p.RuleIndex = AddressParserRULE_address
 
 	return p
 }
@@ -3042,20 +3042,20 @@ func (s *AddressContext) ToStringTree(ruleNames []string, recog antlr.Recognizer
 }
 
 func (s *AddressContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterAddress(s)
 	}
 }
 
 func (s *AddressContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitAddress(s)
 	}
 }
 
-func (p *Address) Address() (localctx IAddressContext) {
+func (p *AddressParser) Address() (localctx IAddressContext) {
 	localctx = NewAddressContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 32, AddressRULE_address)
+	p.EnterRule(localctx, 32, AddressParserRULE_address)
 
 	defer func() {
 		p.ExitRule()
@@ -3114,7 +3114,7 @@ type MailboxContext struct {
 func NewEmptyMailboxContext() *MailboxContext {
 	var p = new(MailboxContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_mailbox
+	p.RuleIndex = AddressParserRULE_mailbox
 	return p
 }
 
@@ -3126,7 +3126,7 @@ func NewMailboxContext(parser antlr.Parser, parent antlr.ParserRuleContext, invo
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_mailbox
+	p.RuleIndex = AddressParserRULE_mailbox
 
 	return p
 }
@@ -3162,20 +3162,20 @@ func (s *MailboxContext) ToStringTree(ruleNames []string, recog antlr.Recognizer
 }
 
 func (s *MailboxContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterMailbox(s)
 	}
 }
 
 func (s *MailboxContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitMailbox(s)
 	}
 }
 
-func (p *Address) Mailbox() (localctx IMailboxContext) {
+func (p *AddressParser) Mailbox() (localctx IMailboxContext) {
 	localctx = NewMailboxContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 34, AddressRULE_mailbox)
+	p.EnterRule(localctx, 34, AddressParserRULE_mailbox)
 
 	defer func() {
 		p.ExitRule()
@@ -3234,7 +3234,7 @@ type NameAddrContext struct {
 func NewEmptyNameAddrContext() *NameAddrContext {
 	var p = new(NameAddrContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_nameAddr
+	p.RuleIndex = AddressParserRULE_nameAddr
 	return p
 }
 
@@ -3246,7 +3246,7 @@ func NewNameAddrContext(parser antlr.Parser, parent antlr.ParserRuleContext, inv
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_nameAddr
+	p.RuleIndex = AddressParserRULE_nameAddr
 
 	return p
 }
@@ -3282,20 +3282,20 @@ func (s *NameAddrContext) ToStringTree(ruleNames []string, recog antlr.Recognize
 }
 
 func (s *NameAddrContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterNameAddr(s)
 	}
 }
 
 func (s *NameAddrContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitNameAddr(s)
 	}
 }
 
-func (p *Address) NameAddr() (localctx INameAddrContext) {
+func (p *AddressParser) NameAddr() (localctx INameAddrContext) {
 	localctx = NewNameAddrContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 36, AddressRULE_nameAddr)
+	p.EnterRule(localctx, 36, AddressParserRULE_nameAddr)
 
 	defer func() {
 		p.ExitRule()
@@ -3351,7 +3351,7 @@ type AngleAddrContext struct {
 func NewEmptyAngleAddrContext() *AngleAddrContext {
 	var p = new(AngleAddrContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_angleAddr
+	p.RuleIndex = AddressParserRULE_angleAddr
 	return p
 }
 
@@ -3363,7 +3363,7 @@ func NewAngleAddrContext(parser antlr.Parser, parent antlr.ParserRuleContext, in
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_angleAddr
+	p.RuleIndex = AddressParserRULE_angleAddr
 
 	return p
 }
@@ -3371,7 +3371,7 @@ func NewAngleAddrContext(parser antlr.Parser, parent antlr.ParserRuleContext, in
 func (s *AngleAddrContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *AngleAddrContext) Less() antlr.TerminalNode {
-	return s.GetToken(AddressLess, 0)
+	return s.GetToken(AddressParserLess, 0)
 }
 
 func (s *AngleAddrContext) AddrSpec() IAddrSpecContext {
@@ -3385,7 +3385,7 @@ func (s *AngleAddrContext) AddrSpec() IAddrSpecContext {
 }
 
 func (s *AngleAddrContext) Greater() antlr.TerminalNode {
-	return s.GetToken(AddressGreater, 0)
+	return s.GetToken(AddressParserGreater, 0)
 }
 
 func (s *AngleAddrContext) AllCfws() []ICfwsContext {
@@ -3420,20 +3420,20 @@ func (s *AngleAddrContext) ToStringTree(ruleNames []string, recog antlr.Recogniz
 }
 
 func (s *AngleAddrContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterAngleAddr(s)
 	}
 }
 
 func (s *AngleAddrContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitAngleAddr(s)
 	}
 }
 
-func (p *Address) AngleAddr() (localctx IAngleAddrContext) {
+func (p *AddressParser) AngleAddr() (localctx IAngleAddrContext) {
 	localctx = NewAngleAddrContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 38, AddressRULE_angleAddr)
+	p.EnterRule(localctx, 38, AddressParserRULE_angleAddr)
 	var _la int
 
 	defer func() {
@@ -3457,7 +3457,7 @@ func (p *Address) AngleAddr() (localctx IAngleAddrContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP)|(1<<AddressLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
 			p.SetState(217)
 			p.Cfws()
@@ -3466,7 +3466,7 @@ func (p *Address) AngleAddr() (localctx IAngleAddrContext) {
 	}
 	{
 		p.SetState(220)
-		p.Match(AddressLess)
+		p.Match(AddressParserLess)
 	}
 	{
 		p.SetState(221)
@@ -3474,13 +3474,13 @@ func (p *Address) AngleAddr() (localctx IAngleAddrContext) {
 	}
 	{
 		p.SetState(222)
-		p.Match(AddressGreater)
+		p.Match(AddressParserGreater)
 	}
 	p.SetState(224)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP)|(1<<AddressLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
 			p.SetState(223)
 			p.Cfws()
@@ -3510,7 +3510,7 @@ type GroupContext struct {
 func NewEmptyGroupContext() *GroupContext {
 	var p = new(GroupContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_group
+	p.RuleIndex = AddressParserRULE_group
 	return p
 }
 
@@ -3522,7 +3522,7 @@ func NewGroupContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_group
+	p.RuleIndex = AddressParserRULE_group
 
 	return p
 }
@@ -3540,11 +3540,11 @@ func (s *GroupContext) DisplayName() IDisplayNameContext {
 }
 
 func (s *GroupContext) Colon() antlr.TerminalNode {
-	return s.GetToken(AddressColon, 0)
+	return s.GetToken(AddressParserColon, 0)
 }
 
 func (s *GroupContext) Semicolon() antlr.TerminalNode {
-	return s.GetToken(AddressSemicolon, 0)
+	return s.GetToken(AddressParserSemicolon, 0)
 }
 
 func (s *GroupContext) GroupList() IGroupListContext {
@@ -3576,20 +3576,20 @@ func (s *GroupContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) 
 }
 
 func (s *GroupContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterGroup(s)
 	}
 }
 
 func (s *GroupContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitGroup(s)
 	}
 }
 
-func (p *Address) Group() (localctx IGroupContext) {
+func (p *AddressParser) Group() (localctx IGroupContext) {
 	localctx = NewGroupContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 40, AddressRULE_group)
+	p.EnterRule(localctx, 40, AddressParserRULE_group)
 	var _la int
 
 	defer func() {
@@ -3615,13 +3615,13 @@ func (p *Address) Group() (localctx IGroupContext) {
 	}
 	{
 		p.SetState(227)
-		p.Match(AddressColon)
+		p.Match(AddressParserColon)
 	}
 	p.SetState(229)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP)|(1<<AddressExclamation)|(1<<AddressDQuote)|(1<<AddressHash)|(1<<AddressDollar)|(1<<AddressPercent)|(1<<AddressAmpersand)|(1<<AddressSQuote)|(1<<AddressLParens)|(1<<AddressAsterisk)|(1<<AddressPlus)|(1<<AddressMinus)|(1<<AddressSlash)|(1<<AddressDigit)|(1<<AddressLess)|(1<<AddressEqual)|(1<<AddressQuestion)|(1<<AddressAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressCaret-32))|(1<<(AddressUnderscore-32))|(1<<(AddressBacktick-32))|(1<<(AddressAlphaLower-32))|(1<<(AddressLCurly-32))|(1<<(AddressPipe-32))|(1<<(AddressRCurly-32))|(1<<(AddressTilde-32)))) != 0) {
+	if (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserExclamation)|(1<<AddressParserDQuote)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserLParens)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserMinus)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserLess)|(1<<AddressParserEqual)|(1<<AddressParserQuestion)|(1<<AddressParserAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0) {
 		{
 			p.SetState(228)
 			p.GroupList()
@@ -3630,13 +3630,13 @@ func (p *Address) Group() (localctx IGroupContext) {
 	}
 	{
 		p.SetState(231)
-		p.Match(AddressSemicolon)
+		p.Match(AddressParserSemicolon)
 	}
 	p.SetState(233)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP)|(1<<AddressLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
 			p.SetState(232)
 			p.Cfws()
@@ -3666,7 +3666,7 @@ type DisplayNameContext struct {
 func NewEmptyDisplayNameContext() *DisplayNameContext {
 	var p = new(DisplayNameContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_displayName
+	p.RuleIndex = AddressParserRULE_displayName
 	return p
 }
 
@@ -3678,7 +3678,7 @@ func NewDisplayNameContext(parser antlr.Parser, parent antlr.ParserRuleContext, 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_displayName
+	p.RuleIndex = AddressParserRULE_displayName
 
 	return p
 }
@@ -3704,20 +3704,20 @@ func (s *DisplayNameContext) ToStringTree(ruleNames []string, recog antlr.Recogn
 }
 
 func (s *DisplayNameContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterDisplayName(s)
 	}
 }
 
 func (s *DisplayNameContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitDisplayName(s)
 	}
 }
 
-func (p *Address) DisplayName() (localctx IDisplayNameContext) {
+func (p *AddressParser) DisplayName() (localctx IDisplayNameContext) {
 	localctx = NewDisplayNameContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 42, AddressRULE_displayName)
+	p.EnterRule(localctx, 42, AddressParserRULE_displayName)
 
 	defer func() {
 		p.ExitRule()
@@ -3763,7 +3763,7 @@ type MailboxListContext struct {
 func NewEmptyMailboxListContext() *MailboxListContext {
 	var p = new(MailboxListContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_mailboxList
+	p.RuleIndex = AddressParserRULE_mailboxList
 	return p
 }
 
@@ -3775,7 +3775,7 @@ func NewMailboxListContext(parser antlr.Parser, parent antlr.ParserRuleContext, 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_mailboxList
+	p.RuleIndex = AddressParserRULE_mailboxList
 
 	return p
 }
@@ -3806,11 +3806,11 @@ func (s *MailboxListContext) Mailbox(i int) IMailboxContext {
 }
 
 func (s *MailboxListContext) AllComma() []antlr.TerminalNode {
-	return s.GetTokens(AddressComma)
+	return s.GetTokens(AddressParserComma)
 }
 
 func (s *MailboxListContext) Comma(i int) antlr.TerminalNode {
-	return s.GetToken(AddressComma, i)
+	return s.GetToken(AddressParserComma, i)
 }
 
 func (s *MailboxListContext) GetRuleContext() antlr.RuleContext {
@@ -3822,20 +3822,20 @@ func (s *MailboxListContext) ToStringTree(ruleNames []string, recog antlr.Recogn
 }
 
 func (s *MailboxListContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterMailboxList(s)
 	}
 }
 
 func (s *MailboxListContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitMailboxList(s)
 	}
 }
 
-func (p *Address) MailboxList() (localctx IMailboxListContext) {
+func (p *AddressParser) MailboxList() (localctx IMailboxListContext) {
 	localctx = NewMailboxListContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 44, AddressRULE_mailboxList)
+	p.EnterRule(localctx, 44, AddressParserRULE_mailboxList)
 	var _la int
 
 	defer func() {
@@ -3863,10 +3863,10 @@ func (p *Address) MailboxList() (localctx IMailboxListContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for _la == AddressComma {
+	for _la == AddressParserComma {
 		{
 			p.SetState(238)
-			p.Match(AddressComma)
+			p.Match(AddressParserComma)
 		}
 		{
 			p.SetState(239)
@@ -3900,7 +3900,7 @@ type AddressListContext struct {
 func NewEmptyAddressListContext() *AddressListContext {
 	var p = new(AddressListContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_addressList
+	p.RuleIndex = AddressParserRULE_addressList
 	return p
 }
 
@@ -3912,7 +3912,7 @@ func NewAddressListContext(parser antlr.Parser, parent antlr.ParserRuleContext, 
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_addressList
+	p.RuleIndex = AddressParserRULE_addressList
 
 	return p
 }
@@ -3943,11 +3943,11 @@ func (s *AddressListContext) Address(i int) IAddressContext {
 }
 
 func (s *AddressListContext) AllComma() []antlr.TerminalNode {
-	return s.GetTokens(AddressComma)
+	return s.GetTokens(AddressParserComma)
 }
 
 func (s *AddressListContext) Comma(i int) antlr.TerminalNode {
-	return s.GetToken(AddressComma, i)
+	return s.GetToken(AddressParserComma, i)
 }
 
 func (s *AddressListContext) GetRuleContext() antlr.RuleContext {
@@ -3959,20 +3959,20 @@ func (s *AddressListContext) ToStringTree(ruleNames []string, recog antlr.Recogn
 }
 
 func (s *AddressListContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterAddressList(s)
 	}
 }
 
 func (s *AddressListContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitAddressList(s)
 	}
 }
 
-func (p *Address) AddressList() (localctx IAddressListContext) {
+func (p *AddressParser) AddressList() (localctx IAddressListContext) {
 	localctx = NewAddressListContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 46, AddressRULE_addressList)
+	p.EnterRule(localctx, 46, AddressParserRULE_addressList)
 	var _la int
 
 	defer func() {
@@ -4000,10 +4000,10 @@ func (p *Address) AddressList() (localctx IAddressListContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for _la == AddressComma {
+	for _la == AddressParserComma {
 		{
 			p.SetState(246)
-			p.Match(AddressComma)
+			p.Match(AddressParserComma)
 		}
 		{
 			p.SetState(247)
@@ -4037,7 +4037,7 @@ type GroupListContext struct {
 func NewEmptyGroupListContext() *GroupListContext {
 	var p = new(GroupListContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_groupList
+	p.RuleIndex = AddressParserRULE_groupList
 	return p
 }
 
@@ -4049,7 +4049,7 @@ func NewGroupListContext(parser antlr.Parser, parent antlr.ParserRuleContext, in
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_groupList
+	p.RuleIndex = AddressParserRULE_groupList
 
 	return p
 }
@@ -4085,20 +4085,20 @@ func (s *GroupListContext) ToStringTree(ruleNames []string, recog antlr.Recogniz
 }
 
 func (s *GroupListContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterGroupList(s)
 	}
 }
 
 func (s *GroupListContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitGroupList(s)
 	}
 }
 
-func (p *Address) GroupList() (localctx IGroupListContext) {
+func (p *AddressParser) GroupList() (localctx IGroupListContext) {
 	localctx = NewGroupListContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 48, AddressRULE_groupList)
+	p.EnterRule(localctx, 48, AddressParserRULE_groupList)
 
 	defer func() {
 		p.ExitRule()
@@ -4157,7 +4157,7 @@ type AddrSpecContext struct {
 func NewEmptyAddrSpecContext() *AddrSpecContext {
 	var p = new(AddrSpecContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_addrSpec
+	p.RuleIndex = AddressParserRULE_addrSpec
 	return p
 }
 
@@ -4169,7 +4169,7 @@ func NewAddrSpecContext(parser antlr.Parser, parent antlr.ParserRuleContext, inv
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_addrSpec
+	p.RuleIndex = AddressParserRULE_addrSpec
 
 	return p
 }
@@ -4187,7 +4187,7 @@ func (s *AddrSpecContext) LocalPart() ILocalPartContext {
 }
 
 func (s *AddrSpecContext) At() antlr.TerminalNode {
-	return s.GetToken(AddressAt, 0)
+	return s.GetToken(AddressParserAt, 0)
 }
 
 func (s *AddrSpecContext) Domain() IDomainContext {
@@ -4209,20 +4209,20 @@ func (s *AddrSpecContext) ToStringTree(ruleNames []string, recog antlr.Recognize
 }
 
 func (s *AddrSpecContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterAddrSpec(s)
 	}
 }
 
 func (s *AddrSpecContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitAddrSpec(s)
 	}
 }
 
-func (p *Address) AddrSpec() (localctx IAddrSpecContext) {
+func (p *AddressParser) AddrSpec() (localctx IAddrSpecContext) {
 	localctx = NewAddrSpecContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 50, AddressRULE_addrSpec)
+	p.EnterRule(localctx, 50, AddressParserRULE_addrSpec)
 
 	defer func() {
 		p.ExitRule()
@@ -4247,7 +4247,7 @@ func (p *Address) AddrSpec() (localctx IAddrSpecContext) {
 	}
 	{
 		p.SetState(258)
-		p.Match(AddressAt)
+		p.Match(AddressParserAt)
 	}
 	{
 		p.SetState(259)
@@ -4276,7 +4276,7 @@ type LocalPartContext struct {
 func NewEmptyLocalPartContext() *LocalPartContext {
 	var p = new(LocalPartContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_localPart
+	p.RuleIndex = AddressParserRULE_localPart
 	return p
 }
 
@@ -4288,7 +4288,7 @@ func NewLocalPartContext(parser antlr.Parser, parent antlr.ParserRuleContext, in
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_localPart
+	p.RuleIndex = AddressParserRULE_localPart
 
 	return p
 }
@@ -4324,20 +4324,20 @@ func (s *LocalPartContext) ToStringTree(ruleNames []string, recog antlr.Recogniz
 }
 
 func (s *LocalPartContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterLocalPart(s)
 	}
 }
 
 func (s *LocalPartContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitLocalPart(s)
 	}
 }
 
-func (p *Address) LocalPart() (localctx ILocalPartContext) {
+func (p *AddressParser) LocalPart() (localctx ILocalPartContext) {
 	localctx = NewLocalPartContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 52, AddressRULE_localPart)
+	p.EnterRule(localctx, 52, AddressParserRULE_localPart)
 
 	defer func() {
 		p.ExitRule()
@@ -4396,7 +4396,7 @@ type DomainContext struct {
 func NewEmptyDomainContext() *DomainContext {
 	var p = new(DomainContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_domain
+	p.RuleIndex = AddressParserRULE_domain
 	return p
 }
 
@@ -4408,7 +4408,7 @@ func NewDomainContext(parser antlr.Parser, parent antlr.ParserRuleContext, invok
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_domain
+	p.RuleIndex = AddressParserRULE_domain
 
 	return p
 }
@@ -4444,20 +4444,20 @@ func (s *DomainContext) ToStringTree(ruleNames []string, recog antlr.Recognizer)
 }
 
 func (s *DomainContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterDomain(s)
 	}
 }
 
 func (s *DomainContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitDomain(s)
 	}
 }
 
-func (p *Address) Domain() (localctx IDomainContext) {
+func (p *AddressParser) Domain() (localctx IDomainContext) {
 	localctx = NewDomainContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 54, AddressRULE_domain)
+	p.EnterRule(localctx, 54, AddressParserRULE_domain)
 
 	defer func() {
 		p.ExitRule()
@@ -4516,7 +4516,7 @@ type DomainLiteralContext struct {
 func NewEmptyDomainLiteralContext() *DomainLiteralContext {
 	var p = new(DomainLiteralContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_domainLiteral
+	p.RuleIndex = AddressParserRULE_domainLiteral
 	return p
 }
 
@@ -4528,7 +4528,7 @@ func NewDomainLiteralContext(parser antlr.Parser, parent antlr.ParserRuleContext
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_domainLiteral
+	p.RuleIndex = AddressParserRULE_domainLiteral
 
 	return p
 }
@@ -4536,11 +4536,11 @@ func NewDomainLiteralContext(parser antlr.Parser, parent antlr.ParserRuleContext
 func (s *DomainLiteralContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *DomainLiteralContext) LBracket() antlr.TerminalNode {
-	return s.GetToken(AddressLBracket, 0)
+	return s.GetToken(AddressParserLBracket, 0)
 }
 
 func (s *DomainLiteralContext) RBracket() antlr.TerminalNode {
-	return s.GetToken(AddressRBracket, 0)
+	return s.GetToken(AddressParserRBracket, 0)
 }
 
 func (s *DomainLiteralContext) AllCfws() []ICfwsContext {
@@ -4621,20 +4621,20 @@ func (s *DomainLiteralContext) ToStringTree(ruleNames []string, recog antlr.Reco
 }
 
 func (s *DomainLiteralContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterDomainLiteral(s)
 	}
 }
 
 func (s *DomainLiteralContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitDomainLiteral(s)
 	}
 }
 
-func (p *Address) DomainLiteral() (localctx IDomainLiteralContext) {
+func (p *AddressParser) DomainLiteral() (localctx IDomainLiteralContext) {
 	localctx = NewDomainLiteralContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 56, AddressRULE_domainLiteral)
+	p.EnterRule(localctx, 56, AddressParserRULE_domainLiteral)
 	var _la int
 
 	defer func() {
@@ -4658,7 +4658,7 @@ func (p *Address) DomainLiteral() (localctx IDomainLiteralContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP)|(1<<AddressLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
 			p.SetState(269)
 			p.Cfws()
@@ -4667,18 +4667,18 @@ func (p *Address) DomainLiteral() (localctx IDomainLiteralContext) {
 	}
 	{
 		p.SetState(272)
-		p.Match(AddressLBracket)
+		p.Match(AddressParserLBracket)
 	}
 	p.SetState(279)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP)|(1<<AddressExclamation)|(1<<AddressDQuote)|(1<<AddressHash)|(1<<AddressDollar)|(1<<AddressPercent)|(1<<AddressAmpersand)|(1<<AddressSQuote)|(1<<AddressLParens)|(1<<AddressRParens)|(1<<AddressAsterisk)|(1<<AddressPlus)|(1<<AddressComma)|(1<<AddressMinus)|(1<<AddressPeriod)|(1<<AddressSlash)|(1<<AddressDigit)|(1<<AddressColon)|(1<<AddressSemicolon)|(1<<AddressLess)|(1<<AddressEqual)|(1<<AddressGreater)|(1<<AddressQuestion)|(1<<AddressAt)|(1<<AddressAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressCaret-32))|(1<<(AddressUnderscore-32))|(1<<(AddressBacktick-32))|(1<<(AddressAlphaLower-32))|(1<<(AddressLCurly-32))|(1<<(AddressPipe-32))|(1<<(AddressRCurly-32))|(1<<(AddressTilde-32)))) != 0) {
+	for (((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserExclamation)|(1<<AddressParserDQuote)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserLParens)|(1<<AddressParserRParens)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserComma)|(1<<AddressParserMinus)|(1<<AddressParserPeriod)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserColon)|(1<<AddressParserSemicolon)|(1<<AddressParserLess)|(1<<AddressParserEqual)|(1<<AddressParserGreater)|(1<<AddressParserQuestion)|(1<<AddressParserAt)|(1<<AddressParserAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0) {
 		p.SetState(274)
 		p.GetErrorHandler().Sync(p)
 		_la = p.GetTokenStream().LA(1)
 
-		if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP))) != 0 {
+		if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP))) != 0 {
 			{
 				p.SetState(273)
 				p.Fws()
@@ -4696,13 +4696,13 @@ func (p *Address) DomainLiteral() (localctx IDomainLiteralContext) {
 	}
 	{
 		p.SetState(282)
-		p.Match(AddressRBracket)
+		p.Match(AddressParserRBracket)
 	}
 	p.SetState(284)
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressCRLF)|(1<<AddressHTAB)|(1<<AddressSP)|(1<<AddressLParens))) != 0 {
+	if ((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserCRLF)|(1<<AddressParserHTAB)|(1<<AddressParserSP)|(1<<AddressParserLParens))) != 0 {
 		{
 			p.SetState(283)
 			p.Cfws()
@@ -4732,7 +4732,7 @@ type DtextContext struct {
 func NewEmptyDtextContext() *DtextContext {
 	var p = new(DtextContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_dtext
+	p.RuleIndex = AddressParserRULE_dtext
 	return p
 }
 
@@ -4744,7 +4744,7 @@ func NewDtextContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_dtext
+	p.RuleIndex = AddressParserRULE_dtext
 
 	return p
 }
@@ -4752,131 +4752,131 @@ func NewDtextContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 func (s *DtextContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *DtextContext) Exclamation() antlr.TerminalNode {
-	return s.GetToken(AddressExclamation, 0)
+	return s.GetToken(AddressParserExclamation, 0)
 }
 
 func (s *DtextContext) DQuote() antlr.TerminalNode {
-	return s.GetToken(AddressDQuote, 0)
+	return s.GetToken(AddressParserDQuote, 0)
 }
 
 func (s *DtextContext) Hash() antlr.TerminalNode {
-	return s.GetToken(AddressHash, 0)
+	return s.GetToken(AddressParserHash, 0)
 }
 
 func (s *DtextContext) Dollar() antlr.TerminalNode {
-	return s.GetToken(AddressDollar, 0)
+	return s.GetToken(AddressParserDollar, 0)
 }
 
 func (s *DtextContext) Percent() antlr.TerminalNode {
-	return s.GetToken(AddressPercent, 0)
+	return s.GetToken(AddressParserPercent, 0)
 }
 
 func (s *DtextContext) Ampersand() antlr.TerminalNode {
-	return s.GetToken(AddressAmpersand, 0)
+	return s.GetToken(AddressParserAmpersand, 0)
 }
 
 func (s *DtextContext) SQuote() antlr.TerminalNode {
-	return s.GetToken(AddressSQuote, 0)
+	return s.GetToken(AddressParserSQuote, 0)
 }
 
 func (s *DtextContext) LParens() antlr.TerminalNode {
-	return s.GetToken(AddressLParens, 0)
+	return s.GetToken(AddressParserLParens, 0)
 }
 
 func (s *DtextContext) RParens() antlr.TerminalNode {
-	return s.GetToken(AddressRParens, 0)
+	return s.GetToken(AddressParserRParens, 0)
 }
 
 func (s *DtextContext) Asterisk() antlr.TerminalNode {
-	return s.GetToken(AddressAsterisk, 0)
+	return s.GetToken(AddressParserAsterisk, 0)
 }
 
 func (s *DtextContext) Plus() antlr.TerminalNode {
-	return s.GetToken(AddressPlus, 0)
+	return s.GetToken(AddressParserPlus, 0)
 }
 
 func (s *DtextContext) Comma() antlr.TerminalNode {
-	return s.GetToken(AddressComma, 0)
+	return s.GetToken(AddressParserComma, 0)
 }
 
 func (s *DtextContext) Minus() antlr.TerminalNode {
-	return s.GetToken(AddressMinus, 0)
+	return s.GetToken(AddressParserMinus, 0)
 }
 
 func (s *DtextContext) Period() antlr.TerminalNode {
-	return s.GetToken(AddressPeriod, 0)
+	return s.GetToken(AddressParserPeriod, 0)
 }
 
 func (s *DtextContext) Slash() antlr.TerminalNode {
-	return s.GetToken(AddressSlash, 0)
+	return s.GetToken(AddressParserSlash, 0)
 }
 
 func (s *DtextContext) Digit() antlr.TerminalNode {
-	return s.GetToken(AddressDigit, 0)
+	return s.GetToken(AddressParserDigit, 0)
 }
 
 func (s *DtextContext) Colon() antlr.TerminalNode {
-	return s.GetToken(AddressColon, 0)
+	return s.GetToken(AddressParserColon, 0)
 }
 
 func (s *DtextContext) Semicolon() antlr.TerminalNode {
-	return s.GetToken(AddressSemicolon, 0)
+	return s.GetToken(AddressParserSemicolon, 0)
 }
 
 func (s *DtextContext) Less() antlr.TerminalNode {
-	return s.GetToken(AddressLess, 0)
+	return s.GetToken(AddressParserLess, 0)
 }
 
 func (s *DtextContext) Equal() antlr.TerminalNode {
-	return s.GetToken(AddressEqual, 0)
+	return s.GetToken(AddressParserEqual, 0)
 }
 
 func (s *DtextContext) Greater() antlr.TerminalNode {
-	return s.GetToken(AddressGreater, 0)
+	return s.GetToken(AddressParserGreater, 0)
 }
 
 func (s *DtextContext) Question() antlr.TerminalNode {
-	return s.GetToken(AddressQuestion, 0)
+	return s.GetToken(AddressParserQuestion, 0)
 }
 
 func (s *DtextContext) At() antlr.TerminalNode {
-	return s.GetToken(AddressAt, 0)
+	return s.GetToken(AddressParserAt, 0)
 }
 
 func (s *DtextContext) AlphaUpper() antlr.TerminalNode {
-	return s.GetToken(AddressAlphaUpper, 0)
+	return s.GetToken(AddressParserAlphaUpper, 0)
 }
 
 func (s *DtextContext) Caret() antlr.TerminalNode {
-	return s.GetToken(AddressCaret, 0)
+	return s.GetToken(AddressParserCaret, 0)
 }
 
 func (s *DtextContext) Underscore() antlr.TerminalNode {
-	return s.GetToken(AddressUnderscore, 0)
+	return s.GetToken(AddressParserUnderscore, 0)
 }
 
 func (s *DtextContext) Backtick() antlr.TerminalNode {
-	return s.GetToken(AddressBacktick, 0)
+	return s.GetToken(AddressParserBacktick, 0)
 }
 
 func (s *DtextContext) AlphaLower() antlr.TerminalNode {
-	return s.GetToken(AddressAlphaLower, 0)
+	return s.GetToken(AddressParserAlphaLower, 0)
 }
 
 func (s *DtextContext) LCurly() antlr.TerminalNode {
-	return s.GetToken(AddressLCurly, 0)
+	return s.GetToken(AddressParserLCurly, 0)
 }
 
 func (s *DtextContext) Pipe() antlr.TerminalNode {
-	return s.GetToken(AddressPipe, 0)
+	return s.GetToken(AddressParserPipe, 0)
 }
 
 func (s *DtextContext) RCurly() antlr.TerminalNode {
-	return s.GetToken(AddressRCurly, 0)
+	return s.GetToken(AddressParserRCurly, 0)
 }
 
 func (s *DtextContext) Tilde() antlr.TerminalNode {
-	return s.GetToken(AddressTilde, 0)
+	return s.GetToken(AddressParserTilde, 0)
 }
 
 func (s *DtextContext) GetRuleContext() antlr.RuleContext {
@@ -4888,20 +4888,20 @@ func (s *DtextContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) 
 }
 
 func (s *DtextContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterDtext(s)
 	}
 }
 
 func (s *DtextContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitDtext(s)
 	}
 }
 
-func (p *Address) Dtext() (localctx IDtextContext) {
+func (p *AddressParser) Dtext() (localctx IDtextContext) {
 	localctx = NewDtextContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 58, AddressRULE_dtext)
+	p.EnterRule(localctx, 58, AddressParserRULE_dtext)
 	var _la int
 
 	defer func() {
@@ -4925,7 +4925,7 @@ func (p *Address) Dtext() (localctx IDtextContext) {
 		p.SetState(286)
 		_la = p.GetTokenStream().LA(1)
 
-		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressExclamation)|(1<<AddressDQuote)|(1<<AddressHash)|(1<<AddressDollar)|(1<<AddressPercent)|(1<<AddressAmpersand)|(1<<AddressSQuote)|(1<<AddressLParens)|(1<<AddressRParens)|(1<<AddressAsterisk)|(1<<AddressPlus)|(1<<AddressComma)|(1<<AddressMinus)|(1<<AddressPeriod)|(1<<AddressSlash)|(1<<AddressDigit)|(1<<AddressColon)|(1<<AddressSemicolon)|(1<<AddressLess)|(1<<AddressEqual)|(1<<AddressGreater)|(1<<AddressQuestion)|(1<<AddressAt)|(1<<AddressAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressCaret-32))|(1<<(AddressUnderscore-32))|(1<<(AddressBacktick-32))|(1<<(AddressAlphaLower-32))|(1<<(AddressLCurly-32))|(1<<(AddressPipe-32))|(1<<(AddressRCurly-32))|(1<<(AddressTilde-32)))) != 0)) {
+		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserExclamation)|(1<<AddressParserDQuote)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserLParens)|(1<<AddressParserRParens)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserComma)|(1<<AddressParserMinus)|(1<<AddressParserPeriod)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserColon)|(1<<AddressParserSemicolon)|(1<<AddressParserLess)|(1<<AddressParserEqual)|(1<<AddressParserGreater)|(1<<AddressParserQuestion)|(1<<AddressParserAt)|(1<<AddressParserAlphaUpper))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0)) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
@@ -4955,7 +4955,7 @@ type WspContext struct {
 func NewEmptyWspContext() *WspContext {
 	var p = new(WspContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_wsp
+	p.RuleIndex = AddressParserRULE_wsp
 	return p
 }
 
@@ -4967,7 +4967,7 @@ func NewWspContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoking
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_wsp
+	p.RuleIndex = AddressParserRULE_wsp
 
 	return p
 }
@@ -4975,11 +4975,11 @@ func NewWspContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoking
 func (s *WspContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *WspContext) SP() antlr.TerminalNode {
-	return s.GetToken(AddressSP, 0)
+	return s.GetToken(AddressParserSP, 0)
 }
 
 func (s *WspContext) HTAB() antlr.TerminalNode {
-	return s.GetToken(AddressHTAB, 0)
+	return s.GetToken(AddressParserHTAB, 0)
 }
 
 func (s *WspContext) GetRuleContext() antlr.RuleContext {
@@ -4991,20 +4991,20 @@ func (s *WspContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) st
 }
 
 func (s *WspContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterWsp(s)
 	}
 }
 
 func (s *WspContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitWsp(s)
 	}
 }
 
-func (p *Address) Wsp() (localctx IWspContext) {
+func (p *AddressParser) Wsp() (localctx IWspContext) {
 	localctx = NewWspContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 60, AddressRULE_wsp)
+	p.EnterRule(localctx, 60, AddressParserRULE_wsp)
 	var _la int
 
 	defer func() {
@@ -5028,7 +5028,7 @@ func (p *Address) Wsp() (localctx IWspContext) {
 		p.SetState(288)
 		_la = p.GetTokenStream().LA(1)
 
-		if !(_la == AddressHTAB || _la == AddressSP) {
+		if !(_la == AddressParserHTAB || _la == AddressParserSP) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)
@@ -5058,7 +5058,7 @@ type VcharContext struct {
 func NewEmptyVcharContext() *VcharContext {
 	var p = new(VcharContext)
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(nil, -1)
-	p.RuleIndex = AddressRULE_vchar
+	p.RuleIndex = AddressParserRULE_vchar
 	return p
 }
 
@@ -5070,7 +5070,7 @@ func NewVcharContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 	p.BaseParserRuleContext = antlr.NewBaseParserRuleContext(parent, invokingState)
 
 	p.parser = parser
-	p.RuleIndex = AddressRULE_vchar
+	p.RuleIndex = AddressParserRULE_vchar
 
 	return p
 }
@@ -5078,143 +5078,143 @@ func NewVcharContext(parser antlr.Parser, parent antlr.ParserRuleContext, invoki
 func (s *VcharContext) GetParser() antlr.Parser { return s.parser }
 
 func (s *VcharContext) Exclamation() antlr.TerminalNode {
-	return s.GetToken(AddressExclamation, 0)
+	return s.GetToken(AddressParserExclamation, 0)
 }
 
 func (s *VcharContext) DQuote() antlr.TerminalNode {
-	return s.GetToken(AddressDQuote, 0)
+	return s.GetToken(AddressParserDQuote, 0)
 }
 
 func (s *VcharContext) Hash() antlr.TerminalNode {
-	return s.GetToken(AddressHash, 0)
+	return s.GetToken(AddressParserHash, 0)
 }
 
 func (s *VcharContext) Dollar() antlr.TerminalNode {
-	return s.GetToken(AddressDollar, 0)
+	return s.GetToken(AddressParserDollar, 0)
 }
 
 func (s *VcharContext) Percent() antlr.TerminalNode {
-	return s.GetToken(AddressPercent, 0)
+	return s.GetToken(AddressParserPercent, 0)
 }
 
 func (s *VcharContext) Ampersand() antlr.TerminalNode {
-	return s.GetToken(AddressAmpersand, 0)
+	return s.GetToken(AddressParserAmpersand, 0)
 }
 
 func (s *VcharContext) SQuote() antlr.TerminalNode {
-	return s.GetToken(AddressSQuote, 0)
+	return s.GetToken(AddressParserSQuote, 0)
 }
 
 func (s *VcharContext) LParens() antlr.TerminalNode {
-	return s.GetToken(AddressLParens, 0)
+	return s.GetToken(AddressParserLParens, 0)
 }
 
 func (s *VcharContext) RParens() antlr.TerminalNode {
-	return s.GetToken(AddressRParens, 0)
+	return s.GetToken(AddressParserRParens, 0)
 }
 
 func (s *VcharContext) Asterisk() antlr.TerminalNode {
-	return s.GetToken(AddressAsterisk, 0)
+	return s.GetToken(AddressParserAsterisk, 0)
 }
 
 func (s *VcharContext) Plus() antlr.TerminalNode {
-	return s.GetToken(AddressPlus, 0)
+	return s.GetToken(AddressParserPlus, 0)
 }
 
 func (s *VcharContext) Comma() antlr.TerminalNode {
-	return s.GetToken(AddressComma, 0)
+	return s.GetToken(AddressParserComma, 0)
 }
 
 func (s *VcharContext) Minus() antlr.TerminalNode {
-	return s.GetToken(AddressMinus, 0)
+	return s.GetToken(AddressParserMinus, 0)
 }
 
 func (s *VcharContext) Period() antlr.TerminalNode {
-	return s.GetToken(AddressPeriod, 0)
+	return s.GetToken(AddressParserPeriod, 0)
 }
 
 func (s *VcharContext) Slash() antlr.TerminalNode {
-	return s.GetToken(AddressSlash, 0)
+	return s.GetToken(AddressParserSlash, 0)
 }
 
 func (s *VcharContext) Digit() antlr.TerminalNode {
-	return s.GetToken(AddressDigit, 0)
+	return s.GetToken(AddressParserDigit, 0)
 }
 
 func (s *VcharContext) Colon() antlr.TerminalNode {
-	return s.GetToken(AddressColon, 0)
+	return s.GetToken(AddressParserColon, 0)
 }
 
 func (s *VcharContext) Semicolon() antlr.TerminalNode {
-	return s.GetToken(AddressSemicolon, 0)
+	return s.GetToken(AddressParserSemicolon, 0)
 }
 
 func (s *VcharContext) Less() antlr.TerminalNode {
-	return s.GetToken(AddressLess, 0)
+	return s.GetToken(AddressParserLess, 0)
 }
 
 func (s *VcharContext) Equal() antlr.TerminalNode {
-	return s.GetToken(AddressEqual, 0)
+	return s.GetToken(AddressParserEqual, 0)
 }
 
 func (s *VcharContext) Greater() antlr.TerminalNode {
-	return s.GetToken(AddressGreater, 0)
+	return s.GetToken(AddressParserGreater, 0)
 }
 
 func (s *VcharContext) Question() antlr.TerminalNode {
-	return s.GetToken(AddressQuestion, 0)
+	return s.GetToken(AddressParserQuestion, 0)
 }
 
 func (s *VcharContext) At() antlr.TerminalNode {
-	return s.GetToken(AddressAt, 0)
+	return s.GetToken(AddressParserAt, 0)
 }
 
 func (s *VcharContext) AlphaUpper() antlr.TerminalNode {
-	return s.GetToken(AddressAlphaUpper, 0)
+	return s.GetToken(AddressParserAlphaUpper, 0)
 }
 
 func (s *VcharContext) LBracket() antlr.TerminalNode {
-	return s.GetToken(AddressLBracket, 0)
+	return s.GetToken(AddressParserLBracket, 0)
 }
 
 func (s *VcharContext) Backslash() antlr.TerminalNode {
-	return s.GetToken(AddressBackslash, 0)
+	return s.GetToken(AddressParserBackslash, 0)
 }
 
 func (s *VcharContext) RBracket() antlr.TerminalNode {
-	return s.GetToken(AddressRBracket, 0)
+	return s.GetToken(AddressParserRBracket, 0)
 }
 
 func (s *VcharContext) Caret() antlr.TerminalNode {
-	return s.GetToken(AddressCaret, 0)
+	return s.GetToken(AddressParserCaret, 0)
 }
 
 func (s *VcharContext) Underscore() antlr.TerminalNode {
-	return s.GetToken(AddressUnderscore, 0)
+	return s.GetToken(AddressParserUnderscore, 0)
 }
 
 func (s *VcharContext) Backtick() antlr.TerminalNode {
-	return s.GetToken(AddressBacktick, 0)
+	return s.GetToken(AddressParserBacktick, 0)
 }
 
 func (s *VcharContext) AlphaLower() antlr.TerminalNode {
-	return s.GetToken(AddressAlphaLower, 0)
+	return s.GetToken(AddressParserAlphaLower, 0)
 }
 
 func (s *VcharContext) LCurly() antlr.TerminalNode {
-	return s.GetToken(AddressLCurly, 0)
+	return s.GetToken(AddressParserLCurly, 0)
 }
 
 func (s *VcharContext) Pipe() antlr.TerminalNode {
-	return s.GetToken(AddressPipe, 0)
+	return s.GetToken(AddressParserPipe, 0)
 }
 
 func (s *VcharContext) RCurly() antlr.TerminalNode {
-	return s.GetToken(AddressRCurly, 0)
+	return s.GetToken(AddressParserRCurly, 0)
 }
 
 func (s *VcharContext) Tilde() antlr.TerminalNode {
-	return s.GetToken(AddressTilde, 0)
+	return s.GetToken(AddressParserTilde, 0)
 }
 
 func (s *VcharContext) GetRuleContext() antlr.RuleContext {
@@ -5226,20 +5226,20 @@ func (s *VcharContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) 
 }
 
 func (s *VcharContext) EnterRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.EnterVchar(s)
 	}
 }
 
 func (s *VcharContext) ExitRule(listener antlr.ParseTreeListener) {
-	if listenerT, ok := listener.(AddressListener); ok {
+	if listenerT, ok := listener.(AddressParserListener); ok {
 		listenerT.ExitVchar(s)
 	}
 }
 
-func (p *Address) Vchar() (localctx IVcharContext) {
+func (p *AddressParser) Vchar() (localctx IVcharContext) {
 	localctx = NewVcharContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 62, AddressRULE_vchar)
+	p.EnterRule(localctx, 62, AddressParserRULE_vchar)
 	var _la int
 
 	defer func() {
@@ -5263,7 +5263,7 @@ func (p *Address) Vchar() (localctx IVcharContext) {
 		p.SetState(290)
 		_la = p.GetTokenStream().LA(1)
 
-		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressExclamation)|(1<<AddressDQuote)|(1<<AddressHash)|(1<<AddressDollar)|(1<<AddressPercent)|(1<<AddressAmpersand)|(1<<AddressSQuote)|(1<<AddressLParens)|(1<<AddressRParens)|(1<<AddressAsterisk)|(1<<AddressPlus)|(1<<AddressComma)|(1<<AddressMinus)|(1<<AddressPeriod)|(1<<AddressSlash)|(1<<AddressDigit)|(1<<AddressColon)|(1<<AddressSemicolon)|(1<<AddressLess)|(1<<AddressEqual)|(1<<AddressGreater)|(1<<AddressQuestion)|(1<<AddressAt)|(1<<AddressAlphaUpper)|(1<<AddressLBracket)|(1<<AddressBackslash)|(1<<AddressRBracket))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressCaret-32))|(1<<(AddressUnderscore-32))|(1<<(AddressBacktick-32))|(1<<(AddressAlphaLower-32))|(1<<(AddressLCurly-32))|(1<<(AddressPipe-32))|(1<<(AddressRCurly-32))|(1<<(AddressTilde-32)))) != 0)) {
+		if !((((_la)&-(0x1f+1)) == 0 && ((1<<uint(_la))&((1<<AddressParserExclamation)|(1<<AddressParserDQuote)|(1<<AddressParserHash)|(1<<AddressParserDollar)|(1<<AddressParserPercent)|(1<<AddressParserAmpersand)|(1<<AddressParserSQuote)|(1<<AddressParserLParens)|(1<<AddressParserRParens)|(1<<AddressParserAsterisk)|(1<<AddressParserPlus)|(1<<AddressParserComma)|(1<<AddressParserMinus)|(1<<AddressParserPeriod)|(1<<AddressParserSlash)|(1<<AddressParserDigit)|(1<<AddressParserColon)|(1<<AddressParserSemicolon)|(1<<AddressParserLess)|(1<<AddressParserEqual)|(1<<AddressParserGreater)|(1<<AddressParserQuestion)|(1<<AddressParserAt)|(1<<AddressParserAlphaUpper)|(1<<AddressParserLBracket)|(1<<AddressParserBackslash)|(1<<AddressParserRBracket))) != 0) || (((_la-32)&-(0x1f+1)) == 0 && ((1<<uint((_la-32)))&((1<<(AddressParserCaret-32))|(1<<(AddressParserUnderscore-32))|(1<<(AddressParserBacktick-32))|(1<<(AddressParserAlphaLower-32))|(1<<(AddressParserLCurly-32))|(1<<(AddressParserPipe-32))|(1<<(AddressParserRCurly-32))|(1<<(AddressParserTilde-32)))) != 0)) {
 			p.GetErrorHandler().RecoverInline(p)
 		} else {
 			p.GetErrorHandler().ReportMatch(p)

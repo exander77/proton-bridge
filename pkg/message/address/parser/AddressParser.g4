@@ -1,4 +1,4 @@
-parser grammar Address;
+parser grammar AddressParser;
 
 options { tokenVocab=AddressLexer; }
 

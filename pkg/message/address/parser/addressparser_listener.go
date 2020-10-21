@@ -1,11 +1,11 @@
-// Code generated from pkg/message/address/parser/Address.g4 by ANTLR 4.8. DO NOT EDIT.
+// Code generated from pkg/message/address/parser/AddressParser.g4 by ANTLR 4.8. DO NOT EDIT.
 
-package parser // Address
+package parser // AddressParser
 
 import "github.com/antlr/antlr4/runtime/Go/antlr"
 
-// AddressListener is a complete listener for a parse tree produced by Address.
-type AddressListener interface {
+// AddressParserListener is a complete listener for a parse tree produced by AddressParser.
+type AddressParserListener interface {
 	antlr.ParseTreeListener
 
 	// EnterQuotedPair is called when entering the quotedPair production.
