@@ -75,12 +75,6 @@ func (s *BaseAddressParserListener) EnterAtom(ctx *AtomContext) {}
 // ExitAtom is called when production atom is exited.
 func (s *BaseAddressParserListener) ExitAtom(ctx *AtomContext) {}
 
-// EnterDotAtomText is called when production dotAtomText is entered.
-func (s *BaseAddressParserListener) EnterDotAtomText(ctx *DotAtomTextContext) {}
-
-// ExitDotAtomText is called when production dotAtomText is exited.
-func (s *BaseAddressParserListener) ExitDotAtomText(ctx *DotAtomTextContext) {}
-
 // EnterDotAtom is called when production dotAtom is entered.
 func (s *BaseAddressParserListener) EnterDotAtom(ctx *DotAtomContext) {}
 

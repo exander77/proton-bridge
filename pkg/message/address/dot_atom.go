@@ -30,7 +30,7 @@ func (w *walker) EnterDotAtom(ctx *parser.DotAtomContext) {
 	logrus.Trace("Entering dotAtom")
 
 	w.enter(&dotAtom{
-		value: ctx.DotAtomText().GetText(),
+		value: ctx.GetText(),
 	})
 }
 

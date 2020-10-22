@@ -112,9 +112,7 @@ atext
 
 atom: atext+;
 
-dotAtomText: atext+ (Period atext+)*;
-
-dotAtom: cfws? dotAtomText cfws?;
+dotAtom: atext+ (Period atext+)*;
 
 qtext
 	: Exclamation
@@ -221,18 +219,18 @@ groupList
 addrSpec: localPart At domain;
 
 localPart
-	: dotAtom 
-	| quotedString
+	: cfws? dotAtom cfws?
+	| cfws? quotedString cfws?
 //| obsLocalPart
 	;
 
 domain
-	: dotAtom
-	| domainLiteral
+	: cfws? dotAtom cfws? 
+	| cfws? domainLiteral cfws?
 //| obsDomain
 	;
 
-domainLiteral: cfws? LBracket (fws? dtext)* fws? RBracket cfws?;
+domainLiteral: LBracket (fws? dtext)* fws? RBracket;
 
 dtext
 	: Exclamation

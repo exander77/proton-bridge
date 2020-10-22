@@ -36,10 +36,7 @@ func (d *domain) withDomainLiteral(domainLiteral *domainLiteral) {
 
 func (w *walker) EnterDomain(ctx *parser.DomainContext) {
 	logrus.Trace("Entering domain")
-
-	w.enter(&domain{
-		value: ctx.GetText(),
-	})
+	w.enter(&domain{})
 }
 
 func (w *walker) ExitDomain(ctx *parser.DomainContext) {

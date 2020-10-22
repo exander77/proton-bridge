@@ -35,9 +35,6 @@ type AddressParserListener interface {
 	// EnterAtom is called when entering the atom production.
 	EnterAtom(c *AtomContext)
 
-	// EnterDotAtomText is called when entering the dotAtomText production.
-	EnterDotAtomText(c *DotAtomTextContext)
-
 	// EnterDotAtom is called when entering the dotAtom production.
 	EnterDotAtom(c *DotAtomContext)
 
@@ -157,9 +154,6 @@ type AddressParserListener interface {
 
 	// ExitAtom is called when exiting the atom production.
 	ExitAtom(c *AtomContext)
-
-	// ExitDotAtomText is called when exiting the dotAtomText production.
-	ExitDotAtomText(c *DotAtomTextContext)
 
 	// ExitDotAtom is called when exiting the dotAtom production.
 	ExitDotAtom(c *DotAtomContext)
