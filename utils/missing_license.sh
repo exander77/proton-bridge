@@ -18,10 +18,14 @@
 # along with ProtonMail Bridge.  If not, see <https://www.gnu.org/licenses/>.
 
 YEAR=`date +%Y`
-MISSING_FILES=`find . -not -path "./vendor/*" -not -path "./vendor-cache/*" -not -path "./.cache/*" -not -name "*mock*.go" -regextype posix-egrep -regex ".*\.go|.*\.qml|.*\.sh|.*\.py" -exec grep -L "Copyright (c) ${YEAR} Proton Technologies AG" {} \;`
+MISSING_FILES=`find . -not -path "./vendor/*" -not -path "./vendor-cache/*" -not -path "./.cache/*" -not -name "*mock*.go" -regextype posix-egrep -regex ".*\.go|.*\.qml|.*\.sh|.*\.py" -exec grep -L "Copyright (c) ${YEAR} Proton Technologies AG\|^// Code generated .* DO NOT EDIT.$" {} \;`
 
 for f in ${MISSING_FILES}
 do
+    if grep -q "^// Code generated .* DO NOT EDIT.$" $f
+    then
+        continue
+    fi
     echo -n "MISSING LICENSE or WRONG YEAR in $f"
     if [[ $1 == "add" ]]
     then
@@ -38,4 +42,5 @@ do
 done
 
 [[ "$1" == "check" ]] && [[ -n ${MISSING_FILES} ]] && exit 1
+
 exit 0
