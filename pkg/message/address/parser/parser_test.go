@@ -31,6 +31,8 @@ func TestParserValid(t *testing.T) {
 		`Gogh Fir <gf@example.com>`,
 	}
 	for _, input := range tests {
+		input := input
+
 		t.Run(input, func(t *testing.T) {
 			assert.Empty(t, parseAddress(input))
 		})
@@ -43,19 +45,23 @@ func TestParserBad(t *testing.T) {
 	}
 
 	for _, input := range tests {
+		input := input
+
 		t.Run(input, func(t *testing.T) {
 			assert.NotEmpty(t, parseAddress(input))
 		})
 	}
 }
 
-func _TestStandardMessages(t *testing.T) { // nolint[deadcode]
+func TestIsEmailValidCategory(t *testing.T) {
 	f, err := os.Open("tests.xml")
 	require.NoError(t, err)
 	defer func() { require.NoError(t, err) }()
 
 	for test := range readTestCases(f) {
-		if !test.valid || test.deprecated {
+		test := test
+
+		if test.category != "ISEMAIL_VALID_CATEGORY" {
 			continue
 		}
 
@@ -65,46 +71,14 @@ func _TestStandardMessages(t *testing.T) { // nolint[deadcode]
 	}
 }
 
-func _TestInvalidMessages(t *testing.T) { // nolint[deadcode]
-	f, err := os.Open("tests.xml")
-	require.NoError(t, err)
-	defer func() { require.NoError(t, err) }()
-
-	for test := range readTestCases(f) {
-		if test.valid || test.deprecated {
-			continue
-		}
-
-		t.Run(test.id, func(t *testing.T) {
-			assert.NotEmpty(t, parseAddress(test.address))
-		})
-	}
+type testCase struct {
+	id        string
+	address   string
+	category  string
+	diagnosis string
 }
 
-func _TestDeprecatedMessages(t *testing.T) { // nolint[deadcode]
-	f, err := os.Open("tests.xml")
-	require.NoError(t, err)
-	defer func() { require.NoError(t, err) }()
-
-	for test := range readTestCases(f) {
-		if !test.deprecated {
-			continue
-		}
-
-		t.Run(test.id, func(t *testing.T) {
-			assert.NotEmpty(t, parseAddress(test.address))
-		})
-	}
-}
-
-type testCase struct { // nolint[deadcode]
-	id         string
-	address    string
-	valid      bool
-	deprecated bool
-}
-
-func readTestCases(r io.Reader) chan testCase { // nolint[deadcode]
+func readTestCases(r io.Reader) chan testCase {
 	ch := make(chan testCase)
 
 	var (
@@ -118,8 +92,7 @@ func readTestCases(r io.Reader) chan testCase { // nolint[deadcode]
 		for token, err := decoder.Token(); err == nil; token, err = decoder.Token() {
 			switch t := token.(type) {
 			case xml.StartElement:
-				switch t.Name.Local {
-				case "test":
+				if t.Name.Local == "test" {
 					test = testCase{
 						id: t.Attr[0].Value,
 					}
@@ -134,8 +107,10 @@ func readTestCases(r io.Reader) chan testCase { // nolint[deadcode]
 					test.address = data
 
 				case "category":
-					test.valid = data != "ISEMAIL_ERR"
-					test.deprecated = data == "ISEMAIL_DEPREC"
+					test.category = data
+
+				case "diagnosis":
+					test.diagnosis = data
 				}
 
 			case xml.CharData:

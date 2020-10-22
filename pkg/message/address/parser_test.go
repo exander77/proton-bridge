@@ -110,6 +110,8 @@ func TestParseSingleAddress(t *testing.T) {
 		},
 	}
 	for _, test := range tests {
+		test := test
+
 		t.Run(test.input, func(t *testing.T) {
 			addrs, err := Parse(test.input)
 			assert.NoError(t, err)
@@ -207,6 +209,8 @@ func TestParseAddressList(t *testing.T) {
 		*/
 	}
 	for _, test := range tests {
+		test := test
+
 		t.Run(test.input, func(t *testing.T) {
 			addrs, err := Parse(test.input)
 			assert.NoError(t, err)
