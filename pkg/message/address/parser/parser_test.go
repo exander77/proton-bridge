@@ -56,6 +56,24 @@ func TestParserValid(t *testing.T) {
 	}
 }
 
+func TestParserEncodedWord(t *testing.T) {
+	tests := []string{
+		`=?US-ASCII?Q?Keith_Moore?= <moore@cs.utk.edu>`,
+		`=?ISO-8859-1?Q?Keld_J=F8rn_Simonsen?= <keld@dkuug.dk>`,
+		`=?ISO-8859-1?Q?Andr=E9?= Pirard <PIRARD@vm1.ulg.ac.be>`,
+		`=?ISO-8859-1?Q?Olle_J=E4rnefors?= <ojarnef@admin.kth.se>`,
+		`=?ISO-8859-1?Q?Patrik_F=E4ltstr=F6m?= <paf@nada.kth.se>`,
+		`Nathaniel Borenstein <nsb@thumper.bellcore.com> (=?iso-8859-8?b?7eXs+SDv4SDp7Oj08A==?=)`,
+	}
+	for _, input := range tests {
+		input := input
+
+		t.Run(input, func(t *testing.T) {
+			assert.Empty(t, parseAddress(input))
+		})
+	}
+}
+
 func TestParserBad(t *testing.T) {
 	tests := []string{
 		`this address sucks`,

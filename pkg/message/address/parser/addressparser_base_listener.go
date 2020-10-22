@@ -69,12 +69,6 @@ func (s *BaseAddressParserListener) EnterAtext(ctx *AtextContext) {}
 // ExitAtext is called when production atext is exited.
 func (s *BaseAddressParserListener) ExitAtext(ctx *AtextContext) {}
 
-// EnterAtextString is called when production atextString is entered.
-func (s *BaseAddressParserListener) EnterAtextString(ctx *AtextStringContext) {}
-
-// ExitAtextString is called when production atextString is exited.
-func (s *BaseAddressParserListener) ExitAtextString(ctx *AtextStringContext) {}
-
 // EnterAtom is called when production atom is entered.
 func (s *BaseAddressParserListener) EnterAtom(ctx *AtomContext) {}
 
@@ -212,6 +206,48 @@ func (s *BaseAddressParserListener) EnterDtext(ctx *DtextContext) {}
 
 // ExitDtext is called when production dtext is exited.
 func (s *BaseAddressParserListener) ExitDtext(ctx *DtextContext) {}
+
+// EnterEncodedWord is called when production encodedWord is entered.
+func (s *BaseAddressParserListener) EnterEncodedWord(ctx *EncodedWordContext) {}
+
+// ExitEncodedWord is called when production encodedWord is exited.
+func (s *BaseAddressParserListener) ExitEncodedWord(ctx *EncodedWordContext) {}
+
+// EnterCharset is called when production charset is entered.
+func (s *BaseAddressParserListener) EnterCharset(ctx *CharsetContext) {}
+
+// ExitCharset is called when production charset is exited.
+func (s *BaseAddressParserListener) ExitCharset(ctx *CharsetContext) {}
+
+// EnterEncoding is called when production encoding is entered.
+func (s *BaseAddressParserListener) EnterEncoding(ctx *EncodingContext) {}
+
+// ExitEncoding is called when production encoding is exited.
+func (s *BaseAddressParserListener) ExitEncoding(ctx *EncodingContext) {}
+
+// EnterToken is called when production token is entered.
+func (s *BaseAddressParserListener) EnterToken(ctx *TokenContext) {}
+
+// ExitToken is called when production token is exited.
+func (s *BaseAddressParserListener) ExitToken(ctx *TokenContext) {}
+
+// EnterTokenChar is called when production tokenChar is entered.
+func (s *BaseAddressParserListener) EnterTokenChar(ctx *TokenCharContext) {}
+
+// ExitTokenChar is called when production tokenChar is exited.
+func (s *BaseAddressParserListener) ExitTokenChar(ctx *TokenCharContext) {}
+
+// EnterEncodedText is called when production encodedText is entered.
+func (s *BaseAddressParserListener) EnterEncodedText(ctx *EncodedTextContext) {}
+
+// ExitEncodedText is called when production encodedText is exited.
+func (s *BaseAddressParserListener) ExitEncodedText(ctx *EncodedTextContext) {}
+
+// EnterEncodedChar is called when production encodedChar is entered.
+func (s *BaseAddressParserListener) EnterEncodedChar(ctx *EncodedCharContext) {}
+
+// ExitEncodedChar is called when production encodedChar is exited.
+func (s *BaseAddressParserListener) ExitEncodedChar(ctx *EncodedCharContext) {}
 
 // EnterCrlf is called when production crlf is entered.
 func (s *BaseAddressParserListener) EnterCrlf(ctx *CrlfContext) {}

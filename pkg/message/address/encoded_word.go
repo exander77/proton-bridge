@@ -19,43 +19,37 @@ package address
 
 import (
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
+	pmmime "github.com/ProtonMail/proton-bridge/pkg/mime"
 	"github.com/sirupsen/logrus"
 )
 
-type word struct {
+type encodedWord struct {
 	value string
 }
 
-func (w *word) withAtom(atom *atom) {
-	w.value = atom.value
-}
+func (w *walker) EnterEncodedWord(ctx *parser.EncodedWordContext) {
+	logrus.Trace("Entering encodedWord")
 
-func (w *word) withQuotedString(quotedString *quotedString) {
-	w.value = quotedString.value
-}
+	word, err := pmmime.WordDec.Decode(ctx.GetText())
+	if err != nil {
+		word = ctx.GetText()
+	}
 
-func (w *word) withEncodedWord(encodedWord *encodedWord) {
-	w.value = encodedWord.value
-}
-
-func (w *walker) EnterWord(ctx *parser.WordContext) {
-	logrus.Trace("Entering word")
-
-	w.enter(&word{
-		value: ctx.GetText(),
+	w.enter(&encodedWord{
+		value: word,
 	})
 }
 
-func (w *walker) ExitWord(ctx *parser.WordContext) {
-	logrus.Trace("Exiting word")
+func (w *walker) ExitEncodedWord(ctx *parser.EncodedWordContext) {
+	logrus.Trace("Exiting encodedWord")
 
-	type withWord interface {
-		withWord(*word)
+	type withEncodedWord interface {
+		withEncodedWord(*encodedWord)
 	}
 
-	res := w.exit().(*word)
+	res := w.exit().(*encodedWord)
 
-	if parent, ok := w.parent().(withWord); ok {
-		parent.withWord(res)
+	if parent, ok := w.parent().(withEncodedWord); ok {
+		parent.withEncodedWord(res)
 	}
 }

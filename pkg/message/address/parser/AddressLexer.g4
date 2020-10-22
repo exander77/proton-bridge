@@ -20,9 +20,9 @@ lexer grammar AddressLexer;
 TAB:              '\t';     // \u0009
 LF:               '\n';     // \u000A
 CR:               '\r';     // \u000D
-SP:               ' ';      // \u0020
 
-// Printable (0x21-0x7E)
+// Printable (0x20-0x7E)
+SP:               ' ';      // \u0020
 Exclamation:      '!';      // \u0021
 DQuote:           '"';      // \u0022
 Hash:             '#';      // \u0023

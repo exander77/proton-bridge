@@ -110,11 +110,9 @@ atext
 	| Tilde
 	;
 
-atextString: atext+;
+atom: atext+;
 
-atom: cfws? atextString cfws?;
-
-dotAtomText: atextString (Period atextString)*;
+dotAtomText: atext+ (Period atext+)*;
 
 dotAtom: cfws? dotAtomText cfws?;
 
@@ -162,11 +160,12 @@ quotedContent
 
 quotedValue: (fws? quotedContent)*;
 
-quotedString: cfws? DQuote quotedValue fws? DQuote cfws?;
+quotedString: DQuote quotedValue fws? DQuote;
 
 word
-	: atom
-	| quotedString
+	: cfws? encodedWord cfws?
+	| cfws? atom cfws?
+	| cfws? quotedString cfws?
 	;
 
 unstructured
@@ -269,6 +268,81 @@ dtext
 	| RCurly
 	| Tilde
 //| obsDtext
+	;
+
+
+// ------------------------------------
+// 2. Syntax of encoded-words (RFC2047)
+// ------------------------------------
+
+encodedWord: Equal Question charset Question encoding Question encodedText Question Equal;
+
+charset: token;
+
+encoding: token;
+
+token: tokenChar+;
+
+tokenChar
+	: Exclamation
+	| Hash
+	| Dollar
+	| Percent
+	| Ampersand
+	| SQuote
+	| Asterisk
+	| Plus
+	| Minus
+	| Digit
+	| AlphaUpper
+	| Backslash
+	| Caret
+	| Underscore
+	| Backtick
+	| AlphaLower
+	| LCurly
+	| Pipe
+	| RCurly
+	| Tilde
+	;
+
+encodedText: encodedChar+;
+
+encodedChar
+	: Exclamation
+	| DQuote
+	| Hash
+	| Dollar
+	| Percent
+	| Ampersand
+	| SQuote
+	| LParens
+	| RParens
+	| Asterisk
+	| Plus
+	| Comma
+	| Minus
+	| Period
+	| Slash
+	| Digit
+	| Colon
+	| Semicolon
+	| Less
+	| Equal
+	| Greater
+	| At
+	| AlphaUpper
+	| LBracket
+	| Backslash
+	| RBracket
+	| Caret
+	| Underscore
+	| Backtick
+	| AlphaLower
+	| LCurly
+	| Pipe
+	| RCurly
+	| Tilde
 	;
 
 

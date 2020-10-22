@@ -32,9 +32,6 @@ type AddressParserListener interface {
 	// EnterAtext is called when entering the atext production.
 	EnterAtext(c *AtextContext)
 
-	// EnterAtextString is called when entering the atextString production.
-	EnterAtextString(c *AtextStringContext)
-
 	// EnterAtom is called when entering the atom production.
 	EnterAtom(c *AtomContext)
 
@@ -104,6 +101,27 @@ type AddressParserListener interface {
 	// EnterDtext is called when entering the dtext production.
 	EnterDtext(c *DtextContext)
 
+	// EnterEncodedWord is called when entering the encodedWord production.
+	EnterEncodedWord(c *EncodedWordContext)
+
+	// EnterCharset is called when entering the charset production.
+	EnterCharset(c *CharsetContext)
+
+	// EnterEncoding is called when entering the encoding production.
+	EnterEncoding(c *EncodingContext)
+
+	// EnterToken is called when entering the token production.
+	EnterToken(c *TokenContext)
+
+	// EnterTokenChar is called when entering the tokenChar production.
+	EnterTokenChar(c *TokenCharContext)
+
+	// EnterEncodedText is called when entering the encodedText production.
+	EnterEncodedText(c *EncodedTextContext)
+
+	// EnterEncodedChar is called when entering the encodedChar production.
+	EnterEncodedChar(c *EncodedCharContext)
+
 	// EnterCrlf is called when entering the crlf production.
 	EnterCrlf(c *CrlfContext)
 
@@ -136,9 +154,6 @@ type AddressParserListener interface {
 
 	// ExitAtext is called when exiting the atext production.
 	ExitAtext(c *AtextContext)
-
-	// ExitAtextString is called when exiting the atextString production.
-	ExitAtextString(c *AtextStringContext)
 
 	// ExitAtom is called when exiting the atom production.
 	ExitAtom(c *AtomContext)
@@ -208,6 +223,27 @@ type AddressParserListener interface {
 
 	// ExitDtext is called when exiting the dtext production.
 	ExitDtext(c *DtextContext)
+
+	// ExitEncodedWord is called when exiting the encodedWord production.
+	ExitEncodedWord(c *EncodedWordContext)
+
+	// ExitCharset is called when exiting the charset production.
+	ExitCharset(c *CharsetContext)
+
+	// ExitEncoding is called when exiting the encoding production.
+	ExitEncoding(c *EncodingContext)
+
+	// ExitToken is called when exiting the token production.
+	ExitToken(c *TokenContext)
+
+	// ExitTokenChar is called when exiting the tokenChar production.
+	ExitTokenChar(c *TokenCharContext)
+
+	// ExitEncodedText is called when exiting the encodedText production.
+	ExitEncodedText(c *EncodedTextContext)
+
+	// ExitEncodedChar is called when exiting the encodedChar production.
+	ExitEncodedChar(c *EncodedCharContext)
 
 	// ExitCrlf is called when exiting the crlf production.
 	ExitCrlf(c *CrlfContext)

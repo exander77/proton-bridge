@@ -137,6 +137,65 @@ func TestParseSingleAddress(t *testing.T) {
 	}
 }
 
+func TestParseSingleAddressEncodedWord(t *testing.T) {
+	tests := []struct {
+		input string
+		addrs []*mail.Address
+	}{
+		{
+			input: `=?US-ASCII?Q?Keith_Moore?= <moore@cs.utk.edu>`,
+			addrs: []*mail.Address{{
+				Name:    `Keith Moore`,
+				Address: `moore@cs.utk.edu`,
+			}},
+		},
+		{
+			input: `=?ISO-8859-1?Q?Keld_J=F8rn_Simonsen?= <keld@dkuug.dk>`,
+			addrs: []*mail.Address{{
+				Name:    `Keld Jørn Simonsen`,
+				Address: `keld@dkuug.dk`,
+			}},
+		},
+		{
+			input: `=?ISO-8859-1?Q?Andr=E9?= Pirard <PIRARD@vm1.ulg.ac.be>`,
+			addrs: []*mail.Address{{
+				Name:    `André Pirard`,
+				Address: `PIRARD@vm1.ulg.ac.be`,
+			}},
+		},
+		{
+			input: `=?ISO-8859-1?Q?Olle_J=E4rnefors?= <ojarnef@admin.kth.se>`,
+			addrs: []*mail.Address{{
+				Name:    `Olle Järnefors`,
+				Address: `ojarnef@admin.kth.se`,
+			}},
+		},
+		{
+			input: `=?ISO-8859-1?Q?Patrik_F=E4ltstr=F6m?= <paf@nada.kth.se>`,
+			addrs: []*mail.Address{{
+				Name:    `Patrik Fältström`,
+				Address: `paf@nada.kth.se`,
+			}},
+		},
+		{
+			input: `Nathaniel Borenstein <nsb@thumper.bellcore.com> (=?iso-8859-8?b?7eXs+SDv4SDp7Oj08A==?=)`,
+			addrs: []*mail.Address{{
+				Name:    `Nathaniel Borenstein`,
+				Address: `nsb@thumper.bellcore.com`,
+			}},
+		},
+	}
+	for _, test := range tests {
+		test := test
+
+		t.Run(test.input, func(t *testing.T) {
+			addrs, err := Parse(test.input)
+			assert.NoError(t, err)
+			assert.ElementsMatch(t, test.addrs, addrs)
+		})
+	}
+}
+
 func TestParseAddressList(t *testing.T) {
 	tests := []struct {
 		input string
