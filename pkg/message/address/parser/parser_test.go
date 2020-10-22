@@ -49,7 +49,7 @@ func TestParserBad(t *testing.T) {
 	}
 }
 
-func _TestStandardMessages(t *testing.T) {
+func _TestStandardMessages(t *testing.T) { // nolint[deadcode]
 	f, err := os.Open("tests.xml")
 	require.NoError(t, err)
 	defer func() { require.NoError(t, err) }()
@@ -65,7 +65,7 @@ func _TestStandardMessages(t *testing.T) {
 	}
 }
 
-func _TestInvalidMessages(t *testing.T) {
+func _TestInvalidMessages(t *testing.T) { // nolint[deadcode]
 	f, err := os.Open("tests.xml")
 	require.NoError(t, err)
 	defer func() { require.NoError(t, err) }()
@@ -81,7 +81,7 @@ func _TestInvalidMessages(t *testing.T) {
 	}
 }
 
-func _TestDeprecatedMessages(t *testing.T) {
+func _TestDeprecatedMessages(t *testing.T) { // nolint[deadcode]
 	f, err := os.Open("tests.xml")
 	require.NoError(t, err)
 	defer func() { require.NoError(t, err) }()
@@ -97,14 +97,14 @@ func _TestDeprecatedMessages(t *testing.T) {
 	}
 }
 
-type testCase struct {
+type testCase struct { // nolint[deadcode]
 	id         string
 	address    string
 	valid      bool
 	deprecated bool
 }
 
-func readTestCases(r io.Reader) chan testCase {
+func readTestCases(r io.Reader) chan testCase { // nolint[deadcode]
 	ch := make(chan testCase)
 
 	var (
