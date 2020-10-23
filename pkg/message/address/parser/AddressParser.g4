@@ -114,7 +114,8 @@ atext
 
 atom: atext+;
 
-dotAtom: atext+ (Period atext+)*;
+// relax dotAtom to allow a trailing period (credit @exander77)
+dotAtom: atext+ (Period atext+)* Period?;
 
 qtext
 	: Exclamation
@@ -163,10 +164,12 @@ quotedValue: (fws? quotedContent)*;
 
 quotedString: DQuote quotedValue fws? DQuote;
 
+// relax word to allow @ (credit @exander77)
 word
 	: cfws? encodedWord cfws?
 	| cfws? atom cfws?
 	| cfws? quotedString cfws?
+	| At
 	;
 
 
@@ -214,7 +217,7 @@ groupList
 	| obsGroupList
 	;
 
-// Include optional port (credit @exander77)
+// relax addrSpec to allow optional port (credit @exander77)
 addrSpec: localPart At domain (Colon port)?;
 
 localPart

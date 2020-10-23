@@ -138,6 +138,27 @@ func TestParseSingleAddress(t *testing.T) {
 				Address: `hořejšek@mail.com`, // Not his real address.
 			}},
 		},
+		{
+			input: `Somebody Somewhere <somebody@somewhere.com. >`,
+			addrs: []*mail.Address{{
+				Name:    `Somebody Somewhere`,
+				Address: `somebody@somewhere.com.`,
+			}},
+		},
+		{
+			input: `Somebody Somewhere <somebody@somewhere.com.>`,
+			addrs: []*mail.Address{{
+				Name:    `Somebody Somewhere`,
+				Address: `somebody@somewhere.com.`,
+			}},
+		},
+		{
+			input: `Some Body @ Somewhere <somebody@somewhere.com>`,
+			addrs: []*mail.Address{{
+				Name:    `Some Body @ Somewhere`,
+				Address: `somebody@somewhere.com`,
+			}},
+		},
 	}
 	for _, test := range tests {
 		test := test
