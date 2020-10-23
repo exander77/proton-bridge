@@ -328,32 +328,50 @@ func TestParseStrangeAddresses(t *testing.T) {
 	}{
 		{input: `<somebody@somebody.com >`},
 		{input: `somebody@somebody.com,`},
-		// {input: `somebody`},
-		// {input: `<some random ascii text with spaces>`},
 		{input: `=?UTF-8?B?PEJlemUgam3DqW5hPg==?= <somebody@somebody.com>`},
 		{input: `somebody@somebody.com:81`},
-		// {input: `undisclosed-recipients:`},
-		// {input: `Name somebody@somewhere.com`},
 		{input: `somebody@somewhere.com,`},
 		{input: `<postmaster@[10.10.10.10]>`},
-		// {input: `"GES-ELECTRONICS <GES-ELECTRONICS"@nos.ges.cz, a.s. <ges@ges.cz>>`},
-		// {input: `=?ISO-8859-2?Q?Somebody_Somewhere?= <somebody@somewhere.com>, <somebody@somewhere.com,Somebody/AAA/BBB/CCC,>`},
-		// {input: `somebody%somewhere...com`},
-		// {input: `"Mailer Daemon" <>`},
-		// {input: `=?windows-1250?Q?Spr=E1vce_syst=E9mu?=`},
-		// {input: `"'somebody@somewhere.com.'"`},
-		// {input: `Somebody Somewhere <somebody@somewhere. com> <somebody@somewhere.com>`},
-		// {input: `"somebody@somewhere.com." <somebody@somewhere.com.>`},
-		// {input: ` "comma, name"  <username@server.com>, another, name <address@server.com>`},
-		// {input: ` normal name  <username@server.com>, (comment)All.(around)address@(the)server.com`},
-		// {input: ` normal name  <username@server.com>, All.("comma, in comment")address@(the)server.com`},
+		// {input: `Somebody Somewhere <somebody@somewhere. com> <somebody@somewhere.com>`}, // PARSED CORRECT BY API!
+		// {input: `"somebody@somewhere.com." <somebody@somewhere.com.>`}, // PARSED CORRECT BY API!
+		// {input: `Name somebody@somewhere.com`}, // PARSED WRONG BY API (thinks that "Name " belongs to address)
 	}
 	for _, test := range tests {
 		test := test
 
 		t.Run(test.input, func(t *testing.T) {
-			_, err := Parse(test.input) // Ignore errors for now, these messages are maybe not valid; just checking the parser doesn't panic.
+			_, err := Parse(test.input)
 			assert.NoError(t, err)
+		})
+	}
+}
+
+// TestParseRejectedAddresses tests that weird addresses that are rejected by
+// serverside are also rejected by us. If for some reason we end up being able
+// to parse these malformed addresses, great! For now let's collect them here.
+func TestParseRejectedAddresses(t *testing.T) {
+	tests := []struct {
+		input string
+		addrs []*mail.Address
+	}{
+		{input: `somebody`},
+		{input: `<some random ascii text with spaces>`},
+		{input: `undisclosed-recipients:`},
+		{input: `=?ISO-8859-2?Q?Somebody_Somewhere?= <somebody@somewhere.com>, <somebody@somewhere.com,Somebody/AAA/BBB/CCC,>`},
+		{input: `somebody%somewhere...com`},
+		{input: `"Mailer Daemon" <>`},
+		{input: `=?windows-1250?Q?Spr=E1vce_syst=E9mu?=`},
+		{input: `"'somebody@somewhere.com.'"`},
+		{input: ` "comma, name"  <username@server.com>, another, name <address@server.com>`},
+		{input: ` normal name  <username@server.com>, (comment)All.(around)address@(the)server.com`},
+		{input: ` normal name  <username@server.com>, All.("comma, in comment")address@(the)server.com`},
+	}
+	for _, test := range tests {
+		test := test
+
+		t.Run(test.input, func(t *testing.T) {
+			_, err := Parse(test.input)
+			assert.Error(t, err)
 		})
 	}
 }
