@@ -25,6 +25,10 @@ import (
 )
 
 func Parse(input string) ([]*mail.Address, error) {
+	if len(input) == 0 {
+		return []*mail.Address{}, nil
+	}
+
 	l := parser.NewAddressLexer(antlr.NewInputStream(input))
 	p := parser.NewAddressParser(antlr.NewCommonTokenStream(l, antlr.TokenDefaultChannel))
 	w := &walker{}

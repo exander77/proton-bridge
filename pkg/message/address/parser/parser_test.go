@@ -90,7 +90,7 @@ func TestParserGroup(t *testing.T) {
 
 func TestParserObsolete(t *testing.T) {
 	tests := []string{
-		// TODO: Add obsolete addresses here.
+		// NOTE: Add obsolete addresses here.
 	}
 
 	for _, input := range tests {

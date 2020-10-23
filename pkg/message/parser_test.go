@@ -224,7 +224,7 @@ func TestParseTextPlainWithPlainAttachment(t *testing.T) {
 	assert.Equal(t, readerToString(attReaders[0]), "attachment")
 }
 
-func _TestParseTextPlainEmptyAddresses(t *testing.T) { // nolint[deadcode]
+func TestParseTextPlainEmptyAddresses(t *testing.T) {
 	f := getFileReader("text_plain_empty_addresses.eml")
 
 	m, _, plainBody, attReaders, err := Parse(f, "", "")
