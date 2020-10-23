@@ -86,6 +86,9 @@ type AddressParserListener interface {
 	// EnterLocalPart is called when entering the localPart production.
 	EnterLocalPart(c *LocalPartContext)
 
+	// EnterPort is called when entering the port production.
+	EnterPort(c *PortContext)
+
 	// EnterDomain is called when entering the domain production.
 	EnterDomain(c *DomainContext)
 
@@ -244,6 +247,9 @@ type AddressParserListener interface {
 
 	// ExitLocalPart is called when exiting the localPart production.
 	ExitLocalPart(c *LocalPartContext)
+
+	// ExitPort is called when exiting the port production.
+	ExitPort(c *PortContext)
 
 	// ExitDomain is called when exiting the domain production.
 	ExitDomain(c *DomainContext)

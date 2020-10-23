@@ -22,37 +22,28 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-type addrSpec struct {
-	localPart, domain string
+type port struct {
+	value string
 }
 
-func (a *addrSpec) withLocalPart(localPart *localPart) {
-	a.localPart = localPart.value
+func (w *walker) EnterPort(ctx *parser.PortContext) {
+	logrus.WithField("text", ctx.GetText()).Trace("Entering port")
+
+	w.enter(&port{
+		value: ctx.GetText(),
+	})
 }
 
-func (a *addrSpec) withDomain(domain *domain) {
-	a.domain = domain.value
-}
+func (w *walker) ExitPort(ctx *parser.PortContext) {
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting port")
 
-func (a *addrSpec) withPort(port *port) {
-	a.domain += ":" + port.value
-}
-
-func (w *walker) EnterAddrSpec(ctx *parser.AddrSpecContext) {
-	logrus.WithField("text", ctx.GetText()).Trace("Entering addrSpec")
-	w.enter(&addrSpec{})
-}
-
-func (w *walker) ExitAddrSpec(ctx *parser.AddrSpecContext) {
-	logrus.WithField("text", ctx.GetText()).Trace("Exiting addrSpec")
-
-	type withAddrSpec interface {
-		withAddrSpec(*addrSpec)
+	type withPort interface {
+		withPort(*port)
 	}
 
-	res := w.exit().(*addrSpec)
+	res := w.exit().(*port)
 
-	if parent, ok := w.parent().(withAddrSpec); ok {
-		parent.withAddrSpec(res)
+	if parent, ok := w.parent().(withPort); ok {
+		parent.withPort(res)
 	}
 }

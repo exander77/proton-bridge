@@ -177,6 +177,12 @@ func (s *BaseAddressParserListener) EnterLocalPart(ctx *LocalPartContext) {}
 // ExitLocalPart is called when production localPart is exited.
 func (s *BaseAddressParserListener) ExitLocalPart(ctx *LocalPartContext) {}
 
+// EnterPort is called when production port is entered.
+func (s *BaseAddressParserListener) EnterPort(ctx *PortContext) {}
+
+// ExitPort is called when production port is exited.
+func (s *BaseAddressParserListener) ExitPort(ctx *PortContext) {}
+
 // EnterDomain is called when production domain is entered.
 func (s *BaseAddressParserListener) EnterDomain(ctx *DomainContext) {}
 

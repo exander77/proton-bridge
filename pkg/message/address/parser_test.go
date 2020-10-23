@@ -21,7 +21,6 @@ import (
 	"net/mail"
 	"testing"
 
-	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -360,8 +359,6 @@ func TestParseGroup(t *testing.T) {
 }
 
 func TestParseStrangeAddresses(t *testing.T) {
-	logrus.SetLevel(logrus.TraceLevel)
-
 	tests := []struct {
 		input string
 		addrs []*mail.Address

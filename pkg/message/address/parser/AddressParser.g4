@@ -204,8 +204,8 @@ mailboxList
 	;
 
 addressList
-	: address (Comma address)*
-	| obsAddrList
+	: address (Comma address)* EOF
+	| obsAddrList EOF
 	;
 
 groupList
@@ -214,13 +214,16 @@ groupList
 	| obsGroupList
 	;
 
-addrSpec: localPart At domain;
+// Include optional port (credit @exander77)
+addrSpec: localPart At domain (Colon port)?;
 
 localPart
 	: cfws? dotAtom cfws?
 	| cfws? quotedString cfws?
 	| obsLocalPart
 	;
+
+port: Digit+;
 
 domain
 	: cfws? dotAtom cfws? 
