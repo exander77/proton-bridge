@@ -22,6 +22,7 @@ import (
 
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
+	"github.com/sirupsen/logrus"
 )
 
 // Parse parses one or more valid RFC5322 (with RFC2047) addresses.
@@ -34,10 +35,30 @@ func Parse(input string) ([]*mail.Address, error) {
 	p := parser.NewAddressParser(antlr.NewCommonTokenStream(l, antlr.TokenDefaultChannel))
 	w := &walker{}
 
-	p.RemoveErrorListeners()
 	p.AddErrorListener(w)
+	p.AddParseListener(&parseListener{rules: p.GetRuleNames()})
 
 	antlr.ParseTreeWalkerDefault.Walk(w, p.AddressList())
 
 	return w.addresses, w.err
+}
+
+type parseListener struct {
+	antlr.BaseParseTreeListener
+
+	rules []string
+}
+
+func (l *parseListener) EnterEveryRule(ctx antlr.ParserRuleContext) {
+	logrus.
+		WithField("rule", l.rules[ctx.GetRuleIndex()]).
+		WithField("text", ctx.GetText()).
+		Trace("Entering rule")
+}
+
+func (l *parseListener) ExitEveryRule(ctx antlr.ParserRuleContext) {
+	logrus.
+		WithField("rule", l.rules[ctx.GetRuleIndex()]).
+		WithField("text", ctx.GetText()).
+		Trace("Exiting rule")
 }

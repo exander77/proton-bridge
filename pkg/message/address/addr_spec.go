@@ -36,7 +36,6 @@ func (a *addrSpec) withDomain(domain *domain) {
 
 func (w *walker) EnterAddrSpec(ctx *parser.AddrSpecContext) {
 	logrus.WithField("text", ctx.GetText()).Trace("Entering addrSpec")
-
 	w.enter(&addrSpec{})
 }
 

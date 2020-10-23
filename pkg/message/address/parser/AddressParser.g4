@@ -225,7 +225,7 @@ localPart
 domain
 	: cfws? dotAtom cfws? 
 	| cfws? domainLiteral cfws?
-	| obsDomain
+	| cfws? obsDomain cfws?
 	;
 
 domainLiteral: LBracket (fws? dtext)* fws? RBracket;

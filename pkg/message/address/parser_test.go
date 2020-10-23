@@ -21,6 +21,7 @@ import (
 	"net/mail"
 	"testing"
 
+	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -36,21 +37,21 @@ func TestParseSingleAddress(t *testing.T) {
 			}},
 		},
 		{
-			input: ` normal name  <username@server.com>`,
+			input: `normal name  <username@server.com>`,
 			addrs: []*mail.Address{{
 				Name:    `normal name`,
 				Address: `username@server.com`,
 			}},
 		},
 		{
-			input: ` "comma, name"  <username@server.com>`,
+			input: `"comma, name"  <username@server.com>`,
 			addrs: []*mail.Address{{
 				Name:    `comma, name`,
 				Address: `username@server.com`,
 			}},
 		},
 		{
-			input: ` name  <username@server.com> (ignore comment)`,
+			input: `name  <username@server.com> (ignore comment)`,
 			addrs: []*mail.Address{{
 				Name:    `name`,
 				Address: `username@server.com`,
@@ -359,6 +360,8 @@ func TestParseGroup(t *testing.T) {
 }
 
 func TestParseStrangeAddresses(t *testing.T) {
+	logrus.SetLevel(logrus.TraceLevel)
+
 	tests := []struct {
 		input string
 		addrs []*mail.Address
@@ -395,16 +398,14 @@ func TestParseStrangeAddresses(t *testing.T) {
 				},
 			},
 		},
-		/*
-			{
-				input: `somebody@somebody.com:81`,
-				addrs: []*mail.Address{
-					{
-						Address: `somebody@somebody.com:81`,
-					},
+		{
+			input: `somebody@somebody.com:81`,
+			addrs: []*mail.Address{
+				{
+					Address: `somebody@somebody.com:81`,
 				},
 			},
-		*/
+		},
 		{
 			input: `<postmaster@[10.10.10.10]>`,
 			addrs: []*mail.Address{
