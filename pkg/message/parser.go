@@ -373,13 +373,22 @@ func parseMessageHeader(m *pmapi.Message, h message.Header) error { // nolint[fu
 	}
 	m.Header = mimeHeader
 
-	if err := forEachDecodedHeaderField(h, func(key, val string) error {
-		switch strings.ToLower(key) {
+	fields := h.Fields()
+
+	for fields.Next() {
+		switch strings.ToLower(fields.Key()) {
 		case "subject":
-			m.Subject = val
+			s, err := fields.Text()
+			if err != nil {
+				if s, err = pmmime.DecodeHeader(fields.Value()); err != nil {
+					return err
+				}
+			}
+
+			m.Subject = s
 
 		case "from":
-			sender, err := address.Parse(val)
+			sender, err := address.Parse(fields.Value())
 			if err != nil {
 				return err
 			}
@@ -388,44 +397,40 @@ func parseMessageHeader(m *pmapi.Message, h message.Header) error { // nolint[fu
 			}
 
 		case "to":
-			toList, err := address.Parse(val)
+			toList, err := address.Parse(fields.Value())
 			if err != nil {
 				return err
 			}
 			m.ToList = toList
 
 		case "reply-to":
-			replyTos, err := address.Parse(val)
+			replyTos, err := address.Parse(fields.Value())
 			if err != nil {
 				return err
 			}
 			m.ReplyTos = replyTos
 
 		case "cc":
-			ccList, err := address.Parse(val)
+			ccList, err := address.Parse(fields.Value())
 			if err != nil {
 				return err
 			}
 			m.CCList = ccList
 
 		case "bcc":
-			bccList, err := address.Parse(val)
+			bccList, err := address.Parse(fields.Value())
 			if err != nil {
 				return err
 			}
 			m.BCCList = bccList
 
 		case "date":
-			date, err := mail.ParseDate(val)
+			date, err := mail.ParseDate(fields.Value())
 			if err != nil {
 				return err
 			}
 			m.Time = date.Unix()
 		}
-
-		return nil
-	}); err != nil {
-		return err
 	}
 
 	return nil
@@ -469,29 +474,6 @@ func parseAttachment(h message.Header) (*pmapi.Attachment, error) {
 	return att, nil
 }
 
-func forEachDecodedHeaderField(h message.Header, fn func(string, string) error) error {
-	fields := h.Fields()
-
-	for fields.Next() {
-		text, err := fields.Text()
-		if err != nil {
-			if !message.IsUnknownCharset(err) {
-				return err
-			}
-
-			if text, err = pmmime.DecodeHeader(fields.Value()); err != nil {
-				return err
-			}
-		}
-
-		if err := fn(fields.Key(), text); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
 func toMailHeader(h message.Header) (mail.Header, error) {
 	mimeHeader := make(mail.Header)
 
@@ -516,4 +498,27 @@ func toMIMEHeader(h message.Header) (textproto.MIMEHeader, error) {
 	}
 
 	return mimeHeader, nil
+}
+
+func forEachDecodedHeaderField(h message.Header, fn func(string, string) error) error {
+	fields := h.Fields()
+
+	for fields.Next() {
+		text, err := fields.Text()
+		if err != nil {
+			if !message.IsUnknownCharset(err) {
+				return err
+			}
+
+			if text, err = pmmime.DecodeHeader(fields.Value()); err != nil {
+				return err
+			}
+		}
+
+		if err := fn(fields.Key(), text); err != nil {
+			return err
+		}
+	}
+
+	return nil
 }
