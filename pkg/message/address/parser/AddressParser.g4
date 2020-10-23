@@ -190,30 +190,30 @@ nameAddr: displayName? angleAddr;
 
 angleAddr
 	: cfws? Less addrSpec Greater cfws?
-//| obsAngleAddr
+	| obsAngleAddr
 	;
 
 group: displayName Colon groupList? Semicolon cfws?;
 
 displayName
 	: word+
-//| obsPhrase
+	| obsPhrase
 	;
 
 mailboxList
 	: mailbox (Comma mailbox)*
-//| obsMboxList
+	| obsMboxList
 	;
 
 addressList
 	: address (Comma address)*
-//| obsAddrList
+	| obsAddrList
 	;
 
 groupList
 	: mailboxList
 	| cfws
-//| obsGroupList
+	| obsGroupList
 	;
 
 addrSpec: localPart At domain;
@@ -267,6 +267,30 @@ dtext
 	| Tilde
 //| obsDtext
 	;
+
+
+// ----------------------------------
+// 4.1. Miscellaneous Obsolete Tokens
+// ----------------------------------
+
+obsPhrase: word (word | Period | cfws)*;
+
+
+// ------------------------
+// 4.4. Obsolete Addressing
+// ------------------------
+
+obsAngleAddr: cfws? Less obsRoute addrSpec Greater cfws?;
+
+obsRoute: obsDomainList Colon;
+
+obsDomainList: (cfws | Comma)* At domain (Comma cfws? (At domain)?)*;
+
+obsMboxList: (cfws? Comma)* mailbox (Comma (mailbox | cfws)?)*;
+
+obsAddrList: (cfws? Comma)* address (Comma (address | cfws)?)*;
+
+obsGroupList: (cfws? Comma)+ cfws?;
 
 
 // ------------------------------------

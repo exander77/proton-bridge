@@ -18,37 +18,42 @@
 package address
 
 import (
+	"net/mail"
+
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
 	"github.com/sirupsen/logrus"
 )
 
-type localPart struct {
-	value string
+type mailboxList struct {
+	addresses []*mail.Address
 }
 
-func (p *localPart) withDotAtom(dotAtom *dotAtom) {
-	p.value = dotAtom.value
+func (ml *mailboxList) withMailbox(mailbox *mailbox) {
+	ml.addresses = append(ml.addresses, &mail.Address{
+		Name:    mailbox.name,
+		Address: mailbox.address,
+	})
 }
 
-func (p *localPart) withQuotedString(quotedString *quotedString) {
-	p.value = quotedString.value
+func (ml *mailboxList) withObsMboxList(obsMboxList *obsMboxList) {
+	ml.addresses = append(ml.addresses, obsMboxList.addresses...)
 }
 
-func (w *walker) EnterLocalPart(ctx *parser.LocalPartContext) {
-	logrus.Trace("Entering localPart")
-	w.enter(&localPart{})
+func (w *walker) EnterMailboxList(ctx *parser.MailboxListContext) {
+	logrus.Trace("Entering mailboxList")
+	w.enter(&mailboxList{})
 }
 
-func (w *walker) ExitLocalPart(ctx *parser.LocalPartContext) {
-	logrus.Trace("Exiting localPart")
+func (w *walker) ExitMailboxList(ctx *parser.MailboxListContext) {
+	logrus.Trace("Exiting mailboxList")
 
-	type withLocalPart interface {
-		withLocalPart(*localPart)
+	type withMailboxList interface {
+		withMailboxList(*mailboxList)
 	}
 
-	res := w.exit().(*localPart)
+	res := w.exit().(*mailboxList)
 
-	if parent, ok := w.parent().(withLocalPart); ok {
-		parent.withLocalPart(res)
+	if parent, ok := w.parent().(withMailboxList); ok {
+		parent.withMailboxList(res)
 	}
 }

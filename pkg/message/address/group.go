@@ -18,37 +18,35 @@
 package address
 
 import (
+	"net/mail"
+
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
 	"github.com/sirupsen/logrus"
 )
 
-type localPart struct {
-	value string
+type group struct {
+	addresses []*mail.Address
 }
 
-func (p *localPart) withDotAtom(dotAtom *dotAtom) {
-	p.value = dotAtom.value
+func (g *group) withGroupList(groupList *groupList) {
+	g.addresses = append(g.addresses, groupList.addresses...)
 }
 
-func (p *localPart) withQuotedString(quotedString *quotedString) {
-	p.value = quotedString.value
+func (w *walker) EnterGroup(ctx *parser.GroupContext) {
+	logrus.Trace("Entering group")
+	w.enter(&group{})
 }
 
-func (w *walker) EnterLocalPart(ctx *parser.LocalPartContext) {
-	logrus.Trace("Entering localPart")
-	w.enter(&localPart{})
-}
+func (w *walker) ExitGroup(ctx *parser.GroupContext) {
+	logrus.Trace("Exiting group")
 
-func (w *walker) ExitLocalPart(ctx *parser.LocalPartContext) {
-	logrus.Trace("Exiting localPart")
-
-	type withLocalPart interface {
-		withLocalPart(*localPart)
+	type withGroup interface {
+		withGroup(*group)
 	}
 
-	res := w.exit().(*localPart)
+	res := w.exit().(*group)
 
-	if parent, ok := w.parent().(withLocalPart); ok {
-		parent.withLocalPart(res)
+	if parent, ok := w.parent().(withGroup); ok {
+		parent.withGroup(res)
 	}
 }

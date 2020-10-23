@@ -32,7 +32,6 @@ func (p *quotedPair) withQuotedChar(quotedChar *quotedChar) {
 
 func (w *walker) EnterQuotedPair(ctx *parser.QuotedPairContext) {
 	logrus.Trace("Entering quotedPair")
-
 	w.enter(&quotedPair{})
 }
 

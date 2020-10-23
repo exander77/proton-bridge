@@ -18,17 +18,25 @@
 package address
 
 import (
+	"net/mail"
+
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
 	"github.com/sirupsen/logrus"
 )
 
 type address struct {
-	name, address string
+	addresses []*mail.Address
 }
 
 func (a *address) withMailbox(mailbox *mailbox) {
-	a.name = mailbox.name
-	a.address = mailbox.address
+	a.addresses = append(a.addresses, &mail.Address{
+		Name:    mailbox.name,
+		Address: mailbox.address,
+	})
+}
+
+func (a *address) withGroup(group *group) {
+	a.addresses = append(a.addresses, group.addresses...)
 }
 
 func (w *walker) EnterAddress(ctx *parser.AddressContext) {

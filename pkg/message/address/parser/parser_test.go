@@ -74,6 +74,34 @@ func TestParserEncodedWord(t *testing.T) {
 	}
 }
 
+func TestParserGroup(t *testing.T) {
+	tests := []string{
+		`Nightly Monitor Robot:;`,
+	}
+
+	for _, input := range tests {
+		input := input
+
+		t.Run(input, func(t *testing.T) {
+			assert.Empty(t, parseAddress(input))
+		})
+	}
+}
+
+func TestParserObsolete(t *testing.T) {
+	tests := []string{
+		// TODO: Add obsolete addresses here.
+	}
+
+	for _, input := range tests {
+		input := input
+
+		t.Run(input, func(t *testing.T) {
+			assert.Empty(t, parseAddress(input))
+		})
+	}
+}
+
 func TestParserBad(t *testing.T) {
 	tests := []string{
 		`this address sucks`,

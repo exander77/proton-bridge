@@ -18,37 +18,37 @@
 package address
 
 import (
+	"fmt"
+
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
 	"github.com/sirupsen/logrus"
 )
 
-type localPart struct {
-	value string
+// When interpreting addresses, the route portion SHOULD be ignored.
+
+type obsAngleAddr struct {
+	address string
 }
 
-func (p *localPart) withDotAtom(dotAtom *dotAtom) {
-	p.value = dotAtom.value
+func (a *obsAngleAddr) withAddrSpec(addrSpec *addrSpec) {
+	a.address = fmt.Sprintf("%v@%v", addrSpec.localPart, addrSpec.domain)
 }
 
-func (p *localPart) withQuotedString(quotedString *quotedString) {
-	p.value = quotedString.value
+func (w *walker) EnterObsAngleAddr(ctx *parser.ObsAngleAddrContext) {
+	logrus.Trace("Entering obsAngleAddr")
+	w.enter(&obsAngleAddr{})
 }
 
-func (w *walker) EnterLocalPart(ctx *parser.LocalPartContext) {
-	logrus.Trace("Entering localPart")
-	w.enter(&localPart{})
-}
+func (w *walker) ExitObsAngleAddr(ctx *parser.ObsAngleAddrContext) {
+	logrus.Trace("Exiting obsAngleAddr")
 
-func (w *walker) ExitLocalPart(ctx *parser.LocalPartContext) {
-	logrus.Trace("Exiting localPart")
-
-	type withLocalPart interface {
-		withLocalPart(*localPart)
+	type withObsAngleAddr interface {
+		withObsAngleAddr(*obsAngleAddr)
 	}
 
-	res := w.exit().(*localPart)
+	res := w.exit().(*obsAngleAddr)
 
-	if parent, ok := w.parent().(withLocalPart); ok {
-		parent.withLocalPart(res)
+	if parent, ok := w.parent().(withObsAngleAddr); ok {
+		parent.withObsAngleAddr(res)
 	}
 }

@@ -32,12 +32,13 @@ func (a *angleAddr) withAddrSpec(addrSpec *addrSpec) {
 	a.address = fmt.Sprintf("%v@%v", addrSpec.localPart, addrSpec.domain)
 }
 
+func (a *angleAddr) withObsAngleAddr(obsAngleAddr *obsAngleAddr) {
+	a.address = obsAngleAddr.address
+}
+
 func (w *walker) EnterAngleAddr(ctx *parser.AngleAddrContext) {
 	logrus.Trace("Entering angleAddr")
-
-	w.enter(&angleAddr{
-		address: ctx.GetText(),
-	})
+	w.enter(&angleAddr{})
 }
 
 func (w *walker) ExitAngleAddr(ctx *parser.AngleAddrContext) {

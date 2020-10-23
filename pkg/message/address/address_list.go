@@ -29,10 +29,7 @@ type addressList struct {
 }
 
 func (a *addressList) withAddress(address *address) {
-	a.addresses = append(a.addresses, &mail.Address{
-		Name:    address.name,
-		Address: address.address,
-	})
+	a.addresses = append(a.addresses, address.addresses...)
 }
 
 func (w *walker) EnterAddressList(ctx *parser.AddressListContext) {

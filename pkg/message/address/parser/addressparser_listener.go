@@ -98,6 +98,27 @@ type AddressParserListener interface {
 	// EnterDtext is called when entering the dtext production.
 	EnterDtext(c *DtextContext)
 
+	// EnterObsPhrase is called when entering the obsPhrase production.
+	EnterObsPhrase(c *ObsPhraseContext)
+
+	// EnterObsAngleAddr is called when entering the obsAngleAddr production.
+	EnterObsAngleAddr(c *ObsAngleAddrContext)
+
+	// EnterObsRoute is called when entering the obsRoute production.
+	EnterObsRoute(c *ObsRouteContext)
+
+	// EnterObsDomainList is called when entering the obsDomainList production.
+	EnterObsDomainList(c *ObsDomainListContext)
+
+	// EnterObsMboxList is called when entering the obsMboxList production.
+	EnterObsMboxList(c *ObsMboxListContext)
+
+	// EnterObsAddrList is called when entering the obsAddrList production.
+	EnterObsAddrList(c *ObsAddrListContext)
+
+	// EnterObsGroupList is called when entering the obsGroupList production.
+	EnterObsGroupList(c *ObsGroupListContext)
+
 	// EnterEncodedWord is called when entering the encodedWord production.
 	EnterEncodedWord(c *EncodedWordContext)
 
@@ -217,6 +238,27 @@ type AddressParserListener interface {
 
 	// ExitDtext is called when exiting the dtext production.
 	ExitDtext(c *DtextContext)
+
+	// ExitObsPhrase is called when exiting the obsPhrase production.
+	ExitObsPhrase(c *ObsPhraseContext)
+
+	// ExitObsAngleAddr is called when exiting the obsAngleAddr production.
+	ExitObsAngleAddr(c *ObsAngleAddrContext)
+
+	// ExitObsRoute is called when exiting the obsRoute production.
+	ExitObsRoute(c *ObsRouteContext)
+
+	// ExitObsDomainList is called when exiting the obsDomainList production.
+	ExitObsDomainList(c *ObsDomainListContext)
+
+	// ExitObsMboxList is called when exiting the obsMboxList production.
+	ExitObsMboxList(c *ObsMboxListContext)
+
+	// ExitObsAddrList is called when exiting the obsAddrList production.
+	ExitObsAddrList(c *ObsAddrListContext)
+
+	// ExitObsGroupList is called when exiting the obsGroupList production.
+	ExitObsGroupList(c *ObsGroupListContext)
 
 	// ExitEncodedWord is called when exiting the encodedWord production.
 	ExitEncodedWord(c *EncodedWordContext)

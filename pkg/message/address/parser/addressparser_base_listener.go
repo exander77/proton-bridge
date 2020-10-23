@@ -201,6 +201,48 @@ func (s *BaseAddressParserListener) EnterDtext(ctx *DtextContext) {}
 // ExitDtext is called when production dtext is exited.
 func (s *BaseAddressParserListener) ExitDtext(ctx *DtextContext) {}
 
+// EnterObsPhrase is called when production obsPhrase is entered.
+func (s *BaseAddressParserListener) EnterObsPhrase(ctx *ObsPhraseContext) {}
+
+// ExitObsPhrase is called when production obsPhrase is exited.
+func (s *BaseAddressParserListener) ExitObsPhrase(ctx *ObsPhraseContext) {}
+
+// EnterObsAngleAddr is called when production obsAngleAddr is entered.
+func (s *BaseAddressParserListener) EnterObsAngleAddr(ctx *ObsAngleAddrContext) {}
+
+// ExitObsAngleAddr is called when production obsAngleAddr is exited.
+func (s *BaseAddressParserListener) ExitObsAngleAddr(ctx *ObsAngleAddrContext) {}
+
+// EnterObsRoute is called when production obsRoute is entered.
+func (s *BaseAddressParserListener) EnterObsRoute(ctx *ObsRouteContext) {}
+
+// ExitObsRoute is called when production obsRoute is exited.
+func (s *BaseAddressParserListener) ExitObsRoute(ctx *ObsRouteContext) {}
+
+// EnterObsDomainList is called when production obsDomainList is entered.
+func (s *BaseAddressParserListener) EnterObsDomainList(ctx *ObsDomainListContext) {}
+
+// ExitObsDomainList is called when production obsDomainList is exited.
+func (s *BaseAddressParserListener) ExitObsDomainList(ctx *ObsDomainListContext) {}
+
+// EnterObsMboxList is called when production obsMboxList is entered.
+func (s *BaseAddressParserListener) EnterObsMboxList(ctx *ObsMboxListContext) {}
+
+// ExitObsMboxList is called when production obsMboxList is exited.
+func (s *BaseAddressParserListener) ExitObsMboxList(ctx *ObsMboxListContext) {}
+
+// EnterObsAddrList is called when production obsAddrList is entered.
+func (s *BaseAddressParserListener) EnterObsAddrList(ctx *ObsAddrListContext) {}
+
+// ExitObsAddrList is called when production obsAddrList is exited.
+func (s *BaseAddressParserListener) ExitObsAddrList(ctx *ObsAddrListContext) {}
+
+// EnterObsGroupList is called when production obsGroupList is entered.
+func (s *BaseAddressParserListener) EnterObsGroupList(ctx *ObsGroupListContext) {}
+
+// ExitObsGroupList is called when production obsGroupList is exited.
+func (s *BaseAddressParserListener) ExitObsGroupList(ctx *ObsGroupListContext) {}
+
 // EnterEncodedWord is called when production encodedWord is entered.
 func (s *BaseAddressParserListener) EnterEncodedWord(ctx *EncodedWordContext) {}
 
