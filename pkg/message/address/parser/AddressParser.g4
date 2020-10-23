@@ -28,12 +28,12 @@ quotedChar: vchar | wsp;
 
 quotedPair
 	: Backslash quotedChar
-//| obsQP
+	| obsQP
 	;
 
 fws 
 	: (wsp* crlf)? wsp+
-//| obsFWS
+	| obsFWS
 	;
 
 ctext
@@ -69,7 +69,8 @@ ctext
 	| Pipe
 	| RCurly
 	| Tilde
-//| obsCtext
+	| obsCtext
+	| UTF8NonAscii
 	;
 
 ccontent
@@ -108,6 +109,7 @@ atext
 	| Pipe 
 	| RCurly
 	| Tilde
+	| UTF8NonAscii
 	;
 
 atom: atext+;
@@ -148,7 +150,8 @@ qtext
 	| Pipe
 	| RCurly
 	| Tilde
-//| obsQtext
+	| obsQtext
+	| UTF8NonAscii
 	;
 
 quotedContent
@@ -164,11 +167,6 @@ word
 	: cfws? encodedWord cfws?
 	| cfws? atom cfws?
 	| cfws? quotedString cfws?
-	;
-
-unstructured
-	: (fws? vchar)* wsp*
-//| obsUnstruct
 	;
 
 
@@ -266,6 +264,7 @@ dtext
 	| RCurly
 	| Tilde
 //| obsDtext
+	| UTF8NonAscii
 	;
 
 
@@ -273,7 +272,28 @@ dtext
 // 4.1. Miscellaneous Obsolete Tokens
 // ----------------------------------
 
+obsNoWSCTL
+	: U_01_08
+	| U_0B
+	| U_0C
+	| U_0E_1F
+	| Delete
+	;
+
 obsPhrase: word (word | Period | cfws)*;
+
+obsCtext: obsNoWSCTL;
+
+obsQtext: obsNoWSCTL;
+
+obsQP: Backslash (U_00 | obsNoWSCTL | LF | CR);
+
+
+// ------------------------
+// 4.2. Obsolete Addressing
+// ------------------------
+
+obsFWS: wsp+ (crlf wsp+);
 
 
 // ------------------------
@@ -416,4 +436,5 @@ vchar
 	| Pipe
 	| RCurly
 	| Tilde
+	| UTF8NonAscii
 	;

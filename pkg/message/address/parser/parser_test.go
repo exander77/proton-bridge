@@ -80,6 +80,7 @@ func TestParserValid(t *testing.T) {
 		`Somebody "Alfa"=?utf-8?Q?Beta?= <somebody@somewhere.com>`,
 		`Somebody "Alfa" =?utf-8?Q?Beta?= <somebody@somewhere.com>`,
 		`Somebody "Alfa" =?utf-8?Q?Beta?=<somebody@somewhere.com>`,
+		`=?UTF-8?B?PEJlemUgam3DqW5hPg==?= <somebody@somebody.com>`,
 	}
 
 	for _, input := range tests {

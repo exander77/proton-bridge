@@ -126,16 +126,16 @@ func TestParseSingleAddress(t *testing.T) {
 			}},
 		},
 		{
-			input: `Somebody Somewhere <somebody@somewhere.com >`,
-			addrs: []*mail.Address{{
-				Name:    `Somebody Somewhere`,
-				Address: `somebody@somewhere.com`,
-			}},
-		},
-		{
 			input: `"Mail Robot" <>`,
 			addrs: []*mail.Address{{
 				Name: `Mail Robot`,
+			}},
+		},
+		{
+			input: `Michal Hořejšek <hořejšek@mail.com>`,
+			addrs: []*mail.Address{{
+				Name:    `Michal Hořejšek`,
+				Address: `hořejšek@mail.com`, // Not his real address.
 			}},
 		},
 	}

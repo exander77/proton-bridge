@@ -17,9 +17,14 @@
 
 lexer grammar AddressLexer;
 
+U_00:							'\u0000';
+U_01_08:					'\u0001'..'\u0008';
 TAB:              '\t';     // \u0009
 LF:               '\n';     // \u000A
+U_0B: 						'\u000B';
+U_0C: 						'\u000C';
 CR:               '\r';     // \u000D
+U_0E_1F:					'\u000E'..'\u001F';
 
 // Printable (0x20-0x7E)
 SP:               ' ';      // \u0020
@@ -61,4 +66,6 @@ Tilde:            '~';      // \u007E
 
 // Other
 Delete: '\u007F';
-// Rest: 	'\u0080'..'\uFFFF';
+
+// RFC6532 Extension
+UTF8NonAscii: '\u0080'..'\uFFFF';

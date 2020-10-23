@@ -111,12 +111,6 @@ func (s *BaseAddressParserListener) EnterWord(ctx *WordContext) {}
 // ExitWord is called when production word is exited.
 func (s *BaseAddressParserListener) ExitWord(ctx *WordContext) {}
 
-// EnterUnstructured is called when production unstructured is entered.
-func (s *BaseAddressParserListener) EnterUnstructured(ctx *UnstructuredContext) {}
-
-// ExitUnstructured is called when production unstructured is exited.
-func (s *BaseAddressParserListener) ExitUnstructured(ctx *UnstructuredContext) {}
-
 // EnterAddress is called when production address is entered.
 func (s *BaseAddressParserListener) EnterAddress(ctx *AddressContext) {}
 
@@ -201,11 +195,41 @@ func (s *BaseAddressParserListener) EnterDtext(ctx *DtextContext) {}
 // ExitDtext is called when production dtext is exited.
 func (s *BaseAddressParserListener) ExitDtext(ctx *DtextContext) {}
 
+// EnterObsNoWSCTL is called when production obsNoWSCTL is entered.
+func (s *BaseAddressParserListener) EnterObsNoWSCTL(ctx *ObsNoWSCTLContext) {}
+
+// ExitObsNoWSCTL is called when production obsNoWSCTL is exited.
+func (s *BaseAddressParserListener) ExitObsNoWSCTL(ctx *ObsNoWSCTLContext) {}
+
 // EnterObsPhrase is called when production obsPhrase is entered.
 func (s *BaseAddressParserListener) EnterObsPhrase(ctx *ObsPhraseContext) {}
 
 // ExitObsPhrase is called when production obsPhrase is exited.
 func (s *BaseAddressParserListener) ExitObsPhrase(ctx *ObsPhraseContext) {}
+
+// EnterObsCtext is called when production obsCtext is entered.
+func (s *BaseAddressParserListener) EnterObsCtext(ctx *ObsCtextContext) {}
+
+// ExitObsCtext is called when production obsCtext is exited.
+func (s *BaseAddressParserListener) ExitObsCtext(ctx *ObsCtextContext) {}
+
+// EnterObsQtext is called when production obsQtext is entered.
+func (s *BaseAddressParserListener) EnterObsQtext(ctx *ObsQtextContext) {}
+
+// ExitObsQtext is called when production obsQtext is exited.
+func (s *BaseAddressParserListener) ExitObsQtext(ctx *ObsQtextContext) {}
+
+// EnterObsQP is called when production obsQP is entered.
+func (s *BaseAddressParserListener) EnterObsQP(ctx *ObsQPContext) {}
+
+// ExitObsQP is called when production obsQP is exited.
+func (s *BaseAddressParserListener) ExitObsQP(ctx *ObsQPContext) {}
+
+// EnterObsFWS is called when production obsFWS is entered.
+func (s *BaseAddressParserListener) EnterObsFWS(ctx *ObsFWSContext) {}
+
+// ExitObsFWS is called when production obsFWS is exited.
+func (s *BaseAddressParserListener) ExitObsFWS(ctx *ObsFWSContext) {}
 
 // EnterObsAngleAddr is called when production obsAngleAddr is entered.
 func (s *BaseAddressParserListener) EnterObsAngleAddr(ctx *ObsAngleAddrContext) {}

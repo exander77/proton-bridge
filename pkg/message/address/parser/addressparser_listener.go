@@ -53,9 +53,6 @@ type AddressParserListener interface {
 	// EnterWord is called when entering the word production.
 	EnterWord(c *WordContext)
 
-	// EnterUnstructured is called when entering the unstructured production.
-	EnterUnstructured(c *UnstructuredContext)
-
 	// EnterAddress is called when entering the address production.
 	EnterAddress(c *AddressContext)
 
@@ -98,8 +95,23 @@ type AddressParserListener interface {
 	// EnterDtext is called when entering the dtext production.
 	EnterDtext(c *DtextContext)
 
+	// EnterObsNoWSCTL is called when entering the obsNoWSCTL production.
+	EnterObsNoWSCTL(c *ObsNoWSCTLContext)
+
 	// EnterObsPhrase is called when entering the obsPhrase production.
 	EnterObsPhrase(c *ObsPhraseContext)
+
+	// EnterObsCtext is called when entering the obsCtext production.
+	EnterObsCtext(c *ObsCtextContext)
+
+	// EnterObsQtext is called when entering the obsQtext production.
+	EnterObsQtext(c *ObsQtextContext)
+
+	// EnterObsQP is called when entering the obsQP production.
+	EnterObsQP(c *ObsQPContext)
+
+	// EnterObsFWS is called when entering the obsFWS production.
+	EnterObsFWS(c *ObsFWSContext)
 
 	// EnterObsAngleAddr is called when entering the obsAngleAddr production.
 	EnterObsAngleAddr(c *ObsAngleAddrContext)
@@ -200,9 +212,6 @@ type AddressParserListener interface {
 	// ExitWord is called when exiting the word production.
 	ExitWord(c *WordContext)
 
-	// ExitUnstructured is called when exiting the unstructured production.
-	ExitUnstructured(c *UnstructuredContext)
-
 	// ExitAddress is called when exiting the address production.
 	ExitAddress(c *AddressContext)
 
@@ -245,8 +254,23 @@ type AddressParserListener interface {
 	// ExitDtext is called when exiting the dtext production.
 	ExitDtext(c *DtextContext)
 
+	// ExitObsNoWSCTL is called when exiting the obsNoWSCTL production.
+	ExitObsNoWSCTL(c *ObsNoWSCTLContext)
+
 	// ExitObsPhrase is called when exiting the obsPhrase production.
 	ExitObsPhrase(c *ObsPhraseContext)
+
+	// ExitObsCtext is called when exiting the obsCtext production.
+	ExitObsCtext(c *ObsCtextContext)
+
+	// ExitObsQtext is called when exiting the obsQtext production.
+	ExitObsQtext(c *ObsQtextContext)
+
+	// ExitObsQP is called when exiting the obsQP production.
+	ExitObsQP(c *ObsQPContext)
+
+	// ExitObsFWS is called when exiting the obsFWS production.
+	ExitObsFWS(c *ObsFWSContext)
 
 	// ExitObsAngleAddr is called when exiting the obsAngleAddr production.
 	ExitObsAngleAddr(c *ObsAngleAddrContext)
