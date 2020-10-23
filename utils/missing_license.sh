@@ -22,10 +22,6 @@ MISSING_FILES=`find . -not -path "./vendor/*" -not -path "./vendor-cache/*" -not
 
 for f in ${MISSING_FILES}
 do
-    if grep -q "^// Code generated .* DO NOT EDIT.$" $f
-    then
-        continue
-    fi
     echo -n "MISSING LICENSE or WRONG YEAR in $f"
     if [[ $1 == "add" ]]
     then
@@ -42,5 +38,4 @@ do
 done
 
 [[ "$1" == "check" ]] && [[ -n ${MISSING_FILES} ]] && exit 1
-
 exit 0
