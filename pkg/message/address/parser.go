@@ -24,6 +24,7 @@ import (
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
+// Parse parses one or more valid RFC5322 (with RFC2047) addresses.
 func Parse(input string) ([]*mail.Address, error) {
 	if len(input) == 0 {
 		return []*mail.Address{}, nil

@@ -25,14 +25,23 @@ import (
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
+// walker implements parser.BaseAddressParserListener, defining what to do at
+// each node while traversing the syntax tree.
+// It also implements antlr.DefaultErrorListener, allowing us to react to
+// errors encountered while trying to determine the syntax tree of the input.
 type walker struct {
 	parser.BaseAddressParserListener
 	antlr.DefaultErrorListener
 
+	// nodes acts as a stack; when entering a node, it is pushed here, and when
+	// exiting a node, it is popped from here.
 	nodes []interface{}
 
+	// addresses holds the parsed net/mail addresses.
 	addresses []*mail.Address
-	err       error
+
+	// err holds the error encountered during parsing, if any.
+	err error
 }
 
 func (w *walker) enter(b interface{}) {
