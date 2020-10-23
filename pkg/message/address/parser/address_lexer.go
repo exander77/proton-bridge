@@ -107,7 +107,7 @@ var lexerSymbolicNames = []string{
 	"Comma", "Minus", "Period", "Slash", "Digit", "Colon", "Semicolon", "Less",
 	"Equal", "Greater", "Question", "At", "AlphaUpper", "LBracket", "Backslash",
 	"RBracket", "Caret", "Underscore", "Backtick", "AlphaLower", "LCurly",
-	"Pipe", "RCurly", "Tilde", "DEL",
+	"Pipe", "RCurly", "Tilde", "Delete",
 }
 
 var lexerRuleNames = []string{
@@ -116,7 +116,7 @@ var lexerRuleNames = []string{
 	"Minus", "Period", "Slash", "Digit", "Colon", "Semicolon", "Less", "Equal",
 	"Greater", "Question", "At", "AlphaUpper", "LBracket", "Backslash", "RBracket",
 	"Caret", "Underscore", "Backtick", "AlphaLower", "LCurly", "Pipe", "RCurly",
-	"Tilde", "DEL",
+	"Tilde", "Delete",
 }
 
 type AddressLexer struct {
@@ -193,5 +193,5 @@ const (
 	AddressLexerPipe        = 37
 	AddressLexerRCurly      = 38
 	AddressLexerTilde       = 39
-	AddressLexerDEL         = 40
+	AddressLexerDelete      = 40
 )

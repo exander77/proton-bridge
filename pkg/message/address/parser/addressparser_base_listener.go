@@ -243,6 +243,18 @@ func (s *BaseAddressParserListener) EnterObsGroupList(ctx *ObsGroupListContext) 
 // ExitObsGroupList is called when production obsGroupList is exited.
 func (s *BaseAddressParserListener) ExitObsGroupList(ctx *ObsGroupListContext) {}
 
+// EnterObsLocalPart is called when production obsLocalPart is entered.
+func (s *BaseAddressParserListener) EnterObsLocalPart(ctx *ObsLocalPartContext) {}
+
+// ExitObsLocalPart is called when production obsLocalPart is exited.
+func (s *BaseAddressParserListener) ExitObsLocalPart(ctx *ObsLocalPartContext) {}
+
+// EnterObsDomain is called when production obsDomain is entered.
+func (s *BaseAddressParserListener) EnterObsDomain(ctx *ObsDomainContext) {}
+
+// ExitObsDomain is called when production obsDomain is exited.
+func (s *BaseAddressParserListener) ExitObsDomain(ctx *ObsDomainContext) {}
+
 // EnterEncodedWord is called when production encodedWord is entered.
 func (s *BaseAddressParserListener) EnterEncodedWord(ctx *EncodedWordContext) {}
 

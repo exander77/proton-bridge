@@ -18,6 +18,8 @@
 package address
 
 import (
+	"strings"
+
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
 	"github.com/sirupsen/logrus"
 )
@@ -32,6 +34,10 @@ func (d *domain) withDotAtom(dotAtom *dotAtom) {
 
 func (d *domain) withDomainLiteral(domainLiteral *domainLiteral) {
 	d.value = domainLiteral.value
+}
+
+func (d *domain) withObsDomain(obsDomain *obsDomain) {
+	d.value = strings.Join(obsDomain.atoms, ".")
 }
 
 func (w *walker) EnterDomain(ctx *parser.DomainContext) {

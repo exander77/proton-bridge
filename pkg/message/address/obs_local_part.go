@@ -18,43 +18,33 @@
 package address
 
 import (
-	"strings"
-
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
 	"github.com/sirupsen/logrus"
 )
 
-type localPart struct {
-	value string
+type obsLocalPart struct {
+	words []string
 }
 
-func (p *localPart) withDotAtom(dotAtom *dotAtom) {
-	p.value = dotAtom.value
+func (p *obsLocalPart) withWord(word *word) {
+	p.words = append(p.words, word.value)
 }
 
-func (p *localPart) withQuotedString(quotedString *quotedString) {
-	p.value = quotedString.value
+func (w *walker) EnterObsLocalPart(ctx *parser.ObsLocalPartContext) {
+	logrus.Trace("Entering obsLocalPart")
+	w.enter(&obsLocalPart{})
 }
 
-func (p *localPart) withObsLocalPart(obsLocalPart *obsLocalPart) {
-	p.value = strings.Join(obsLocalPart.words, ".")
-}
+func (w *walker) ExitObsLocalPart(ctx *parser.ObsLocalPartContext) {
+	logrus.Trace("Exiting obsLocalPart")
 
-func (w *walker) EnterLocalPart(ctx *parser.LocalPartContext) {
-	logrus.Trace("Entering localPart")
-	w.enter(&localPart{})
-}
-
-func (w *walker) ExitLocalPart(ctx *parser.LocalPartContext) {
-	logrus.Trace("Exiting localPart")
-
-	type withLocalPart interface {
-		withLocalPart(*localPart)
+	type withObsLocalPart interface {
+		withObsLocalPart(*obsLocalPart)
 	}
 
-	res := w.exit().(*localPart)
+	res := w.exit().(*obsLocalPart)
 
-	if parent, ok := w.parent().(withLocalPart); ok {
-		parent.withLocalPart(res)
+	if parent, ok := w.parent().(withObsLocalPart); ok {
+		parent.withObsLocalPart(res)
 	}
 }

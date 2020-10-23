@@ -82,7 +82,7 @@ LCurly
 Pipe
 RCurly
 Tilde
-DEL
+Delete
 
 rule names:
 TAB
@@ -124,7 +124,7 @@ LCurly
 Pipe
 RCurly
 Tilde
-DEL
+Delete
 
 channel names:
 DEFAULT_TOKEN_CHANNEL

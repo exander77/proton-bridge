@@ -46,7 +46,42 @@ func TestParserValid(t *testing.T) {
 		`Pete(A nice \) chap) <pete(his account)@silly.test(his host)>`,
 		`(Empty list)(start)Hidden recipients  :(nobody(that I know))  ;`,
 		`Gogh Fir <gf@example.com>`,
+
+		// -----------------------------
+		// Test cases credit @exander77.
+		// -----------------------------
+		`<>`,
+		`Mailer <>`,
+		`Somebody Somewhere <somebody@somewhere.com >`,
+		// `Somebody Somewhere <somebody@somewhere.com. >`,
+		// `Somebody Somewhere <somebody@somewhere.com.>`,
+		// `Somebody Somewhere <somebody@somewhere.com:25>`,
+		`Somebody Somewhere <somebody@[10.0.0.1]>`,
+		`somebody@somewhere <somebody@somewhere.com>`,
+		`Somebody Somewhere < somebody@somewhere.com>`,
+		// `Somebody :: Somewhere <somebody@somewhere.com>`,
+		// `Some Body @ Somewhere <somebody@somewhere.com>`,
+		// `somebody`,
+		// `Somebody Somewhere <somebody somewhere>`,
+		// `Somebody, Somewhere <somebody@somewhere.com>`,
+		// `Somebody somebody@somewhere.com`,
+		// `undisclosed-recipients:`,
+		`Somebody Alfa "Beta" <somebody@somewhere.com>`,
+		`Somebody Alfa Beta <somebody@somewhere.com>`,
+		`Somebody Alfa"Beta" <somebody@somewhere.com>`,
+		`Somebody Alfa "Beta"<somebody@somewhere.com>`,
+		`Somebody "Alfa" "Beta" <somebody@somewhere.com>`,
+		`Somebody "Alfa""Beta" <somebody@somewhere.com>`,
+		`Somebody Alfa =?utf-8?Q?Beta?= <somebody@somewhere.com>`,
+		`Somebody Alfa=?utf-8?Q?Beta?= <somebody@somewhere.com>`,
+		`Somebody Alfa =?utf-8?Q?Beta?=<somebody@somewhere.com>`,
+		`Somebody =?utf-8?Q?Beta?= =?utf-8?Q?Beta?= <somebody@somewhere.com>`,
+		`Somebody =?utf-8?Q?Beta?==?utf-8?Q?Beta?= <somebody@somewhere.com>`,
+		`Somebody "Alfa"=?utf-8?Q?Beta?= <somebody@somewhere.com>`,
+		`Somebody "Alfa" =?utf-8?Q?Beta?= <somebody@somewhere.com>`,
+		`Somebody "Alfa" =?utf-8?Q?Beta?=<somebody@somewhere.com>`,
 	}
+
 	for _, input := range tests {
 		input := input
 
@@ -65,6 +100,7 @@ func TestParserEncodedWord(t *testing.T) {
 		`=?ISO-8859-1?Q?Patrik_F=E4ltstr=F6m?= <paf@nada.kth.se>`,
 		`Nathaniel Borenstein <nsb@thumper.bellcore.com> (=?iso-8859-8?b?7eXs+SDv4SDp7Oj08A==?=)`,
 	}
+
 	for _, input := range tests {
 		input := input
 

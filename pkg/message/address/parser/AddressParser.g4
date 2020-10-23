@@ -189,7 +189,7 @@ mailbox
 nameAddr: displayName? angleAddr;
 
 angleAddr
-	: cfws? Less addrSpec Greater cfws?
+	: cfws? Less addrSpec? Greater cfws?
 	| obsAngleAddr
 	;
 
@@ -221,13 +221,13 @@ addrSpec: localPart At domain;
 localPart
 	: cfws? dotAtom cfws?
 	| cfws? quotedString cfws?
-//| obsLocalPart
+	| obsLocalPart
 	;
 
 domain
 	: cfws? dotAtom cfws? 
 	| cfws? domainLiteral cfws?
-//| obsDomain
+	| obsDomain
 	;
 
 domainLiteral: LBracket (fws? dtext)* fws? RBracket;
@@ -291,6 +291,10 @@ obsMboxList: (cfws? Comma)* mailbox (Comma (mailbox | cfws)?)*;
 obsAddrList: (cfws? Comma)* address (Comma (address | cfws)?)*;
 
 obsGroupList: (cfws? Comma)+ cfws?;
+
+obsLocalPart: word (Period word)*;
+
+obsDomain: atom (Period atom)*;
 
 
 // ------------------------------------

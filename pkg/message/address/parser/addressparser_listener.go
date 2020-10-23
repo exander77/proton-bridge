@@ -119,6 +119,12 @@ type AddressParserListener interface {
 	// EnterObsGroupList is called when entering the obsGroupList production.
 	EnterObsGroupList(c *ObsGroupListContext)
 
+	// EnterObsLocalPart is called when entering the obsLocalPart production.
+	EnterObsLocalPart(c *ObsLocalPartContext)
+
+	// EnterObsDomain is called when entering the obsDomain production.
+	EnterObsDomain(c *ObsDomainContext)
+
 	// EnterEncodedWord is called when entering the encodedWord production.
 	EnterEncodedWord(c *EncodedWordContext)
 
@@ -259,6 +265,12 @@ type AddressParserListener interface {
 
 	// ExitObsGroupList is called when exiting the obsGroupList production.
 	ExitObsGroupList(c *ObsGroupListContext)
+
+	// ExitObsLocalPart is called when exiting the obsLocalPart production.
+	ExitObsLocalPart(c *ObsLocalPartContext)
+
+	// ExitObsDomain is called when exiting the obsDomain production.
+	ExitObsDomain(c *ObsDomainContext)
 
 	// ExitEncodedWord is called when exiting the encodedWord production.
 	ExitEncodedWord(c *EncodedWordContext)

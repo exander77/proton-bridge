@@ -60,4 +60,5 @@ RCurly:           '}';      // \u007D
 Tilde:            '~';      // \u007E
 
 // Other
-DEL:  '\u007F';
+Delete: '\u007F';
+// Rest: 	'\u0080'..'\uFFFF';

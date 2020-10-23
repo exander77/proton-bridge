@@ -125,6 +125,19 @@ func TestParseSingleAddress(t *testing.T) {
 				Address: `pete@silly.test`,
 			}},
 		},
+		{
+			input: `Somebody Somewhere <somebody@somewhere.com >`,
+			addrs: []*mail.Address{{
+				Name:    `Somebody Somewhere`,
+				Address: `somebody@somewhere.com`,
+			}},
+		},
+		{
+			input: `"Mail Robot" <>`,
+			addrs: []*mail.Address{{
+				Name: `Mail Robot`,
+			}},
+		},
 	}
 	for _, test := range tests {
 		test := test
@@ -272,6 +285,30 @@ func TestParseAddressList(t *testing.T) {
 				},
 			},
 		},
+		{
+			input: `normal name  <username@server.com>, (comment)All.(around)address@(the)server.com`,
+			addrs: []*mail.Address{
+				{
+					Name:    `normal name`,
+					Address: `username@server.com`,
+				},
+				{
+					Address: `All.address@server.com`,
+				},
+			},
+		},
+		{
+			input: `normal name  <username@server.com>, All.("comma, in comment")address@(the)server.com`,
+			addrs: []*mail.Address{
+				{
+					Name:    `normal name`,
+					Address: `username@server.com`,
+				},
+				{
+					Address: `All.address@server.com`,
+				},
+			},
+		},
 	}
 	for _, test := range tests {
 		test := test
@@ -326,15 +363,19 @@ func TestParseStrangeAddresses(t *testing.T) {
 		input string
 		addrs []*mail.Address
 	}{
+		// {input: `Somebody Somewhere <somebody@somewhere. com> <somebody@somewhere.com>`}, // PARSED CORRECTLY BY API!
+		// {input: `"somebody@somewhere.com." <somebody@somewhere.com.>`}, // PARSED CORRECTLY BY API!
+		// {input: `Name somebody@somewhere.com`}, // PARSED WRONGLY BY API (thinks that "Name " belongs to address)
+
+		// -----------------------------
+		// Test cases credit @exander77.
+		// -----------------------------
 		{input: `<somebody@somebody.com >`},
 		{input: `somebody@somebody.com,`},
 		{input: `=?UTF-8?B?PEJlemUgam3DqW5hPg==?= <somebody@somebody.com>`},
 		{input: `somebody@somebody.com:81`},
 		{input: `somebody@somewhere.com,`},
 		{input: `<postmaster@[10.10.10.10]>`},
-		// {input: `Somebody Somewhere <somebody@somewhere. com> <somebody@somewhere.com>`}, // PARSED CORRECTLY BY API!
-		// {input: `"somebody@somewhere.com." <somebody@somewhere.com.>`}, // PARSED CORRECTLY BY API!
-		// {input: `Name somebody@somewhere.com`}, // PARSED WRONGLY BY API (thinks that "Name " belongs to address)
 	}
 	for _, test := range tests {
 		test := test
@@ -354,17 +395,18 @@ func TestParseRejectedAddresses(t *testing.T) {
 		input string
 		addrs []*mail.Address
 	}{
+		{input: `"comma, name"  <username@server.com>, another, name <address@server.com>`},
+
+		// -----------------------------
+		// Test cases credit @exander77.
+		// -----------------------------
 		{input: `somebody`},
 		{input: `<some random ascii text with spaces>`},
 		{input: `undisclosed-recipients:`},
 		{input: `=?ISO-8859-2?Q?Somebody_Somewhere?= <somebody@somewhere.com>, <somebody@somewhere.com,Somebody/AAA/BBB/CCC,>`},
 		{input: `somebody%somewhere...com`},
-		{input: `"Mailer Daemon" <>`},
 		{input: `=?windows-1250?Q?Spr=E1vce_syst=E9mu?=`},
 		{input: `"'somebody@somewhere.com.'"`},
-		{input: ` "comma, name"  <username@server.com>, another, name <address@server.com>`},
-		{input: ` normal name  <username@server.com>, (comment)All.(around)address@(the)server.com`},
-		{input: ` normal name  <username@server.com>, All.("comma, in comment")address@(the)server.com`},
 	}
 	for _, test := range tests {
 		test := test
