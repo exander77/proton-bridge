@@ -41,12 +41,12 @@ func (d *domain) withObsDomain(obsDomain *obsDomain) {
 }
 
 func (w *walker) EnterDomain(ctx *parser.DomainContext) {
-	logrus.Trace("Entering domain")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering domain")
 	w.enter(&domain{})
 }
 
 func (w *walker) ExitDomain(ctx *parser.DomainContext) {
-	logrus.Trace("Exiting domain")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting domain")
 
 	type withDomain interface {
 		withDomain(*domain)

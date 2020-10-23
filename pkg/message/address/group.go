@@ -33,12 +33,12 @@ func (g *group) withGroupList(groupList *groupList) {
 }
 
 func (w *walker) EnterGroup(ctx *parser.GroupContext) {
-	logrus.Trace("Entering group")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering group")
 	w.enter(&group{})
 }
 
 func (w *walker) ExitGroup(ctx *parser.GroupContext) {
-	logrus.Trace("Exiting group")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting group")
 
 	type withGroup interface {
 		withGroup(*group)

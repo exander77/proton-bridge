@@ -33,11 +33,11 @@ func (a *addressList) withAddress(address *address) {
 }
 
 func (w *walker) EnterAddressList(ctx *parser.AddressListContext) {
-	logrus.Trace("Entering addressList")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering addressList")
 	w.enter(&addressList{})
 }
 
 func (w *walker) ExitAddressList(ctx *parser.AddressListContext) {
-	logrus.Trace("Exiting addressList")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting addressList")
 	w.addresses = w.exit().(*addressList).addresses
 }

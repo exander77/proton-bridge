@@ -27,7 +27,7 @@ type dotAtom struct {
 }
 
 func (w *walker) EnterDotAtom(ctx *parser.DotAtomContext) {
-	logrus.Trace("Entering dotAtom")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering dotAtom")
 
 	w.enter(&dotAtom{
 		value: ctx.GetText(),
@@ -35,7 +35,7 @@ func (w *walker) EnterDotAtom(ctx *parser.DotAtomContext) {
 }
 
 func (w *walker) ExitDotAtom(ctx *parser.DotAtomContext) {
-	logrus.Trace("Exiting dotAtom")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting dotAtom")
 
 	type withDotAtom interface {
 		withDotAtom(*dotAtom)

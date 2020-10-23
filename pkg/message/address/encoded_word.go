@@ -28,7 +28,7 @@ type encodedWord struct {
 }
 
 func (w *walker) EnterEncodedWord(ctx *parser.EncodedWordContext) {
-	logrus.Trace("Entering encodedWord")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering encodedWord")
 
 	word, err := pmmime.WordDec.Decode(ctx.GetText())
 	if err != nil {
@@ -41,7 +41,7 @@ func (w *walker) EnterEncodedWord(ctx *parser.EncodedWordContext) {
 }
 
 func (w *walker) ExitEncodedWord(ctx *parser.EncodedWordContext) {
-	logrus.Trace("Exiting encodedWord")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting encodedWord")
 
 	type withEncodedWord interface {
 		withEncodedWord(*encodedWord)

@@ -370,19 +370,57 @@ func TestParseStrangeAddresses(t *testing.T) {
 		// -----------------------------
 		// Test cases credit @exander77.
 		// -----------------------------
-		{input: `<somebody@somebody.com >`},
-		{input: `somebody@somebody.com,`},
-		{input: `=?UTF-8?B?PEJlemUgam3DqW5hPg==?= <somebody@somebody.com>`},
-		{input: `somebody@somebody.com:81`},
-		{input: `somebody@somewhere.com,`},
-		{input: `<postmaster@[10.10.10.10]>`},
+		{
+			input: `<somebody@somebody.com >`,
+			addrs: []*mail.Address{
+				{
+					Address: `somebody@somebody.com`,
+				},
+			},
+		},
+		{
+			input: `somebody@somebody.com,`,
+			addrs: []*mail.Address{
+				{
+					Address: `somebody@somebody.com`,
+				},
+			},
+		},
+		{
+			input: `=?UTF-8?B?PEJlemUgam3DqW5hPg==?= <somebody@somebody.com>`,
+			addrs: []*mail.Address{
+				{
+					Name:    `<Beze jména>`,
+					Address: `somebody@somebody.com`,
+				},
+			},
+		},
+		/*
+			{
+				input: `somebody@somebody.com:81`,
+				addrs: []*mail.Address{
+					{
+						Address: `somebody@somebody.com:81`,
+					},
+				},
+			},
+		*/
+		{
+			input: `<postmaster@[10.10.10.10]>`,
+			addrs: []*mail.Address{
+				{
+					Address: `postmaster@[10.10.10.10]`,
+				},
+			},
+		},
 	}
 	for _, test := range tests {
 		test := test
 
 		t.Run(test.input, func(t *testing.T) {
-			_, err := Parse(test.input)
+			addrs, err := Parse(test.input)
 			assert.NoError(t, err)
+			assert.ElementsMatch(t, test.addrs, addrs)
 		})
 	}
 }

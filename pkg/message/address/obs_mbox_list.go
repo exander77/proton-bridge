@@ -36,12 +36,12 @@ func (ml *obsMboxList) withMailbox(mailbox *mailbox) {
 }
 
 func (w *walker) EnterObsMboxList(ctx *parser.ObsMboxListContext) {
-	logrus.Trace("Entering obsMboxList")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering obsMboxList")
 	w.enter(&obsMboxList{})
 }
 
 func (w *walker) ExitObsMboxList(ctx *parser.ObsMboxListContext) {
-	logrus.Trace("Exiting obsMboxList")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting obsMboxList")
 
 	type withObsMboxList interface {
 		withObsMboxList(*obsMboxList)

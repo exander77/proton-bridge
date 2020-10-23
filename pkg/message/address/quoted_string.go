@@ -31,12 +31,12 @@ func (s *quotedString) withQuotedValue(quotedValue *quotedValue) {
 }
 
 func (w *walker) EnterQuotedString(ctx *parser.QuotedStringContext) {
-	logrus.Trace("Entering quotedString")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering quotedString")
 	w.enter(&quotedString{})
 }
 
 func (w *walker) ExitQuotedString(ctx *parser.QuotedStringContext) {
-	logrus.Trace("Exiting quotedString")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting quotedString")
 
 	type withQuotedString interface {
 		withQuotedString(*quotedString)

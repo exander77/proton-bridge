@@ -27,7 +27,7 @@ type quotedChar struct {
 }
 
 func (w *walker) EnterQuotedChar(ctx *parser.QuotedCharContext) {
-	logrus.Trace("Entering quotedChar")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering quotedChar")
 
 	w.enter(&quotedChar{
 		value: ctx.GetText(),
@@ -35,7 +35,7 @@ func (w *walker) EnterQuotedChar(ctx *parser.QuotedCharContext) {
 }
 
 func (w *walker) ExitQuotedChar(ctx *parser.QuotedCharContext) {
-	logrus.Trace("Exiting quotedChar")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting quotedChar")
 
 	type withQuotedChar interface {
 		withQuotedChar(*quotedChar)

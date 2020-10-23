@@ -27,7 +27,7 @@ type qtext struct {
 }
 
 func (w *walker) EnterQtext(ctx *parser.QtextContext) {
-	logrus.Trace("Entering qtext")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering qtext")
 
 	w.enter(&qtext{
 		value: ctx.GetText(),
@@ -35,7 +35,7 @@ func (w *walker) EnterQtext(ctx *parser.QtextContext) {
 }
 
 func (w *walker) ExitQtext(ctx *parser.QtextContext) {
-	logrus.Trace("Exiting qtext")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting qtext")
 
 	type withQtext interface {
 		withQtext(*qtext)

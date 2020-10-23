@@ -35,13 +35,13 @@ func (a *addrSpec) withDomain(domain *domain) {
 }
 
 func (w *walker) EnterAddrSpec(ctx *parser.AddrSpecContext) {
-	logrus.Trace("Entering addrSpec")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering addrSpec")
 
 	w.enter(&addrSpec{})
 }
 
 func (w *walker) ExitAddrSpec(ctx *parser.AddrSpecContext) {
-	logrus.Trace("Exiting addrSpec")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting addrSpec")
 
 	type withAddrSpec interface {
 		withAddrSpec(*addrSpec)

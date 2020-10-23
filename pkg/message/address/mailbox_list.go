@@ -40,12 +40,12 @@ func (ml *mailboxList) withObsMboxList(obsMboxList *obsMboxList) {
 }
 
 func (w *walker) EnterMailboxList(ctx *parser.MailboxListContext) {
-	logrus.Trace("Entering mailboxList")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering mailboxList")
 	w.enter(&mailboxList{})
 }
 
 func (w *walker) ExitMailboxList(ctx *parser.MailboxListContext) {
-	logrus.Trace("Exiting mailboxList")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting mailboxList")
 
 	type withMailboxList interface {
 		withMailboxList(*mailboxList)

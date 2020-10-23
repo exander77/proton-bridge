@@ -39,7 +39,7 @@ func (w *word) withEncodedWord(encodedWord *encodedWord) {
 }
 
 func (w *walker) EnterWord(ctx *parser.WordContext) {
-	logrus.Trace("Entering word")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering word")
 
 	w.enter(&word{
 		value: ctx.GetText(),
@@ -47,7 +47,7 @@ func (w *walker) EnterWord(ctx *parser.WordContext) {
 }
 
 func (w *walker) ExitWord(ctx *parser.WordContext) {
-	logrus.Trace("Exiting word")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting word")
 
 	type withWord interface {
 		withWord(*word)

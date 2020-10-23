@@ -82,7 +82,6 @@ func TestParserValid(t *testing.T) {
 		`Somebody "Alfa" =?utf-8?Q?Beta?=<somebody@somewhere.com>`,
 		`=?UTF-8?B?PEJlemUgam3DqW5hPg==?= <somebody@somebody.com>`,
 	}
-
 	for _, input := range tests {
 		input := input
 
@@ -101,7 +100,6 @@ func TestParserEncodedWord(t *testing.T) {
 		`=?ISO-8859-1?Q?Patrik_F=E4ltstr=F6m?= <paf@nada.kth.se>`,
 		`Nathaniel Borenstein <nsb@thumper.bellcore.com> (=?iso-8859-8?b?7eXs+SDv4SDp7Oj08A==?=)`,
 	}
-
 	for _, input := range tests {
 		input := input
 
@@ -115,7 +113,6 @@ func TestParserGroup(t *testing.T) {
 	tests := []string{
 		`Nightly Monitor Robot:;`,
 	}
-
 	for _, input := range tests {
 		input := input
 
@@ -129,7 +126,6 @@ func TestParserObsolete(t *testing.T) {
 	tests := []string{
 		// NOTE: Add obsolete addresses here.
 	}
-
 	for _, input := range tests {
 		input := input
 
@@ -143,7 +139,6 @@ func TestParserBad(t *testing.T) {
 	tests := []string{
 		`this address sucks`,
 	}
-
 	for _, input := range tests {
 		input := input
 

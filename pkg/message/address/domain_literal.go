@@ -27,7 +27,7 @@ type domainLiteral struct {
 }
 
 func (w *walker) EnterDomainLiteral(ctx *parser.DomainLiteralContext) {
-	logrus.Trace("Entering domainLiteral")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering domainLiteral")
 
 	w.enter(&domainLiteral{
 		value: ctx.GetText(),
@@ -35,7 +35,7 @@ func (w *walker) EnterDomainLiteral(ctx *parser.DomainLiteralContext) {
 }
 
 func (w *walker) ExitDomainLiteral(ctx *parser.DomainLiteralContext) {
-	logrus.Trace("Exiting domainLiteral")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting domainLiteral")
 
 	type withDomainLiteral interface {
 		withDomainLiteral(*domainLiteral)

@@ -33,12 +33,12 @@ func (gl *groupList) withMailboxList(mailboxList *mailboxList) {
 }
 
 func (w *walker) EnterGroupList(ctx *parser.GroupListContext) {
-	logrus.Trace("Entering groupList")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering groupList")
 	w.enter(&groupList{})
 }
 
 func (w *walker) ExitGroupList(ctx *parser.GroupListContext) {
-	logrus.Trace("Exiting groupList")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting groupList")
 
 	type withGroupList interface {
 		withGroupList(*groupList)

@@ -31,12 +31,12 @@ func (p *obsDomain) withAtom(atom *atom) {
 }
 
 func (w *walker) EnterObsDomain(ctx *parser.ObsDomainContext) {
-	logrus.Trace("Entering obsDomain")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering obsDomain")
 	w.enter(&obsDomain{})
 }
 
 func (w *walker) ExitObsDomain(ctx *parser.ObsDomainContext) {
-	logrus.Trace("Exiting obsDomain")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting obsDomain")
 
 	type withObsDomain interface {
 		withObsDomain(*obsDomain)

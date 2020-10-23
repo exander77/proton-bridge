@@ -31,12 +31,12 @@ func (n *displayName) withWord(word *word) {
 }
 
 func (w *walker) EnterDisplayName(ctx *parser.DisplayNameContext) {
-	logrus.Trace("Entering displayName")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering displayName")
 	w.enter(&displayName{})
 }
 
 func (w *walker) ExitDisplayName(ctx *parser.DisplayNameContext) {
-	logrus.Trace("Exiting displayName")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting displayName")
 
 	type withDisplayName interface {
 		withDisplayName(*displayName)

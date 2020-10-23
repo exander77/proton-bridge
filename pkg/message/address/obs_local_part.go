@@ -31,12 +31,12 @@ func (p *obsLocalPart) withWord(word *word) {
 }
 
 func (w *walker) EnterObsLocalPart(ctx *parser.ObsLocalPartContext) {
-	logrus.Trace("Entering obsLocalPart")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering obsLocalPart")
 	w.enter(&obsLocalPart{})
 }
 
 func (w *walker) ExitObsLocalPart(ctx *parser.ObsLocalPartContext) {
-	logrus.Trace("Exiting obsLocalPart")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting obsLocalPart")
 
 	type withObsLocalPart interface {
 		withObsLocalPart(*obsLocalPart)

@@ -37,12 +37,12 @@ func (a *angleAddr) withObsAngleAddr(obsAngleAddr *obsAngleAddr) {
 }
 
 func (w *walker) EnterAngleAddr(ctx *parser.AngleAddrContext) {
-	logrus.Trace("Entering angleAddr")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering angleAddr")
 	w.enter(&angleAddr{})
 }
 
 func (w *walker) ExitAngleAddr(ctx *parser.AngleAddrContext) {
-	logrus.Trace("Exiting angleAddr")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting angleAddr")
 
 	type withAngleAddr interface {
 		withAngleAddr(*angleAddr)

@@ -41,12 +41,12 @@ func (p *localPart) withObsLocalPart(obsLocalPart *obsLocalPart) {
 }
 
 func (w *walker) EnterLocalPart(ctx *parser.LocalPartContext) {
-	logrus.Trace("Entering localPart")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering localPart")
 	w.enter(&localPart{})
 }
 
 func (w *walker) ExitLocalPart(ctx *parser.LocalPartContext) {
-	logrus.Trace("Exiting localPart")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting localPart")
 
 	type withLocalPart interface {
 		withLocalPart(*localPart)

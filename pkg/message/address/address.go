@@ -40,12 +40,12 @@ func (a *address) withGroup(group *group) {
 }
 
 func (w *walker) EnterAddress(ctx *parser.AddressContext) {
-	logrus.Trace("Entering address")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering address")
 	w.enter(&address{})
 }
 
 func (w *walker) ExitAddress(ctx *parser.AddressContext) {
-	logrus.Trace("Exiting address")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting address")
 
 	type withAddress interface {
 		withAddress(*address)

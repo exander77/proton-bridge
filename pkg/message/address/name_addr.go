@@ -37,12 +37,12 @@ func (a *nameAddr) withAngleAddr(angleAddr *angleAddr) {
 }
 
 func (w *walker) EnterNameAddr(ctx *parser.NameAddrContext) {
-	logrus.Trace("Entering nameAddr")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering nameAddr")
 	w.enter(&nameAddr{})
 }
 
 func (w *walker) ExitNameAddr(ctx *parser.NameAddrContext) {
-	logrus.Trace("Exiting nameAddr")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting nameAddr")
 
 	type withNameAddr interface {
 		withNameAddr(*nameAddr)

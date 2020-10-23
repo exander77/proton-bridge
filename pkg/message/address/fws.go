@@ -27,7 +27,7 @@ type fws struct {
 }
 
 func (w *walker) EnterFws(ctx *parser.FwsContext) {
-	logrus.Trace("Entering fws")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering fws")
 
 	w.enter(&fws{
 		value: ctx.GetText(),
@@ -35,7 +35,7 @@ func (w *walker) EnterFws(ctx *parser.FwsContext) {
 }
 
 func (w *walker) ExitFws(ctx *parser.FwsContext) {
-	logrus.Trace("Exiting fws")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting fws")
 
 	type withFws interface {
 		withFws(*fws)

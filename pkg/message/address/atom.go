@@ -27,7 +27,7 @@ type atom struct {
 }
 
 func (w *walker) EnterAtom(ctx *parser.AtomContext) {
-	logrus.Trace("Entering atom")
+	logrus.WithField("text", ctx.GetText()).Trace("Entering atom")
 
 	w.enter(&atom{
 		value: ctx.GetText(),
@@ -35,7 +35,7 @@ func (w *walker) EnterAtom(ctx *parser.AtomContext) {
 }
 
 func (w *walker) ExitAtom(ctx *parser.AtomContext) {
-	logrus.Trace("Exiting atom")
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting atom")
 
 	type withAtom interface {
 		withAtom(*atom)
