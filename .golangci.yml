@@ -20,7 +20,7 @@ issues:
         - gochecknoglobals
         - gochecknoinits
         - gosec
-    - path: pkg/message/address
+    - path: pkg/message/rfc5322
       linters:
         - dupl
 
