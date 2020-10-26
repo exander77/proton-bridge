@@ -371,6 +371,7 @@ obsFWS: wsp+ (crlf wsp+);
 
 obsZone
 	: U T 
+	| U T C
 	| G M T
 	| E S T
 	| E D T

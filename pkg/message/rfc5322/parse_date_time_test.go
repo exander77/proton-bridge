@@ -70,6 +70,18 @@ func TestParseDateTimeObsolete(t *testing.T) {
 			input: `21 Nov 97 09:55:06 GMT`,
 			want:  `1997-11-21T09:55:06Z`,
 		},
+		{
+			input: `Wed, 01 Jan 2020 12:00:00 UTC`,
+			want:  `2020-01-01T12:00:00Z`,
+		},
+		{
+			input: `Wed, 01 Jan 2020 13:00:00 UTC`,
+			want:  `2020-01-01T13:00:00Z`,
+		},
+		{
+			input: `Wed, 01 Jan 2020 12:30:00 UTC`,
+			want:  `2020-01-01T12:30:00Z`,
+		},
 	}
 	for _, test := range tests {
 		test := test

@@ -38,6 +38,8 @@ func (w *walker) EnterObsZone(ctx *parser.ObsZoneContext) {
 	switch strings.ToLower(ctx.GetText()) {
 	case "ut":
 		loc = time.FixedZone(ctx.GetText(), 0)
+	case "utc":
+		loc = time.FixedZone(ctx.GetText(), 0)
 	case "gmt":
 		loc = time.FixedZone(ctx.GetText(), 0)
 	case "est":
