@@ -174,11 +174,11 @@ word
 // 3.3. Date and Time Specification
 // --------------------------------
 
-dateTime: (dayOfweek Comma)? date time cfws? EOF;
+dateTime: (dayOfweek Comma)? day month year hour Colon minute (Colon second)? zone? cfws? EOF;
 
 dayOfweek
 	: fws? dayName 
-	| obsDayOfWeek
+	| cfws? dayName cfws?
 	;
 
 dayName
@@ -191,11 +191,9 @@ dayName
 	| S U N
 	;
 
-date: day month year;
-
 day
 	: fws? Digit Digit? fws 
-	| obsDay
+	| cfws? Digit Digit? cfws?
 	;
 
 month
@@ -215,30 +213,28 @@ month
 
 year
 	: fws Digit Digit Digit Digit fws 
-	| obsYear
+	| cfws? Digit Digit cfws?
 	;
-
-time: timeOfDay zone?;
-
-timeOfDay: hour Colon minute (Colon second)?;
 
 hour
 	: Digit Digit 
-	| obsHour
+	| cfws? Digit Digit cfws?
 	;
 
 minute
 	: Digit Digit 
-	| obsMinute
+	| cfws? Digit Digit cfws?
 	;
 
 second
 	: Digit Digit 
-	| obsSecond
+	| cfws? Digit Digit cfws?
 	;
 
+offset: (Plus | Minus) Digit Digit Digit Digit;
+
 zone
-	: fws (Plus | Minus) Digit Digit Digit Digit
+	: fws offset
 	| obsZone
 	;
 
@@ -372,18 +368,6 @@ obsFWS: wsp+ (crlf wsp+);
 // ---------------------------
 // 4.3. Obsolete Date and Time
 // ---------------------------
-
-obsDayOfWeek: cfws? dayName cfws?;
-
-obsDay: cfws? Digit Digit? cfws?;
-
-obsYear: cfws? Digit Digit cfws?;
-
-obsHour: cfws? Digit Digit cfws?;
-
-obsMinute: cfws? Digit Digit cfws?;
-
-obsSecond: cfws? Digit Digit cfws?;
 
 obsZone
 	: U T 

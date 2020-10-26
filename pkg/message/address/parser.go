@@ -19,6 +19,7 @@ package address
 
 import (
 	"net/mail"
+	"time"
 
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
@@ -41,6 +42,24 @@ func ParseAddressList(input string) ([]*mail.Address, error) {
 	antlr.ParseTreeWalkerDefault.Walk(w, p.AddressList())
 
 	return w.res.([]*mail.Address), w.err
+}
+
+// ParseDateTime parses a valid RFC5322 date-time.
+func ParseDateTime(input string) (time.Time, error) {
+	if len(input) == 0 {
+		return time.Time{}, nil
+	}
+
+	l := parser.NewRFC5322Lexer(antlr.NewInputStream(input))
+	p := parser.NewRFC5322Parser(antlr.NewCommonTokenStream(l, antlr.TokenDefaultChannel))
+	w := &walker{}
+
+	p.AddErrorListener(w)
+	p.AddParseListener(&parseListener{rules: p.GetRuleNames()})
+
+	antlr.ParseTreeWalkerDefault.Walk(w, p.DateTime())
+
+	return w.res.(time.Time), w.err
 }
 
 type parseListener struct {

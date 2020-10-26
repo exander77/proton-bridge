@@ -388,7 +388,7 @@ func parseMessageHeader(m *pmapi.Message, h message.Header) error { // nolint[fu
 			m.Subject = s
 
 		case "from":
-			sender, err := address.Parse(fields.Value())
+			sender, err := address.ParseAddressList(fields.Value())
 			if err != nil {
 				return err
 			}
@@ -397,28 +397,28 @@ func parseMessageHeader(m *pmapi.Message, h message.Header) error { // nolint[fu
 			}
 
 		case "to":
-			toList, err := address.Parse(fields.Value())
+			toList, err := address.ParseAddressList(fields.Value())
 			if err != nil {
 				return err
 			}
 			m.ToList = toList
 
 		case "reply-to":
-			replyTos, err := address.Parse(fields.Value())
+			replyTos, err := address.ParseAddressList(fields.Value())
 			if err != nil {
 				return err
 			}
 			m.ReplyTos = replyTos
 
 		case "cc":
-			ccList, err := address.Parse(fields.Value())
+			ccList, err := address.ParseAddressList(fields.Value())
 			if err != nil {
 				return err
 			}
 			m.CCList = ccList
 
 		case "bcc":
-			bccList, err := address.Parse(fields.Value())
+			bccList, err := address.ParseAddressList(fields.Value())
 			if err != nil {
 				return err
 			}

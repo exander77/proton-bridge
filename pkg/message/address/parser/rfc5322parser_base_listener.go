@@ -129,12 +129,6 @@ func (s *BaseRFC5322ParserListener) EnterDayName(ctx *DayNameContext) {}
 // ExitDayName is called when production dayName is exited.
 func (s *BaseRFC5322ParserListener) ExitDayName(ctx *DayNameContext) {}
 
-// EnterDate is called when production date is entered.
-func (s *BaseRFC5322ParserListener) EnterDate(ctx *DateContext) {}
-
-// ExitDate is called when production date is exited.
-func (s *BaseRFC5322ParserListener) ExitDate(ctx *DateContext) {}
-
 // EnterDay is called when production day is entered.
 func (s *BaseRFC5322ParserListener) EnterDay(ctx *DayContext) {}
 
@@ -153,18 +147,6 @@ func (s *BaseRFC5322ParserListener) EnterYear(ctx *YearContext) {}
 // ExitYear is called when production year is exited.
 func (s *BaseRFC5322ParserListener) ExitYear(ctx *YearContext) {}
 
-// EnterTime is called when production time is entered.
-func (s *BaseRFC5322ParserListener) EnterTime(ctx *TimeContext) {}
-
-// ExitTime is called when production time is exited.
-func (s *BaseRFC5322ParserListener) ExitTime(ctx *TimeContext) {}
-
-// EnterTimeOfDay is called when production timeOfDay is entered.
-func (s *BaseRFC5322ParserListener) EnterTimeOfDay(ctx *TimeOfDayContext) {}
-
-// ExitTimeOfDay is called when production timeOfDay is exited.
-func (s *BaseRFC5322ParserListener) ExitTimeOfDay(ctx *TimeOfDayContext) {}
-
 // EnterHour is called when production hour is entered.
 func (s *BaseRFC5322ParserListener) EnterHour(ctx *HourContext) {}
 
@@ -182,6 +164,12 @@ func (s *BaseRFC5322ParserListener) EnterSecond(ctx *SecondContext) {}
 
 // ExitSecond is called when production second is exited.
 func (s *BaseRFC5322ParserListener) ExitSecond(ctx *SecondContext) {}
+
+// EnterOffset is called when production offset is entered.
+func (s *BaseRFC5322ParserListener) EnterOffset(ctx *OffsetContext) {}
+
+// ExitOffset is called when production offset is exited.
+func (s *BaseRFC5322ParserListener) ExitOffset(ctx *OffsetContext) {}
 
 // EnterZone is called when production zone is entered.
 func (s *BaseRFC5322ParserListener) EnterZone(ctx *ZoneContext) {}
@@ -308,42 +296,6 @@ func (s *BaseRFC5322ParserListener) EnterObsFWS(ctx *ObsFWSContext) {}
 
 // ExitObsFWS is called when production obsFWS is exited.
 func (s *BaseRFC5322ParserListener) ExitObsFWS(ctx *ObsFWSContext) {}
-
-// EnterObsDayOfWeek is called when production obsDayOfWeek is entered.
-func (s *BaseRFC5322ParserListener) EnterObsDayOfWeek(ctx *ObsDayOfWeekContext) {}
-
-// ExitObsDayOfWeek is called when production obsDayOfWeek is exited.
-func (s *BaseRFC5322ParserListener) ExitObsDayOfWeek(ctx *ObsDayOfWeekContext) {}
-
-// EnterObsDay is called when production obsDay is entered.
-func (s *BaseRFC5322ParserListener) EnterObsDay(ctx *ObsDayContext) {}
-
-// ExitObsDay is called when production obsDay is exited.
-func (s *BaseRFC5322ParserListener) ExitObsDay(ctx *ObsDayContext) {}
-
-// EnterObsYear is called when production obsYear is entered.
-func (s *BaseRFC5322ParserListener) EnterObsYear(ctx *ObsYearContext) {}
-
-// ExitObsYear is called when production obsYear is exited.
-func (s *BaseRFC5322ParserListener) ExitObsYear(ctx *ObsYearContext) {}
-
-// EnterObsHour is called when production obsHour is entered.
-func (s *BaseRFC5322ParserListener) EnterObsHour(ctx *ObsHourContext) {}
-
-// ExitObsHour is called when production obsHour is exited.
-func (s *BaseRFC5322ParserListener) ExitObsHour(ctx *ObsHourContext) {}
-
-// EnterObsMinute is called when production obsMinute is entered.
-func (s *BaseRFC5322ParserListener) EnterObsMinute(ctx *ObsMinuteContext) {}
-
-// ExitObsMinute is called when production obsMinute is exited.
-func (s *BaseRFC5322ParserListener) ExitObsMinute(ctx *ObsMinuteContext) {}
-
-// EnterObsSecond is called when production obsSecond is entered.
-func (s *BaseRFC5322ParserListener) EnterObsSecond(ctx *ObsSecondContext) {}
-
-// ExitObsSecond is called when production obsSecond is exited.
-func (s *BaseRFC5322ParserListener) ExitObsSecond(ctx *ObsSecondContext) {}
 
 // EnterObsZone is called when production obsZone is entered.
 func (s *BaseRFC5322ParserListener) EnterObsZone(ctx *ObsZoneContext) {}

@@ -62,9 +62,6 @@ type RFC5322ParserListener interface {
 	// EnterDayName is called when entering the dayName production.
 	EnterDayName(c *DayNameContext)
 
-	// EnterDate is called when entering the date production.
-	EnterDate(c *DateContext)
-
 	// EnterDay is called when entering the day production.
 	EnterDay(c *DayContext)
 
@@ -74,12 +71,6 @@ type RFC5322ParserListener interface {
 	// EnterYear is called when entering the year production.
 	EnterYear(c *YearContext)
 
-	// EnterTime is called when entering the time production.
-	EnterTime(c *TimeContext)
-
-	// EnterTimeOfDay is called when entering the timeOfDay production.
-	EnterTimeOfDay(c *TimeOfDayContext)
-
 	// EnterHour is called when entering the hour production.
 	EnterHour(c *HourContext)
 
@@ -88,6 +79,9 @@ type RFC5322ParserListener interface {
 
 	// EnterSecond is called when entering the second production.
 	EnterSecond(c *SecondContext)
+
+	// EnterOffset is called when entering the offset production.
+	EnterOffset(c *OffsetContext)
 
 	// EnterZone is called when entering the zone production.
 	EnterZone(c *ZoneContext)
@@ -151,24 +145,6 @@ type RFC5322ParserListener interface {
 
 	// EnterObsFWS is called when entering the obsFWS production.
 	EnterObsFWS(c *ObsFWSContext)
-
-	// EnterObsDayOfWeek is called when entering the obsDayOfWeek production.
-	EnterObsDayOfWeek(c *ObsDayOfWeekContext)
-
-	// EnterObsDay is called when entering the obsDay production.
-	EnterObsDay(c *ObsDayContext)
-
-	// EnterObsYear is called when entering the obsYear production.
-	EnterObsYear(c *ObsYearContext)
-
-	// EnterObsHour is called when entering the obsHour production.
-	EnterObsHour(c *ObsHourContext)
-
-	// EnterObsMinute is called when entering the obsMinute production.
-	EnterObsMinute(c *ObsMinuteContext)
-
-	// EnterObsSecond is called when entering the obsSecond production.
-	EnterObsSecond(c *ObsSecondContext)
 
 	// EnterObsZone is called when entering the obsZone production.
 	EnterObsZone(c *ObsZoneContext)
@@ -284,9 +260,6 @@ type RFC5322ParserListener interface {
 	// ExitDayName is called when exiting the dayName production.
 	ExitDayName(c *DayNameContext)
 
-	// ExitDate is called when exiting the date production.
-	ExitDate(c *DateContext)
-
 	// ExitDay is called when exiting the day production.
 	ExitDay(c *DayContext)
 
@@ -296,12 +269,6 @@ type RFC5322ParserListener interface {
 	// ExitYear is called when exiting the year production.
 	ExitYear(c *YearContext)
 
-	// ExitTime is called when exiting the time production.
-	ExitTime(c *TimeContext)
-
-	// ExitTimeOfDay is called when exiting the timeOfDay production.
-	ExitTimeOfDay(c *TimeOfDayContext)
-
 	// ExitHour is called when exiting the hour production.
 	ExitHour(c *HourContext)
 
@@ -310,6 +277,9 @@ type RFC5322ParserListener interface {
 
 	// ExitSecond is called when exiting the second production.
 	ExitSecond(c *SecondContext)
+
+	// ExitOffset is called when exiting the offset production.
+	ExitOffset(c *OffsetContext)
 
 	// ExitZone is called when exiting the zone production.
 	ExitZone(c *ZoneContext)
@@ -373,24 +343,6 @@ type RFC5322ParserListener interface {
 
 	// ExitObsFWS is called when exiting the obsFWS production.
 	ExitObsFWS(c *ObsFWSContext)
-
-	// ExitObsDayOfWeek is called when exiting the obsDayOfWeek production.
-	ExitObsDayOfWeek(c *ObsDayOfWeekContext)
-
-	// ExitObsDay is called when exiting the obsDay production.
-	ExitObsDay(c *ObsDayContext)
-
-	// ExitObsYear is called when exiting the obsYear production.
-	ExitObsYear(c *ObsYearContext)
-
-	// ExitObsHour is called when exiting the obsHour production.
-	ExitObsHour(c *ObsHourContext)
-
-	// ExitObsMinute is called when exiting the obsMinute production.
-	ExitObsMinute(c *ObsMinuteContext)
-
-	// ExitObsSecond is called when exiting the obsSecond production.
-	ExitObsSecond(c *ObsSecondContext)
 
 	// ExitObsZone is called when exiting the obsZone production.
 	ExitObsZone(c *ObsZoneContext)
