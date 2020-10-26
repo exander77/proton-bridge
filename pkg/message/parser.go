@@ -26,8 +26,8 @@ import (
 	"net/textproto"
 	"strings"
 
-	"github.com/ProtonMail/proton-bridge/pkg/message/address"
 	"github.com/ProtonMail/proton-bridge/pkg/message/parser"
+	"github.com/ProtonMail/proton-bridge/pkg/message/rfc5322"
 	pmmime "github.com/ProtonMail/proton-bridge/pkg/mime"
 	"github.com/ProtonMail/proton-bridge/pkg/pmapi"
 	"github.com/emersion/go-message"
@@ -388,7 +388,7 @@ func parseMessageHeader(m *pmapi.Message, h message.Header) error { // nolint[fu
 			m.Subject = s
 
 		case "from":
-			sender, err := address.ParseAddressList(fields.Value())
+			sender, err := rfc5322.ParseAddressList(fields.Value())
 			if err != nil {
 				return err
 			}
@@ -397,35 +397,35 @@ func parseMessageHeader(m *pmapi.Message, h message.Header) error { // nolint[fu
 			}
 
 		case "to":
-			toList, err := address.ParseAddressList(fields.Value())
+			toList, err := rfc5322.ParseAddressList(fields.Value())
 			if err != nil {
 				return err
 			}
 			m.ToList = toList
 
 		case "reply-to":
-			replyTos, err := address.ParseAddressList(fields.Value())
+			replyTos, err := rfc5322.ParseAddressList(fields.Value())
 			if err != nil {
 				return err
 			}
 			m.ReplyTos = replyTos
 
 		case "cc":
-			ccList, err := address.ParseAddressList(fields.Value())
+			ccList, err := rfc5322.ParseAddressList(fields.Value())
 			if err != nil {
 				return err
 			}
 			m.CCList = ccList
 
 		case "bcc":
-			bccList, err := address.ParseAddressList(fields.Value())
+			bccList, err := rfc5322.ParseAddressList(fields.Value())
 			if err != nil {
 				return err
 			}
 			m.BCCList = bccList
 
 		case "date":
-			date, err := mail.ParseDate(fields.Value())
+			date, err := rfc5322.ParseDateTime(fields.Value())
 			if err != nil {
 				return err
 			}
