@@ -233,18 +233,3 @@ func parseAddressList(address string) string {
 
 	return l.msg
 }
-
-type errorListener struct {
-	*antlr.DefaultErrorListener
-	msg string
-}
-
-func (l *errorListener) SyntaxError(
-	_ antlr.Recognizer,
-	_ interface{},
-	_, _ int,
-	msg string,
-	_ antlr.RecognitionException,
-) {
-	l.msg = msg
-}

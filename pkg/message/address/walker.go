@@ -19,7 +19,6 @@ package address
 
 import (
 	"fmt"
-	"net/mail"
 
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
 	"github.com/antlr/antlr4/runtime/Go/antlr"
@@ -37,8 +36,8 @@ type walker struct {
 	// exiting a node, it is popped from here.
 	nodes []interface{}
 
-	// addresses holds the parsed net/mail addresses.
-	addresses []*mail.Address
+	// res holds the result of walking the parse tree.
+	res interface{}
 
 	// err holds the error encountered during parsing, if any.
 	err error

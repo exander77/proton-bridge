@@ -15,29 +15,21 @@
 // You should have received a copy of the GNU General Public License
 // along with ProtonMail Bridge.  If not, see <https://www.gnu.org/licenses/>.
 
-package address
+package parser
 
-import (
-	"net/mail"
+import "github.com/antlr/antlr4/runtime/Go/antlr"
 
-	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
-	"github.com/sirupsen/logrus"
-)
-
-type addressList struct {
-	addresses []*mail.Address
+type errorListener struct {
+	*antlr.DefaultErrorListener
+	msg string
 }
 
-func (a *addressList) withAddress(address *address) {
-	a.addresses = append(a.addresses, address.addresses...)
-}
-
-func (w *walker) EnterAddressList(ctx *parser.AddressListContext) {
-	logrus.WithField("text", ctx.GetText()).Trace("Entering addressList")
-	w.enter(&addressList{})
-}
-
-func (w *walker) ExitAddressList(ctx *parser.AddressListContext) {
-	logrus.WithField("text", ctx.GetText()).Trace("Exiting addressList")
-	w.res = w.exit().(*addressList).addresses
+func (l *errorListener) SyntaxError(
+	_ antlr.Recognizer,
+	_ interface{},
+	_, _ int,
+	msg string,
+	_ antlr.RecognitionException,
+) {
+	l.msg = msg
 }

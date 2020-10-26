@@ -18,26 +18,22 @@
 package address
 
 import (
-	"net/mail"
+	"time"
 
 	"github.com/ProtonMail/proton-bridge/pkg/message/address/parser"
 	"github.com/sirupsen/logrus"
 )
 
-type addressList struct {
-	addresses []*mail.Address
+type dateTime struct {
+	t time.Time
 }
 
-func (a *addressList) withAddress(address *address) {
-	a.addresses = append(a.addresses, address.addresses...)
+func (w *walker) EnterDateTime(ctx *parser.DateTimeContext) {
+	logrus.WithField("text", ctx.GetText()).Trace("Entering dateTime")
+	w.enter(&dateTime{})
 }
 
-func (w *walker) EnterAddressList(ctx *parser.AddressListContext) {
-	logrus.WithField("text", ctx.GetText()).Trace("Entering addressList")
-	w.enter(&addressList{})
-}
-
-func (w *walker) ExitAddressList(ctx *parser.AddressListContext) {
-	logrus.WithField("text", ctx.GetText()).Trace("Exiting addressList")
-	w.res = w.exit().(*addressList).addresses
+func (w *walker) ExitDateTime(ctx *parser.DateTimeContext) {
+	logrus.WithField("text", ctx.GetText()).Trace("Exiting dateTime")
+	w.res = w.exit().(*dateTime).t
 }

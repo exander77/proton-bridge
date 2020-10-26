@@ -25,8 +25,8 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// Parse parses one or more valid RFC5322 (with RFC2047) addresses.
-func Parse(input string) ([]*mail.Address, error) {
+// ParseAddressList parses one or more valid RFC5322 (with RFC2047) addresses.
+func ParseAddressList(input string) ([]*mail.Address, error) {
 	if len(input) == 0 {
 		return []*mail.Address{}, nil
 	}
@@ -40,7 +40,7 @@ func Parse(input string) ([]*mail.Address, error) {
 
 	antlr.ParseTreeWalkerDefault.Walk(w, p.AddressList())
 
-	return w.addresses, w.err
+	return w.res.([]*mail.Address), w.err
 }
 
 type parseListener struct {

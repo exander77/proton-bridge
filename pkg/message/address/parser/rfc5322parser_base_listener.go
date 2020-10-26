@@ -309,6 +309,48 @@ func (s *BaseRFC5322ParserListener) EnterObsFWS(ctx *ObsFWSContext) {}
 // ExitObsFWS is called when production obsFWS is exited.
 func (s *BaseRFC5322ParserListener) ExitObsFWS(ctx *ObsFWSContext) {}
 
+// EnterObsDayOfWeek is called when production obsDayOfWeek is entered.
+func (s *BaseRFC5322ParserListener) EnterObsDayOfWeek(ctx *ObsDayOfWeekContext) {}
+
+// ExitObsDayOfWeek is called when production obsDayOfWeek is exited.
+func (s *BaseRFC5322ParserListener) ExitObsDayOfWeek(ctx *ObsDayOfWeekContext) {}
+
+// EnterObsDay is called when production obsDay is entered.
+func (s *BaseRFC5322ParserListener) EnterObsDay(ctx *ObsDayContext) {}
+
+// ExitObsDay is called when production obsDay is exited.
+func (s *BaseRFC5322ParserListener) ExitObsDay(ctx *ObsDayContext) {}
+
+// EnterObsYear is called when production obsYear is entered.
+func (s *BaseRFC5322ParserListener) EnterObsYear(ctx *ObsYearContext) {}
+
+// ExitObsYear is called when production obsYear is exited.
+func (s *BaseRFC5322ParserListener) ExitObsYear(ctx *ObsYearContext) {}
+
+// EnterObsHour is called when production obsHour is entered.
+func (s *BaseRFC5322ParserListener) EnterObsHour(ctx *ObsHourContext) {}
+
+// ExitObsHour is called when production obsHour is exited.
+func (s *BaseRFC5322ParserListener) ExitObsHour(ctx *ObsHourContext) {}
+
+// EnterObsMinute is called when production obsMinute is entered.
+func (s *BaseRFC5322ParserListener) EnterObsMinute(ctx *ObsMinuteContext) {}
+
+// ExitObsMinute is called when production obsMinute is exited.
+func (s *BaseRFC5322ParserListener) ExitObsMinute(ctx *ObsMinuteContext) {}
+
+// EnterObsSecond is called when production obsSecond is entered.
+func (s *BaseRFC5322ParserListener) EnterObsSecond(ctx *ObsSecondContext) {}
+
+// ExitObsSecond is called when production obsSecond is exited.
+func (s *BaseRFC5322ParserListener) ExitObsSecond(ctx *ObsSecondContext) {}
+
+// EnterObsZone is called when production obsZone is entered.
+func (s *BaseRFC5322ParserListener) EnterObsZone(ctx *ObsZoneContext) {}
+
+// ExitObsZone is called when production obsZone is exited.
+func (s *BaseRFC5322ParserListener) ExitObsZone(ctx *ObsZoneContext) {}
+
 // EnterObsAngleAddr is called when production obsAngleAddr is entered.
 func (s *BaseRFC5322ParserListener) EnterObsAngleAddr(ctx *ObsAngleAddrContext) {}
 

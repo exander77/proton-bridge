@@ -164,7 +164,7 @@ func TestParseSingleAddress(t *testing.T) {
 		test := test
 
 		t.Run(test.input, func(t *testing.T) {
-			addrs, err := Parse(test.input)
+			addrs, err := ParseAddressList(test.input)
 			assert.NoError(t, err)
 			assert.ElementsMatch(t, test.addrs, addrs)
 		})
@@ -223,7 +223,7 @@ func TestParseSingleAddressEncodedWord(t *testing.T) {
 		test := test
 
 		t.Run(test.input, func(t *testing.T) {
-			addrs, err := Parse(test.input)
+			addrs, err := ParseAddressList(test.input)
 			assert.NoError(t, err)
 			assert.ElementsMatch(t, test.addrs, addrs)
 		})
@@ -335,7 +335,7 @@ func TestParseAddressList(t *testing.T) {
 		test := test
 
 		t.Run(test.input, func(t *testing.T) {
-			addrs, err := Parse(test.input)
+			addrs, err := ParseAddressList(test.input)
 			assert.NoError(t, err)
 			assert.ElementsMatch(t, test.addrs, addrs)
 		})
@@ -372,7 +372,7 @@ func TestParseGroup(t *testing.T) {
 		test := test
 
 		t.Run(test.input, func(t *testing.T) {
-			addrs, err := Parse(test.input)
+			addrs, err := ParseAddressList(test.input)
 			assert.NoError(t, err)
 			assert.ElementsMatch(t, test.addrs, addrs)
 		})
@@ -437,7 +437,7 @@ func TestParseStrangeAddresses(t *testing.T) {
 		test := test
 
 		t.Run(test.input, func(t *testing.T) {
-			addrs, err := Parse(test.input)
+			addrs, err := ParseAddressList(test.input)
 			assert.NoError(t, err)
 			assert.ElementsMatch(t, test.addrs, addrs)
 		})
@@ -469,7 +469,7 @@ func TestParseRejectedAddresses(t *testing.T) {
 		test := test
 
 		t.Run(test.input, func(t *testing.T) {
-			_, err := Parse(test.input)
+			_, err := ParseAddressList(test.input)
 			assert.Error(t, err)
 		})
 	}
