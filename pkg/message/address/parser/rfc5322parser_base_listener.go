@@ -111,6 +111,84 @@ func (s *BaseRFC5322ParserListener) EnterWord(ctx *WordContext) {}
 // ExitWord is called when production word is exited.
 func (s *BaseRFC5322ParserListener) ExitWord(ctx *WordContext) {}
 
+// EnterDateTime is called when production dateTime is entered.
+func (s *BaseRFC5322ParserListener) EnterDateTime(ctx *DateTimeContext) {}
+
+// ExitDateTime is called when production dateTime is exited.
+func (s *BaseRFC5322ParserListener) ExitDateTime(ctx *DateTimeContext) {}
+
+// EnterDayOfweek is called when production dayOfweek is entered.
+func (s *BaseRFC5322ParserListener) EnterDayOfweek(ctx *DayOfweekContext) {}
+
+// ExitDayOfweek is called when production dayOfweek is exited.
+func (s *BaseRFC5322ParserListener) ExitDayOfweek(ctx *DayOfweekContext) {}
+
+// EnterDayName is called when production dayName is entered.
+func (s *BaseRFC5322ParserListener) EnterDayName(ctx *DayNameContext) {}
+
+// ExitDayName is called when production dayName is exited.
+func (s *BaseRFC5322ParserListener) ExitDayName(ctx *DayNameContext) {}
+
+// EnterDate is called when production date is entered.
+func (s *BaseRFC5322ParserListener) EnterDate(ctx *DateContext) {}
+
+// ExitDate is called when production date is exited.
+func (s *BaseRFC5322ParserListener) ExitDate(ctx *DateContext) {}
+
+// EnterDay is called when production day is entered.
+func (s *BaseRFC5322ParserListener) EnterDay(ctx *DayContext) {}
+
+// ExitDay is called when production day is exited.
+func (s *BaseRFC5322ParserListener) ExitDay(ctx *DayContext) {}
+
+// EnterMonth is called when production month is entered.
+func (s *BaseRFC5322ParserListener) EnterMonth(ctx *MonthContext) {}
+
+// ExitMonth is called when production month is exited.
+func (s *BaseRFC5322ParserListener) ExitMonth(ctx *MonthContext) {}
+
+// EnterYear is called when production year is entered.
+func (s *BaseRFC5322ParserListener) EnterYear(ctx *YearContext) {}
+
+// ExitYear is called when production year is exited.
+func (s *BaseRFC5322ParserListener) ExitYear(ctx *YearContext) {}
+
+// EnterTime is called when production time is entered.
+func (s *BaseRFC5322ParserListener) EnterTime(ctx *TimeContext) {}
+
+// ExitTime is called when production time is exited.
+func (s *BaseRFC5322ParserListener) ExitTime(ctx *TimeContext) {}
+
+// EnterTimeOfDay is called when production timeOfDay is entered.
+func (s *BaseRFC5322ParserListener) EnterTimeOfDay(ctx *TimeOfDayContext) {}
+
+// ExitTimeOfDay is called when production timeOfDay is exited.
+func (s *BaseRFC5322ParserListener) ExitTimeOfDay(ctx *TimeOfDayContext) {}
+
+// EnterHour is called when production hour is entered.
+func (s *BaseRFC5322ParserListener) EnterHour(ctx *HourContext) {}
+
+// ExitHour is called when production hour is exited.
+func (s *BaseRFC5322ParserListener) ExitHour(ctx *HourContext) {}
+
+// EnterMinute is called when production minute is entered.
+func (s *BaseRFC5322ParserListener) EnterMinute(ctx *MinuteContext) {}
+
+// ExitMinute is called when production minute is exited.
+func (s *BaseRFC5322ParserListener) ExitMinute(ctx *MinuteContext) {}
+
+// EnterSecond is called when production second is entered.
+func (s *BaseRFC5322ParserListener) EnterSecond(ctx *SecondContext) {}
+
+// ExitSecond is called when production second is exited.
+func (s *BaseRFC5322ParserListener) ExitSecond(ctx *SecondContext) {}
+
+// EnterZone is called when production zone is entered.
+func (s *BaseRFC5322ParserListener) EnterZone(ctx *ZoneContext) {}
+
+// ExitZone is called when production zone is exited.
+func (s *BaseRFC5322ParserListener) ExitZone(ctx *ZoneContext) {}
+
 // EnterAddress is called when production address is entered.
 func (s *BaseRFC5322ParserListener) EnterAddress(ctx *AddressContext) {}
 

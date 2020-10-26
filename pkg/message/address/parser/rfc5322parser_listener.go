@@ -53,6 +53,45 @@ type RFC5322ParserListener interface {
 	// EnterWord is called when entering the word production.
 	EnterWord(c *WordContext)
 
+	// EnterDateTime is called when entering the dateTime production.
+	EnterDateTime(c *DateTimeContext)
+
+	// EnterDayOfweek is called when entering the dayOfweek production.
+	EnterDayOfweek(c *DayOfweekContext)
+
+	// EnterDayName is called when entering the dayName production.
+	EnterDayName(c *DayNameContext)
+
+	// EnterDate is called when entering the date production.
+	EnterDate(c *DateContext)
+
+	// EnterDay is called when entering the day production.
+	EnterDay(c *DayContext)
+
+	// EnterMonth is called when entering the month production.
+	EnterMonth(c *MonthContext)
+
+	// EnterYear is called when entering the year production.
+	EnterYear(c *YearContext)
+
+	// EnterTime is called when entering the time production.
+	EnterTime(c *TimeContext)
+
+	// EnterTimeOfDay is called when entering the timeOfDay production.
+	EnterTimeOfDay(c *TimeOfDayContext)
+
+	// EnterHour is called when entering the hour production.
+	EnterHour(c *HourContext)
+
+	// EnterMinute is called when entering the minute production.
+	EnterMinute(c *MinuteContext)
+
+	// EnterSecond is called when entering the second production.
+	EnterSecond(c *SecondContext)
+
+	// EnterZone is called when entering the zone production.
+	EnterZone(c *ZoneContext)
+
 	// EnterAddress is called when entering the address production.
 	EnterAddress(c *AddressContext)
 
@@ -214,6 +253,45 @@ type RFC5322ParserListener interface {
 
 	// ExitWord is called when exiting the word production.
 	ExitWord(c *WordContext)
+
+	// ExitDateTime is called when exiting the dateTime production.
+	ExitDateTime(c *DateTimeContext)
+
+	// ExitDayOfweek is called when exiting the dayOfweek production.
+	ExitDayOfweek(c *DayOfweekContext)
+
+	// ExitDayName is called when exiting the dayName production.
+	ExitDayName(c *DayNameContext)
+
+	// ExitDate is called when exiting the date production.
+	ExitDate(c *DateContext)
+
+	// ExitDay is called when exiting the day production.
+	ExitDay(c *DayContext)
+
+	// ExitMonth is called when exiting the month production.
+	ExitMonth(c *MonthContext)
+
+	// ExitYear is called when exiting the year production.
+	ExitYear(c *YearContext)
+
+	// ExitTime is called when exiting the time production.
+	ExitTime(c *TimeContext)
+
+	// ExitTimeOfDay is called when exiting the timeOfDay production.
+	ExitTimeOfDay(c *TimeOfDayContext)
+
+	// ExitHour is called when exiting the hour production.
+	ExitHour(c *HourContext)
+
+	// ExitMinute is called when exiting the minute production.
+	ExitMinute(c *MinuteContext)
+
+	// ExitSecond is called when exiting the second production.
+	ExitSecond(c *SecondContext)
+
+	// ExitZone is called when exiting the zone production.
+	ExitZone(c *ZoneContext)
 
 	// ExitAddress is called when exiting the address production.
 	ExitAddress(c *AddressContext)

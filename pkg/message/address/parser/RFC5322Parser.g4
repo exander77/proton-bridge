@@ -170,6 +170,79 @@ word
 	;
 
 
+// --------------------------------
+// 3.3. Date and Time Specification
+// --------------------------------
+
+dateTime: (dayOfweek Comma)? date time cfws?;
+
+dayOfweek
+	: fws? dayName 
+//| obsDayOfWeek
+	;
+
+dayName
+	: M O N 
+	| T U E 
+	| W E D 
+	| T H U 
+	| F R I 
+	| S A T 
+	| S U N
+	;
+
+date: day month year;
+
+day
+	: fws? Digit Digit? fws 
+//| obsDay
+	;
+
+month
+	: J A N 
+	| F E B 
+	| M A R 
+	| A P R 
+	| M A Y 
+	| J U N 
+	| J U L 
+	| A U G 
+	| S E P 
+	| O C T 
+	| N O V 
+	| D E C
+	;
+
+year
+	: fws Digit Digit Digit Digit fws 
+//| obsYear
+	;
+
+time: timeOfDay zone;
+
+timeOfDay: hour Colon minute (Colon second)?;
+
+hour
+	: Digit Digit 
+//| obsHour
+	;
+
+minute
+	: Digit Digit 
+//| obsMinute
+	;
+
+second
+	: Digit Digit 
+//| obsSecond
+	;
+
+zone
+	: fws (Plus | Minus) Digit Digit Digit Digit
+//| obsZone
+	;
+
+
 // --------------------------
 // 3.4. Address Specification
 // --------------------------
@@ -436,31 +509,4 @@ vchar
 	| UTF8NonAscii
 	;
 
-alpha
-	: A
-	| B
-	| C
-	| D
-	| E
-	| F
-	| G
-	| H
-	| I
-	| J
-	| K
-	| L
-	| M
-	| N
-	| O
-	| P
-	| Q
-	| R
-	| S
-	| T
-	| U
-	| V
-	| W
-	| X
-	| Y
-	| Z
-	;
+alpha: A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z ;
