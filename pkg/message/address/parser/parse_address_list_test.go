@@ -28,12 +28,12 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestParserValid(t *testing.T) {
+func TestParseAddressListValid(t *testing.T) {
 	tests := []string{
 		`user@example.com`,
 		`John Doe <jdoe@machine.example>`,
 		`Mary Smith <mary@example.net>`,
-		`"Joe Q. Public" <john.q.public@example.com> and then there was a very long thing at the end ... ,`,
+		`"Joe Q. Public" <john.q.public@example.com>`,
 		`Mary Smith <mary@x.test>`,
 		`jdoe@example.org`,
 		`Who? <one@y.test>`,
@@ -86,12 +86,12 @@ func TestParserValid(t *testing.T) {
 		input := input
 
 		t.Run(input, func(t *testing.T) {
-			assert.Empty(t, parseAddress(input))
+			assert.Empty(t, parseAddressList(input))
 		})
 	}
 }
 
-func TestParserEncodedWord(t *testing.T) {
+func TestParseAddressListEncodedWord(t *testing.T) {
 	tests := []string{
 		`=?US-ASCII?Q?Keith_Moore?= <moore@cs.utk.edu>`,
 		`=?ISO-8859-1?Q?Keld_J=F8rn_Simonsen?= <keld@dkuug.dk>`,
@@ -104,12 +104,12 @@ func TestParserEncodedWord(t *testing.T) {
 		input := input
 
 		t.Run(input, func(t *testing.T) {
-			assert.Empty(t, parseAddress(input))
+			assert.Empty(t, parseAddressList(input))
 		})
 	}
 }
 
-func TestParserGroup(t *testing.T) {
+func TestParseAddressListGroup(t *testing.T) {
 	tests := []string{
 		`Nightly Monitor Robot:;`,
 	}
@@ -117,12 +117,12 @@ func TestParserGroup(t *testing.T) {
 		input := input
 
 		t.Run(input, func(t *testing.T) {
-			assert.Empty(t, parseAddress(input))
+			assert.Empty(t, parseAddressList(input))
 		})
 	}
 }
 
-func TestParserObsolete(t *testing.T) {
+func TestParseAddressListObsolete(t *testing.T) {
 	tests := []string{
 		// NOTE: Add obsolete addresses here.
 	}
@@ -130,12 +130,12 @@ func TestParserObsolete(t *testing.T) {
 		input := input
 
 		t.Run(input, func(t *testing.T) {
-			assert.Empty(t, parseAddress(input))
+			assert.Empty(t, parseAddressList(input))
 		})
 	}
 }
 
-func TestParserBad(t *testing.T) {
+func TestParseAddressListBad(t *testing.T) {
 	tests := []string{
 		`this address sucks`,
 	}
@@ -143,7 +143,7 @@ func TestParserBad(t *testing.T) {
 		input := input
 
 		t.Run(input, func(t *testing.T) {
-			assert.NotEmpty(t, parseAddress(input))
+			assert.NotEmpty(t, parseAddressList(input))
 		})
 	}
 }
@@ -161,7 +161,7 @@ func TestIsEmailValidCategory(t *testing.T) {
 		}
 
 		t.Run(test.id, func(t *testing.T) {
-			assert.Empty(t, parseAddress(test.address))
+			assert.Empty(t, parseAddressList(test.address))
 		})
 	}
 }
@@ -219,7 +219,7 @@ func readTestCases(r io.Reader) chan testCase {
 	return ch
 }
 
-func parseAddress(address string) string {
+func parseAddressList(address string) string {
 	stream := antlr.NewInputStream(address)
 	lexer := NewAddressLexer(stream)
 	tokens := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
@@ -229,7 +229,7 @@ func parseAddress(address string) string {
 	p := NewAddressParser(tokens)
 	p.AddErrorListener(l)
 
-	antlr.ParseTreeWalkerDefault.Walk(&BaseAddressParserListener{}, p.Address())
+	antlr.ParseTreeWalkerDefault.Walk(&BaseAddressParserListener{}, p.AddressList())
 
 	return l.msg
 }
