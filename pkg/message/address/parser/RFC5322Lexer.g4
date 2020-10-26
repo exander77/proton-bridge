@@ -15,7 +15,7 @@
 // You should have received a copy of the GNU General Public License
 // along with ProtonMail Bridge.  If not, see <https://www.gnu.org/licenses/>.
 
-lexer grammar AddressLexer;
+lexer grammar RFC5322Lexer;
 
 U_00:             '\u0000';
 U_01_08:          '\u0001'..'\u0008';
@@ -51,14 +51,14 @@ Equal:            '=';      // \u003D
 Greater:          '>';      // \u003E
 Question:         '?';      // \u003F
 At:               '@';      // \u0040
-AlphaUpper:       [A-Z];    // \u0041 -- \u005A
+// alphaUpper
 LBracket:         '[';      // \u005B
 Backslash:        '\\';     // \u005C
 RBracket:         ']';      // \u005D
 Caret:            '^';      // \u005E
 Underscore:       '_';      // \u005F
 Backtick:         '`';      // \u0060
-AlphaLower:       [a-z];    // \u0061 -- \u007A
+// alphaLower
 LCurly:           '{';      // \u007B
 Pipe:             '|';      // \u007C
 RCurly:           '}';      // \u007D
@@ -69,3 +69,30 @@ Delete: '\u007F';
 
 // RFC6532 Extension
 UTF8NonAscii: '\u0080'..'\uFFFF';
+
+A: 'A'|'a';
+B: 'B'|'b';
+C: 'C'|'c';
+D: 'D'|'d';
+E: 'E'|'e';
+F: 'F'|'f';
+G: 'G'|'g';
+H: 'H'|'h';
+I: 'I'|'i';
+J: 'J'|'j';
+K: 'K'|'k';
+L: 'L'|'l';
+M: 'M'|'m';
+N: 'N'|'n';
+O: 'O'|'o';
+P: 'P'|'p';
+Q: 'Q'|'q';
+R: 'R'|'r';
+S: 'S'|'s';
+T: 'T'|'t';
+U: 'U'|'u';
+V: 'V'|'v';
+W: 'W'|'w';
+X: 'X'|'x';
+Y: 'Y'|'y';
+Z: 'Z'|'z';

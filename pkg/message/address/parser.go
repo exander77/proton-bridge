@@ -31,8 +31,8 @@ func Parse(input string) ([]*mail.Address, error) {
 		return []*mail.Address{}, nil
 	}
 
-	l := parser.NewAddressLexer(antlr.NewInputStream(input))
-	p := parser.NewAddressParser(antlr.NewCommonTokenStream(l, antlr.TokenDefaultChannel))
+	l := parser.NewRFC5322Lexer(antlr.NewInputStream(input))
+	p := parser.NewRFC5322Parser(antlr.NewCommonTokenStream(l, antlr.TokenDefaultChannel))
 	w := &walker{}
 
 	p.AddErrorListener(w)

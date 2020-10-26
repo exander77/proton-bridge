@@ -221,15 +221,15 @@ func readTestCases(r io.Reader) chan testCase {
 
 func parseAddressList(address string) string {
 	stream := antlr.NewInputStream(address)
-	lexer := NewAddressLexer(stream)
+	lexer := NewRFC5322Lexer(stream)
 	tokens := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
 
 	l := &errorListener{DefaultErrorListener: antlr.NewDefaultErrorListener()}
 
-	p := NewAddressParser(tokens)
+	p := NewRFC5322Parser(tokens)
 	p.AddErrorListener(l)
 
-	antlr.ParseTreeWalkerDefault.Walk(&BaseAddressParserListener{}, p.AddressList())
+	antlr.ParseTreeWalkerDefault.Walk(&BaseRFC5322ParserListener{}, p.AddressList())
 
 	return l.msg
 }

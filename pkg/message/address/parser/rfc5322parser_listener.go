@@ -1,11 +1,11 @@
-// Code generated from pkg/message/address/parser/AddressParser.g4 by ANTLR 4.8. DO NOT EDIT.
+// Code generated from pkg/message/address/parser/RFC5322Parser.g4 by ANTLR 4.8. DO NOT EDIT.
 
-package parser // AddressParser
+package parser // RFC5322Parser
 
 import "github.com/antlr/antlr4/runtime/Go/antlr"
 
-// AddressParserListener is a complete listener for a parse tree produced by AddressParser.
-type AddressParserListener interface {
+// RFC5322ParserListener is a complete listener for a parse tree produced by RFC5322Parser.
+type RFC5322ParserListener interface {
 	antlr.ParseTreeListener
 
 	// EnterQuotedChar is called when entering the quotedChar production.
@@ -101,9 +101,6 @@ type AddressParserListener interface {
 	// EnterObsNoWSCTL is called when entering the obsNoWSCTL production.
 	EnterObsNoWSCTL(c *ObsNoWSCTLContext)
 
-	// EnterObsPhrase is called when entering the obsPhrase production.
-	EnterObsPhrase(c *ObsPhraseContext)
-
 	// EnterObsCtext is called when entering the obsCtext production.
 	EnterObsCtext(c *ObsCtextContext)
 
@@ -169,6 +166,9 @@ type AddressParserListener interface {
 
 	// EnterVchar is called when entering the vchar production.
 	EnterVchar(c *VcharContext)
+
+	// EnterAlpha is called when entering the alpha production.
+	EnterAlpha(c *AlphaContext)
 
 	// ExitQuotedChar is called when exiting the quotedChar production.
 	ExitQuotedChar(c *QuotedCharContext)
@@ -263,9 +263,6 @@ type AddressParserListener interface {
 	// ExitObsNoWSCTL is called when exiting the obsNoWSCTL production.
 	ExitObsNoWSCTL(c *ObsNoWSCTLContext)
 
-	// ExitObsPhrase is called when exiting the obsPhrase production.
-	ExitObsPhrase(c *ObsPhraseContext)
-
 	// ExitObsCtext is called when exiting the obsCtext production.
 	ExitObsCtext(c *ObsCtextContext)
 
@@ -331,4 +328,7 @@ type AddressParserListener interface {
 
 	// ExitVchar is called when exiting the vchar production.
 	ExitVchar(c *VcharContext)
+
+	// ExitAlpha is called when exiting the alpha production.
+	ExitAlpha(c *AlphaContext)
 }

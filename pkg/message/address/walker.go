@@ -25,12 +25,12 @@ import (
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 )
 
-// walker implements parser.BaseAddressParserListener, defining what to do at
+// walker implements parser.BaseRFC5322ParserListener, defining what to do at
 // each node while traversing the syntax tree.
 // It also implements antlr.DefaultErrorListener, allowing us to react to
 // errors encountered while trying to determine the syntax tree of the input.
 type walker struct {
-	parser.BaseAddressParserListener
+	parser.BaseRFC5322ParserListener
 	antlr.DefaultErrorListener
 
 	// nodes acts as a stack; when entering a node, it is pushed here, and when

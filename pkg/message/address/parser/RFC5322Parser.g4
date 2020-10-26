@@ -15,9 +15,9 @@
 // You should have received a copy of the GNU General Public License
 // along with ProtonMail Bridge.  If not, see <https://www.gnu.org/licenses/>.
 
-parser grammar AddressParser;
+parser grammar RFC5322Parser;
 
-options { tokenVocab=AddressLexer; }
+options { tokenVocab=RFC5322Lexer; }
 
 
 // -------------------
@@ -37,7 +37,8 @@ fws
 	;
 
 ctext
-	: Exclamation
+	: alpha
+	| Exclamation
 	| DQuote
 	| Hash
 	| Dollar
@@ -58,13 +59,11 @@ ctext
 	| Greater
 	| Question
 	| At
-	| AlphaUpper
 	| LBracket
 	| RBracket
 	| Caret
 	| Underscore
 	| Backtick
-	| AlphaLower
 	| LCurly
 	| Pipe
 	| RCurly
@@ -87,8 +86,7 @@ cfws
 	;
 
 atext
-	: AlphaUpper 
-	| AlphaLower 
+	: alpha
 	| Digit
 	| Exclamation 
 	| Hash
@@ -118,7 +116,8 @@ atom: atext+;
 dotAtom: atext+ (Period atext+)* Period?;
 
 qtext
-	: Exclamation
+	: alpha
+	| Exclamation
 	| Hash
 	| Dollar
 	| Percent
@@ -140,13 +139,11 @@ qtext
 	| Greater
 	| Question
 	| At
-	| AlphaUpper
 	| LBracket
 	| RBracket
 	| Caret
 	| Underscore
 	| Backtick
-	| AlphaLower
 	| LCurly
 	| Pipe
 	| RCurly
@@ -198,7 +195,7 @@ group: displayName Colon groupList? Semicolon cfws?;
 
 displayName
 	: word+
-	| obsPhrase
+	| word (word | Period | cfws)*
 	;
 
 mailboxList
@@ -237,7 +234,8 @@ domain
 domainLiteral: LBracket (fws? dtext)* fws? RBracket;
 
 dtext
-	: Exclamation
+	: alpha
+	| Exclamation
 	| DQuote
 	| Hash
 	| Dollar
@@ -260,11 +258,9 @@ dtext
 	| Greater
 	| Question
 	| At
-	| AlphaUpper
 	| Caret
 	| Underscore
 	| Backtick
-	| AlphaLower
 	| LCurly
 	| Pipe
 	| RCurly
@@ -285,8 +281,6 @@ obsNoWSCTL
 	| U_0E_1F
 	| Delete
 	;
-
-obsPhrase: word (word | Period | cfws)*;
 
 obsCtext: obsNoWSCTL;
 
@@ -336,7 +330,8 @@ encoding: token;
 token: tokenChar+;
 
 tokenChar
-	: Exclamation
+	: alpha
+	| Exclamation
 	| Hash
 	| Dollar
 	| Percent
@@ -346,12 +341,10 @@ tokenChar
 	| Plus
 	| Minus
 	| Digit
-	| AlphaUpper
 	| Backslash
 	| Caret
 	| Underscore
 	| Backtick
-	| AlphaLower
 	| LCurly
 	| Pipe
 	| RCurly
@@ -361,7 +354,8 @@ tokenChar
 encodedText: encodedChar+;
 
 encodedChar
-	: Exclamation
+	: alpha
+	| Exclamation
 	| DQuote
 	| Hash
 	| Dollar
@@ -383,14 +377,12 @@ encodedChar
 	| Equal
 	| Greater
 	| At
-	| AlphaUpper
 	| LBracket
 	| Backslash
 	| RBracket
 	| Caret
 	| Underscore
 	| Backtick
-	| AlphaLower
 	| LCurly
 	| Pipe
 	| RCurly
@@ -407,7 +399,8 @@ crlf: CR LF;
 wsp: SP | TAB;
 
 vchar
-	: Exclamation
+	: alpha
+	| Exclamation
 	| DQuote
 	| Hash
 	| Dollar
@@ -430,17 +423,44 @@ vchar
 	| Greater
 	| Question
 	| At
-	| AlphaUpper
 	| LBracket
 	| Backslash
 	| RBracket
 	| Caret
 	| Underscore
 	| Backtick
-	| AlphaLower
 	| LCurly
 	| Pipe
 	| RCurly
 	| Tilde
 	| UTF8NonAscii
+	;
+
+alpha
+	: A
+	| B
+	| C
+	| D
+	| E
+	| F
+	| G
+	| H
+	| I
+	| J
+	| K
+	| L
+	| M
+	| N
+	| O
+	| P
+	| Q
+	| R
+	| S
+	| T
+	| U
+	| V
+	| W
+	| X
+	| Y
+	| Z
 	;
