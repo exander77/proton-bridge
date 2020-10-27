@@ -19,6 +19,7 @@ package rfc5322
 
 import (
 	"fmt"
+	"strings"
 	"time"
 
 	"github.com/ProtonMail/proton-bridge/pkg/message/rfc5322/parser"
@@ -33,9 +34,18 @@ type offset struct {
 func (w *walker) EnterOffset(ctx *parser.OffsetContext) {
 	logrus.WithField("text", ctx.GetText()).Trace("Entering offset")
 
-	sgn := ctx.GetText()[0:1]
-	hrs := ctx.GetText()[1:3]
-	min := ctx.GetText()[3:5]
+	text := ctx.GetText()
+
+	// NOTE: RFC5322 date-time should always begin with + or -
+	// but we relax that requirement a bit due to many messages
+	// in the wild that skip the +; we add the "+" if missing.
+	if !strings.HasPrefix(text, "+") && !strings.HasPrefix(text, "-") {
+		text = "+" + text
+	}
+
+	sgn := text[0:1]
+	hrs := text[1:3]
+	min := text[3:5]
 
 	dur, err := time.ParseDuration(fmt.Sprintf("%v%vh%vm", sgn, hrs, min))
 	if err != nil {
@@ -43,7 +53,7 @@ func (w *walker) EnterOffset(ctx *parser.OffsetContext) {
 	}
 
 	w.enter(&offset{
-		rep:   ctx.GetText(),
+		rep:   text,
 		value: int(dur.Seconds()),
 	})
 }

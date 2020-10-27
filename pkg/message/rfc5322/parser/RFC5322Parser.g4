@@ -216,9 +216,11 @@ year
 	| cfws? Digit Digit cfws?
 	;
 
+// NOTE: RFC5322 requires two digits for the hour, but we 
+// relax that requirement a bit, allowing single digits.
 hour
-	: Digit Digit 
-	| cfws? Digit Digit cfws?
+	: Digit? Digit 
+	| cfws? Digit? Digit cfws?
 	;
 
 minute
@@ -231,7 +233,7 @@ second
 	| cfws? Digit Digit cfws?
 	;
 
-offset: (Plus | Minus) Digit Digit Digit Digit;
+offset: (Plus | Minus)? Digit Digit Digit Digit;
 
 zone
 	: fws offset

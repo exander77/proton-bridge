@@ -93,3 +93,28 @@ func TestParseDateTimeObsolete(t *testing.T) {
 		})
 	}
 }
+
+func TestParseDateTimeRelaxed(t *testing.T) {
+	tests := []struct {
+		input string
+		want  string
+	}{
+		{
+			input: `Mon, 28 Jan 2019 20:59:01 0000`,
+			want:  `2019-01-28T20:59:01Z`,
+		},
+		{
+			input: `Mon, 25 Sep 2017 5:25:40 +0200`,
+			want:  `2017-09-25T05:25:40+02:00`,
+		},
+	}
+	for _, test := range tests {
+		test := test
+
+		t.Run(test.input, func(t *testing.T) {
+			got, err := ParseDateTime(test.input)
+			assert.NoError(t, err)
+			assert.Equal(t, test.want, got.Format(time.RFC3339))
+		})
+	}
+}
