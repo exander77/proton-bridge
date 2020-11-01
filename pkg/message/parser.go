@@ -381,7 +381,7 @@ func parseMessageHeader(m *pmapi.Message, h message.Header) error { // nolint[fu
 			s, err := fields.Text()
 			if err != nil {
 				if s, err = pmmime.DecodeHeader(fields.Value()); err != nil {
-					return err
+					return errors.Wrap(err, "subject")
 				}
 			}
 
@@ -390,7 +390,7 @@ func parseMessageHeader(m *pmapi.Message, h message.Header) error { // nolint[fu
 		case "from":
 			sender, err := rfc5322.ParseAddressList(fields.Value())
 			if err != nil {
-				return err
+				return errors.Wrap(err, "from")
 			}
 			if len(sender) > 0 {
 				m.Sender = sender[0]
@@ -399,35 +399,35 @@ func parseMessageHeader(m *pmapi.Message, h message.Header) error { // nolint[fu
 		case "to":
 			toList, err := rfc5322.ParseAddressList(fields.Value())
 			if err != nil {
-				return err
+				return errors.Wrap(err, "to")
 			}
 			m.ToList = toList
 
 		case "reply-to":
 			replyTos, err := rfc5322.ParseAddressList(fields.Value())
 			if err != nil {
-				return err
+				return errors.Wrap(err, "reply-to")
 			}
 			m.ReplyTos = replyTos
 
 		case "cc":
 			ccList, err := rfc5322.ParseAddressList(fields.Value())
 			if err != nil {
-				return err
+				return errors.Wrap(err, "cc")
 			}
 			m.CCList = ccList
 
 		case "bcc":
 			bccList, err := rfc5322.ParseAddressList(fields.Value())
 			if err != nil {
-				return err
+				return errors.Wrap(err, "bcc")
 			}
 			m.BCCList = bccList
 
 		case "date":
 			date, err := rfc5322.ParseDateTime(fields.Value())
 			if err != nil {
-				return err
+				return errors.Wrap(err, "date")
 			}
 			m.Time = date.Unix()
 		}

@@ -58,5 +58,5 @@ func (w *walker) parent() (b interface{}) {
 }
 
 func (w *walker) SyntaxError(_ antlr.Recognizer, _ interface{}, _, _ int, msg string, _ antlr.RecognitionException) {
-	w.err = fmt.Errorf("error parsing address: %v", msg)
+	w.err = fmt.Errorf("error parsing rfc5322 data/address: %v", msg)
 }
